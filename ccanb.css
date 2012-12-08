@@ -12,6 +12,10 @@ body {
 	color: #787878;
 }
 
+html, body{
+	height: 100%;
+}
+
 h1, h2, h3 {
 	margin: 0;
 	padding: 0;
@@ -52,18 +56,36 @@ a:hover {
 #wrapper {
 	margin: 0 auto;
 	padding: 0;
-	background: #ffffff
+	background: #FFFAF0;
+	min-height: 100%;
+	height: auto;
+	height: 100%;
+	margin: 0 auto -40px;
 }
 
 /* Header */
 
 #header-wrapper {
-	background: #f5fffa;
+	/* background: #f5fffa; */	
+	/* Safari 4-5, Chrome 1-9 */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFACD), to(#FFFAF0));
+	
+	/* Safari 5.1, Chrome 10+ */
+	background: -webkit-linear-gradient(top, #FFFACD, #FFFAF0);
+	
+	/* Firefox 3.6+ */
+	background: -moz-linear-gradient(top, #FFFACD, #FFFAF0);
+	
+	/* IE 10 */
+	background: -ms-linear-gradient(top, #FFFACD, #FFFAF0);
+	
+	/* Opera 11.10+ */
+	background: -o-linear-gradient(top, #FFFACD, #FFFAF0);
+	height:70px;
 }
 
 
 #header {
-	height: 70px;
 	margin: 0 auto;
 /*	background: #f5fffa; */
 }
@@ -75,7 +97,7 @@ a:hover {
 	height: 60px;
 	margin: 0;
 	padding: 0px;
-	color: #FFFFFF;
+	color: #FFFAF0;
 }
 
 #logo h1, #logo p {
@@ -100,9 +122,9 @@ a:hover {
 	float: left;
 	margin: 0;
 	padding: 18px 0 0 0px;
-	font: normal 24px Georgia, "Times New Roman", Times, serif;
+	font: normal 26px Georgia, "Times New Roman", Times, serif;
 	font-style: italic;
-	color: #ffd700;
+	color: #FF7F50;
 } 
 
 #logo a {
@@ -112,11 +134,28 @@ a:hover {
 	color: #FFFFFF;
 }
 
+/* Language Bar */
+#language {
+	float: right;
+	width: 180px;
+	padding: 8px 0 30px 30px;
+	margin: 0;
+}
+
+#language-text{
+	width: 200px;
+	text-align: left;
+	background: none;
+	font: normal 12px Arial, Helvetica, sans-serif;
+	color: #696969;
+	border: 1px #4C4842 solid;
+}
+
 /* Search */
 
 #search {
 	float: right;
-	width: 279px;
+	width: 250px;
 	height: 55px;
 	padding: 0;
 }
@@ -124,12 +163,14 @@ a:hover {
 #search form {
 	height: 40px;
 	margin: 0;
-	padding: 15px 0 0 30px;
+	padding: 8px 0 0 30px;
 }
 
 #search-button {
 	position: absolute;
-	padding: 15px, 0px;
+	padding: 2px 3px 0 0;
+	right: 20px;
+	
 }
 
 #search fieldset {
@@ -139,12 +180,12 @@ a:hover {
 }
 
 #search-text {
-	width: 195px;
+	width: 180px;
 	padding: 6px 10px;
 	border: 1px #4C4842 solid;
 	background: none;
 	font: normal 11px Arial, Helvetica, sans-serif;
-	color: #808080;
+	color: #696969;
 }
 
 #search-submit {
@@ -157,7 +198,7 @@ a:hover {
 #menu {
 	min-height: 30px;
 	margin: 0 auto;
-	padding: 5px, 10px, 0px, 10px;
+	/* padding: 5px, 10px, 0px, 10px; */
 	background: #A03128;
 }
 
@@ -236,9 +277,9 @@ a:hover {
 
 #page {
 	margin: 0 auto;
-	height: 550px;
+	height: auto;
 	padding: 0;
-	background: white
+	background: #FFFAF0
 }
 
 #page-bgtop {
@@ -251,7 +292,7 @@ a:hover {
 /* Content */
 
 #content {
-	width: 960px;
+	width: 100%;
 	padding: 0;
 }
 
@@ -295,12 +336,13 @@ a:hover {
 #footer-wrapper {
 	width: 100%;
 	background: #A03128;
+	height: 40px;
+	padding: 0;
+	margin: 0 auto;
 }
 
 #footer {
-	margin: 0 auto;
-	height: 40px;
-	padding: 0px 0 10px 0;
+	/* height: 40px; */
 	background: #A03128;
 	font-family: Arial, Helvetica, sans-serif;
 }
