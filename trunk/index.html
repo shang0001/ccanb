@@ -26,6 +26,30 @@ ccanb website
 			   		.parents("li").children("a").addClass("menuCur");
 			   	} 
 		   });
+		// Add the value of "Search..." to the input field and a class of .empty
+		$("#search-text").val("Search...").addClass("empty");
+		
+		// When you click on #search
+		$("#search-text").focus(function(){
+			
+			// If the value is equal to "Search..."
+			if($(this).val() == "Search...") {
+				// remove all the text and the class of .empty
+				$(this).val("").removeClass("empty");;
+			}
+			
+		});
+		
+		// When the focus on #search is lost
+		$("#search-text").blur(function(){
+			
+			// If the input field is empty
+			if($(this).val() == "") {
+				// Add the text "Search..." and a class of .empty
+				$(this).val("Search...").addClass("empty");	
+			}
+			
+		});
 	});
 </script>
 </head>
@@ -40,8 +64,8 @@ ccanb website
 		<div id="search">
 			<form method="get" action="">
 				<fieldset>
-				<input type="text" name="search" id="search-text" size="15" value="Enter keywords here..." />
-				<input type="submit" id="search-submit" value="GO" />
+				<input type="text" name="search" id="search-text" />
+				<input type="submit" id="search-submit" value="" />
 				<input type="image" alt="Search" value="Search" src="images/search.png" id="search-button"/>
 				</fieldset>
 			</form>
