@@ -195,6 +195,14 @@ a:hover {
 	margin: 0 auto;
 	/* padding: 5px, 10px, 0px, 10px; */
 	background: #A03128;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#CCC) to(#A03128)); /*old webkit*/
+    background: -webkit-linear-gradient(#CCC, #A03128); /*new webkit*/
+    background: -moz-linear-gradient(#CCC, #A03128); /*gecko*/
+    background: -ms-linear-gradient(#CCC, #A03128); /*IE10*/
+    background: -o-linear-gradient(#CCC, #A03128); /*opera 11.10+*/
+    background: linear-gradient(#CCC, #A03128); /*future CSS3 browsers*/
+    -pie-background: linear-gradient(#CCC, #A03128); /*PIE*/
+    behavior: url(PIE.htc);
 }
 
 #menu ul {
@@ -215,10 +223,10 @@ a:hover {
 #menu ul li a {
 	display: block;
 	height: 18px;
-	margin-right: 3px;
+	/*margin-right: 3px;*/
     float:left;
-	padding: 0px 0px 0px 40px;
-	background: #A03128;
+	padding: 0px 10px 0px 10px;
+	/*background: #A03128;*/
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -227,9 +235,14 @@ a:hover {
 	border: none;
 }
 
-#menu ul li a:hover {
+#menu>ul>li>a:hover {
 	/* background: url(images/menu-navright.jpg) center right no-repeat; */
 	background: #BC8F8F;
+    border: 1px solid #999;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    behavior: url(PIE.htc);
 }
 
 #menu ul li a span{
@@ -247,8 +260,13 @@ a:hover {
 	left: 0px;
 	background: #A03128;
 	border: 1px solid #ccc;
-	padding: 10px 10px 10px 10px;
+	padding: 0px;
 	width: 250px;
+    border: 1px solid #999;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    behavior: url(PIE.htc);
 }
 
 #menu ul li ul li {
@@ -264,7 +282,7 @@ a:hover {
 #menu ul li ul li a {
 	display: block;
 	float: none;
-	margin-left: -5px;
+	/*margin-left: -5px;*/
 	padding: 5px 0 0 10px;
 }
 		
