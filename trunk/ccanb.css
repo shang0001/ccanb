@@ -195,13 +195,13 @@ a:hover {
 	margin: 0 auto;
 	/* padding: 5px, 10px, 0px, 10px; */
 	background: #A03128;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#CCC) to(#A03128)); /*old webkit*/
-    background: -webkit-linear-gradient(#CCC, #A03128); /*new webkit*/
-    background: -moz-linear-gradient(#CCC, #A03128); /*gecko*/
-    background: -ms-linear-gradient(#CCC, #A03128); /*IE10*/
-    background: -o-linear-gradient(#CCC, #A03128); /*opera 11.10+*/
-    background: linear-gradient(#CCC, #A03128); /*future CSS3 browsers*/
-    -pie-background: linear-gradient(#CCC, #A03128); /*PIE*/
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#D96F66) to(#A03128)); /*old webkit*/
+    background: -webkit-linear-gradient(#D96F66, #A03128); /*new webkit*/
+    background: -moz-linear-gradient(#D96F66, #A03128); /*gecko*/
+    background: -ms-linear-gradient(#D96F66, #A03128); /*IE10*/
+    background: -o-linear-gradient(#D96F66, #A03128); /*opera 11.10+*/
+    background: linear-gradient(#D96F66, #A03128); /*future CSS3 browsers*/
+    -pie-background: linear-gradient(#D96F66, #A03128); /*PIE*/
     behavior: url(PIE.htc);
 }
 
@@ -237,7 +237,7 @@ a:hover {
 
 #menu>ul>li>a:hover {
 	/* background: url(images/menu-navright.jpg) center right no-repeat; */
-	background: #BC8F8F;
+	background: #FF6347;/*#BC8F8F;*/
     border: 1px solid #999;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -276,7 +276,23 @@ a:hover {
 }
 
 #menu ul li ul li:hover {
-	background: #BC8F8F;
+	background: #FF6347;
+}
+
+#menu ul li ul li:hover:first-child {
+    border: 1px solid #999;
+    -webkit-border-radius: 10px 10px 0px 0px;
+    -moz-border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
+    behavior: url(PIE.htc);
+}
+
+#menu ul li ul li:hover:last-child {
+    border: 1px solid #999;
+    -webkit-border-radius: 0px 0px 10px 10px;
+    -moz-border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
+    behavior: url(PIE.htc);
 }
 
 #menu ul li ul li a {
@@ -287,7 +303,7 @@ a:hover {
 }
 		
 #menu ul li ul li a:hover {
-	background: #FF6347;
+	/*background: #FF6347;*/
 }
 
 /* Page */
@@ -353,6 +369,14 @@ a:hover {
 #footer-wrapper {
 	width: 100%;
 	background: #A03128;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#D15247) to(#A03128)); /*old webkit*/
+    background: -webkit-linear-gradient(#D15247, #A03128); /*new webkit*/
+    background: -moz-linear-gradient(#D15247, #A03128); /*gecko*/
+    background: -ms-linear-gradient(#D15247, #A03128); /*IE10*/
+    background: -o-linear-gradient(#D15247, #A03128); /*opera 11.10+*/
+    background: linear-gradient(#D15247, #A03128); /*future CSS3 browsers*/
+    -pie-background: linear-gradient(#D15247, #A03128); /*PIE*/
+    behavior: url(PIE.htc);
 	height: 40px;
 	padding: 0;
 	margin: 0 auto;
@@ -360,7 +384,7 @@ a:hover {
 
 #footer {
 	/* height: 40px; */
-	background: #A03128;
+	/*background: #A03128;*/
 	font-family: Arial, Helvetica, sans-serif;
 }
 
