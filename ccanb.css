@@ -81,9 +81,13 @@ a:hover {
 	
 	/* Opera 11.10+ */
 	background: -o-linear-gradient(top, #FFFACD, #FFFAF0);
-	height:100px;
+	height: 100px;
 }
 
+/*ONLY for IE 7*/
+html>body #header-wrapper { 
+    *height: 112px;
+}
 
 #header {
 	margin: 0 auto;
@@ -191,6 +195,7 @@ a:hover {
 /* Menu */
 
 #menu {
+    position:relative;
 	min-height: 30px;
 	margin: 0 auto;
 	/* padding: 5px, 10px, 0px, 10px; */
@@ -367,6 +372,7 @@ a:hover {
 /* Footer */
 
 #footer-wrapper {
+    position:relative;
 	width: 100%;
 	background: #A03128;
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#D15247) to(#A03128)); /*old webkit*/
