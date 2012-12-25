@@ -214,7 +214,7 @@ html>body #header-wrapper {
 	display: block;
 }
 
-#menu ul li {
+#menu>ul>li {
 	float:left;
 	padding: 5px 5px 0 5px;
 	position: relative;
@@ -238,16 +238,22 @@ html>body #header-wrapper {
 	font-weight: normal;
 	color: #FFFFFF;
 	border: none;
+    behavior: url(PIE.htc);
 }
 
-#menu>ul>li>a:hover {
+#menu>ul>li>a:hover, #IE8#HACK {
 	/* background: url(images/menu-navright.jpg) center right no-repeat; */
 	background: #FF6347;/*#BC8F8F;*/
     border: 1px solid #999;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    behavior: url(PIE.htc);
+}
+
+/*ONLY for IE 8, no way to make border-radius work*/
+#menu>ul>li>a.pie_hover {
+	background: #FF6347;
+    border: 1px solid #999;
 }
 
 #menu ul li a span{
@@ -266,6 +272,7 @@ html>body #header-wrapper {
 	background: #A03128;
 	border: 1px solid #ccc;
 	padding: 0px;
+    *margin-left:0px;/*For IE7 ONLY*/
 	width: 250px;
     border: 1px solid #999;
     -webkit-border-radius: 10px;
@@ -275,9 +282,12 @@ html>body #header-wrapper {
 }
 
 #menu ul li ul li {
-	float: none;
-	padding: 0; margin: 0;
-	height: 100%;
+    position: relative; 
+    float: none;
+    padding: 0;
+    *margin: 0 0 0 -17px;/*For IE7 ONLY*/
+    height: 100%;
+    behavior: url(PIE.htc);
 }
 
 #menu ul li ul li:hover {
@@ -289,7 +299,13 @@ html>body #header-wrapper {
     -webkit-border-radius: 10px 10px 0px 0px;
     -moz-border-radius: 10px 10px 0px 0px;
     border-radius: 10px 10px 0px 0px;
-    behavior: url(PIE.htc);
+}
+
+/*For IE 7,8*/
+#menu ul li ul li[title="first"].pie_hover {
+    background: #FF6347;
+    border: 1px solid #999;
+    border-radius: 10px 10px 0px 0px;
 }
 
 #menu ul li ul li:hover:last-child {
@@ -297,7 +313,13 @@ html>body #header-wrapper {
     -webkit-border-radius: 0px 0px 10px 10px;
     -moz-border-radius: 0px 0px 10px 10px;
     border-radius: 0px 0px 10px 10px;
-    behavior: url(PIE.htc);
+}
+
+/*For IE 7,8*/
+#menu ul li ul li[title="last"].pie_hover {
+    background: #FF6347;
+    border: 1px solid #999;
+    border-radius: 0px 0px 10px 10px;
 }
 
 #menu ul li ul li a {
