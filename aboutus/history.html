@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--
+ccanb website
+-->
+
+<html>
+<head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>CCANB History</title>
+    <link href="../ccanb.css" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+
+    <script type="text/javascript">
+        function resetMenuItemPositionForIE7() {
+            // Additional action for IE7 because the PIE decoration moves the menu item out of boundary when hover 
+            if ($.browser.msie && $.browser.version == "7.0") {
+                $("a",this).css("padding-left", "26px");
+            }
+        }
+
+        $(document).ready(function () {
+            $("#menu>ul>li>ul>li:first-child").hover(
+                resetMenuItemPositionForIE7,
+                resetMenuItemPositionForIE7
+            ).attr("title", "first");
+
+            $("#menu>ul>li>ul>li:last-child").hover(
+                resetMenuItemPositionForIE7,
+                resetMenuItemPositionForIE7
+            ).attr("title", "last");
+
+            // If an event gets to the body
+            $("body").click(function () {
+                $("#menu>ul>li>ul").hide()
+                $("#menu>ul>li>a").removeClass();
+            });
+
+            $("#menu li span").click(function (e) {
+                e.stopPropagation();
+                var hidden = $(this).parents("li").children("ul").is(":hidden");
+
+                $("#menu>ul>li>ul").hide()
+                $("#menu>ul>li>a").removeClass();
+
+                if (hidden) {
+                    $(this)
+                        .parents("li").children("ul").toggle()
+                        .parents("li").children("a").addClass("menuCur");
+                }
+            });
+
+            // Add the value of "Search..." to the input field and a class of .empty
+            $("#search-text").val("Search...").addClass("empty");
+
+            // When you click on #search
+            $("#search-text").focus(function () {
+
+                // If the value is equal to "Search..."
+                if ($(this).val() == "Search...") {
+                    // remove all the text and the class of .empty
+                    $(this).val("").removeClass("empty");;
+                }
+
+            });
+
+            // When the focus on #search is lost
+            $("#search-text").blur(function () {
+
+                // If the input field is empty
+                if ($(this).val() == "") {
+                    // Add the text "Search..." and a class of .empty
+                    $(this).val("Search...").addClass("empty");
+                }
+
+            });
+        });
+</script>
+</head>
+<body>
+    <div id="wrappers">
+        <div id="header-wrapper">
+            <div id="header">
+                <div id="logo">
+                    <h1>
+                        <img class="image" src="../images/ccanb_logo.png" /></h1>
+                    <p>纽布朗斯维克中华文化协会</p>
+                </div>
+                <div id="search">
+                    <form method="get" action="">
+                        <fieldset>
+                            <input type="text" name="search" id="search-text" />
+                            <input type="submit" id="search-submit" value="" />
+                            <input type="image" alt="Search" value="Search" src="../images/search.png" id="search-button" />
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="language">
+                    <select id="language-text" name="language">
+                        <option value="zh-CN" selected="selected">Chinese Simplified (简体中文)</option>
+                        <option value="zh-TW">Chinese Traditional (繁體中文)</option>
+                        <option value="en">English</option>
+                        <option value="fr">French (Français)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- end #header -->
+        <div id="menu">
+            <ul>
+                <li>
+                    <a href="#"><span>Home &nbsp;
+				</span></a>
+                </li>
+                <li>
+                    <a href="#"><span>News &nbsp;
+				
+                        <em class="opener-news">
+                            <img src="../images/menu-downarrow.png" alt="dropdown" />
+                        </em>
+                    </span></a>
+                    <ul class="news">
+                        <li><a href="#">Local News</a></li>
+                        <li><a href="#">National News</a></li>
+                        <li><a href="#">World News</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><span>Events &nbsp;
+				
+                        <em class="opener-resource">
+                            <img src="../images/menu-downarrow.png" alt="dropdown" />
+                        </em>
+                    </span></a>
+                    <ul class="events">
+                        <li><a href="#">Event Schedule</a></li>
+                        <li><a href="#">Spring Festival Performance</a></li>
+                        <li><a href="#">Adult Recreational and Family Activities</a></li>
+                        <li><a href="#">Cultural Activities</a></li>
+                        <li><a href="#">Summer Camp</a></li>
+                        <li><a href="#">Volunteer Information</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><span>Resources &nbsp;
+				
+                        <em class="opener-resource">
+                            <img src="../images/menu-downarrow.png" alt="dropdown" />
+                        </em>
+                    </span></a>
+                    <ul class="resource">
+                        <li><a href="#">Settlement Information</a></li>
+                        <li><a href="#">Finance</a></li>
+                        <li><a href="#">Insurance</a></li>
+                        <li><a href="#">Health</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Useful links</a></li>
+                        <li><a href="#">Other Information</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><span>Youth Group &nbsp;
+				
+                        <em class="opener-youthgroup">
+                            <img src="../images/menu-downarrow.png" alt="dropdown" />
+                        </em>
+                    </span></a>
+                    <ul class="youthgroup">
+                        <li><a href="#">Explore</a></li>
+                        <li><a href="#">Join</a></li>
+                        <li><a href="#">Sign up</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><span>Chinese School &nbsp;
+				
+                        <em class="opener-chineseschool">
+                            <img src="../images/menu-downarrow.png" alt="dropdown" />
+                        </em>
+                    </span></a>
+                    <ul class="chineseschool">
+                        <li><a href="#">Registration</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">Fees and Schedules</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><span>About Us &nbsp;
+				
+                        <em class="opener-aboutus">
+                            <img src="../images/menu-downarrow.png" alt="dropdown" />
+                        </em>
+                    </span></a>
+                    <ul class="aboutus">
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="history.html">CCANB History</a></li>
+                        <li><a href="presidentmsg.html">President Message</a></li>
+                        <li><a href="constitution.html">CCANB Constitution</a></li>
+                        <li><a href="#">CCANB Bylaws</a></li>
+                        <li><a href="#">Contact Information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- end #menu -->
+        <div id="page">
+            <div id="page-bgtop">
+                <div id="page-bgbtm">
+                    <div id="content">
+                        <div class="post">
+                            <h2 class="title">FROM THE BEGINNING TO THE PRESENT</h2>
+                            <h4 class="author">By Larry Shyu</h4>
+
+                            <div class="entry">
+                           
+		<p>
+			<b>I. Establishment</b><br/>
+			The Chinese Cultural Association of New Brunswick was founded in Fredericton on October 16, 1977. It was the first of such association in Atlantic Canada. Its aims are to promote Chinese heritage, to encourage Chinese-Canadians to participate in the multicultural society in New Brunswick, and to foster goodwill and friendship between its members and people in the broader communities in New Brunswick. A Chinese language school was immediately established.</p>
+		<p class="history">
+			<b>II. Contribution to Adaptation of Immigrants to the Local Community</b><br />
+			Through the years, CCANB has earned its reputation in New Brunswick as the representative organization of the Chinese community. The association has worked hard to play the role of an educator and a promoter of Chinese heritage culture, as well as to improve communal understanding and raise cultural awareness of the people in New Brunswick.</p>
+		<p class="history">
+			<b>III. Sponsorship of Refugee Families from Vietnam</b><br />
+			To deal with the exodus of refugees from Vietnam in 1979, the Canadian government adopted a policy of refugee sponsorship. CCANB participated fully in the program with the establishment of a Committee for Refugees to assist several groups of refugee families adapting to new life in Fredericton.</p>
+		<p class="history">
+			<b>IV. Protest Movement against Biased Media Report</b><br />
+			Chinese-Canadians were deeply concerned about the airing of a discriminatory program named &quot;Campus Giveaway&quot; by CTV in 1979. A protest movement began. CCANB responded actively in holding local information sessions for the public and sent representatives to participate in the protest. CCANB was also represented when this event led to the founding of the Chinese-Canadian National Council. CCANB has served as a local chapter of the CCNC ever since.</p>
+		<p class="history">
+			<b>V. Promoting Cultural Understanding and Improving Race Relations</b><br />
+			CCANB took the initiative in promoting cultural understanding in our province by hosting events in 1981 and 1982 including workshops of flower arrangement, Chinese painting, gardening of Chinese vegetables, the culinary art of &quot;Dim Sum&quot; and special seminars on the theory and practice of acupuncture. Similar culture programs were frequently offered in later years.</p>
+		<p class="history">
+			<b>VI. Promotion of Chinese Folk Art Programs</b><br />
+			In 1983, two instructors from the China Institute of Nationalities in Beijing were invited to conduct dance workshops in Fredericton. They laid the foundation of CCANB&#39;s dance program.<br />
+			<br />
+			In 1985, our dance group was chosen as one of the groups representing New Brunswick in the Heritage Festival of Canada performances in Prince Edward Island. Later the dance group participated in the &quot;Festival by the sea&quot; program in Saint John.<br />
+			<br />
+			In 1999, our Canada Day parade float won first prize.<br />
+			<br />
+			An annual summer camp program with focus on Chinese music, art, crafts, sports, and folk dance was initiated in 1993. It is recognized as one of the best summer camp programs in our province.</p>
+		<p class="history">
+			<b>VII. Celebration of CCANB&#39;s Anniversaries</b><br />
+			CCANB celebrated its 10th anniversary with a gala performance at the Playhouse in Fredericton and a publication entitled &quot;Embarking on a New Milestone&quot;.<br />
+			<br />
+			CCANB&#39;s 20th Anniversary in 1997 coincided with Canada&#39;s &quot;Year of Asia Pacific&quot;. A stage performance took place on May 18th, 1997 at the Playhouse in Fredericton. The event was joined by the Native Americans, Acadians, and Anglo-Irish communities and attracted a large audience. This was marked as a major event by Canada&#39;s Year of Asia Pacific project.<br />
+			<br />
+			In the same summer, CCANB invited the Su Wen Cheng Chinese Music ensemble from Taiwan to give two performances to the public. In October, CCANB invited an internationally acclaimed musician, Zhang Wei Liang of the China Conservatory of Music, to present concerts and workshops in Maritime Canada. His concerts were held together with the pianist Robert Kortgaard and flutist Sally Wright. This was the first ever performance of cross-cultural collaboration on new age classical Chinese music.<br />
+			<br />
+			CCANB&#39;s silver jubilee was celebrated in a gala performance at the Playhouse on June 1, 2002, with the theme &quot;Our Maritime Home&quot;. The rich program was a parade of talent with music, choir singing, folk dance, and a fashion show of China&#39;s nationalities.</p>
+		<p class="history">
+			<b>VIII. Establishment of CCANB Scholarship</b><br />
+			A scholarship was established by CCANB for the students of the University of New Brunswick in memory of our beloved member Mr. G.A Hubert in 1994. Mr. Hubert&#39;s contribution in helping Vietnamese refuges had earned him the honorary title as &quot;Father of the boat people&quot;.</p>
+		<p class="history">
+			<b>IX. Establishment of CCANB Youth Group</b><br />
+			A CCANB Youth Group was established in 1996. Young members have since been actively participating in various CCANB programs and activities. The Youth Group has also created a web site as a reference source of events and activities for CCANB.</p>
+		<p class="history">
+			<b>X. Contributions of CCANB to the Multicultural Heritage of New Brunswick</b><br />
+			The CCANB as a group has served as an integral part in the enrichment of multicultural heritage of our province. We have made significant contributions in developing understanding and promote mutual respect among cultural groups. Our efforts in promoting multiculturalism and improving community race relations will help develop a more harmonious community in our province as well as in the rest of Canada.</p>
+		<br/>
+		<p class="history"">For information about history of Chinese immigrates in New Brunswick, please follow this <a style="text-decoration: initial; color: rgb(51, 102, 204); target="_blank"; href="http://eda.cs.unb.ca/ccanb/ENGLISH/Index/HISTORY/cnbhist/main.htm">link</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end #content -->
+
+                    <!-- <div style="clear: both;">&nbsp;</div> -->
+                </div>
+            </div>
+        </div>
+        <!-- end #page -->
+    </div>
+
+    <div id="footer-wrappers">
+        <div id="footer">
+            <p>Copyright (c) 2012 CCANB. Design by <a href="http://www.ccanb.ca/">CCANB</a>.</p>
+        </div>
+        <!-- end #footer -->
+    </div>
+</body>
+</html>
