@@ -91,53 +91,8 @@ ccanb website
     				center: 'title',
     				right: 'month,agendaWeek,agendaDay'
     			},
-    			editable: true,
-    			events: [
-    				{
-    					title: 'All Day Event',
-    					start: new Date(y, m, 1)
-    				},
-    				{
-    					title: 'Long Event',
-    					start: new Date(y, m, d-5),
-    					end: new Date(y, m, d-2)
-    				},
-    				{
-    					id: 999,
-    					title: 'Repeating Event',
-    					start: new Date(y, m, d-3, 16, 0),
-    					allDay: false
-    				},
-    				{
-    					id: 999,
-    					title: 'Repeating Event',
-    					start: new Date(y, m, d+4, 16, 0),
-    					allDay: false
-    				},
-    				{
-    					title: 'Meeting',
-    					start: new Date(y, m, d, 10, 30),
-    					allDay: false
-    				},
-    				{
-    					title: 'Lunch',
-    					start: new Date(y, m, d, 12, 0),
-    					end: new Date(y, m, d, 14, 0),
-    					allDay: false
-    				},
-    				{
-    					title: 'Birthday Party',
-    					start: new Date(y, m, d+1, 19, 0),
-    					end: new Date(y, m, d+1, 22, 30),
-    					allDay: false
-    				},
-    				{
-    					title: 'Click for Google',
-    					start: new Date(y, m, 28),
-    					end: new Date(y, m, 29),
-    					url: 'http://google.com/'
-    				}
-    			]
+    			editable: false,
+    			events: "schedule.php"
     		});
         });
 
@@ -199,7 +154,7 @@ ccanb website
                         </em>
                     </span></a>
                     <ul class="events">
-                        <li><a href="#">Event Schedule</a></li>
+                        <li><a href="schedule.html" target="_self">Event Schedule</a></li>
                         <li><a href="#">Spring Festival Performance</a></li>
                         <li><a href="#">Adult Recreational and Family Activities</a></li>
                         <li><a href="#">Cultural Activities</a></li>
@@ -259,9 +214,9 @@ ccanb website
                     </span></a>
                     <ul class="aboutus">
                         <li><a href="#">Our Mission</a></li>
-                        <li><a href="history.html">CCANB History</a></li>
-                        <li><a href="presidentmsg.html">President Message</a></li>
-                        <li><a href="constitution.html">CCANB Constitution</a></li>
+                        <li><a href="../aboutus/history.html">CCANB History</a></li>
+                        <li><a href="../aboutus/presidentmsg.html">President Message</a></li>
+                        <li><a href="../aboutus/constitution.html">CCANB Constitution</a></li>
                         <li><a href="#">CCANB Bylaws</a></li>
                         <li><a href="#">Contact Information</a></li>
                     </ul>
