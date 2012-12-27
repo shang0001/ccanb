@@ -397,6 +397,15 @@ html>body #header-wrapper {
 	padding: 30px 20px 10px 20px;
 }
 
+.post .entry #calendar{
+	margin-top: 40px;
+	text-align: center;
+	font-size: 14px;
+	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+	width: auto;
+	margin: 0 auto;
+}
+
 .post .entry p .history
 {
 	font-family: arial, 'lucida console', sans-serif; 
