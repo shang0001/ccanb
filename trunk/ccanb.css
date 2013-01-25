@@ -397,6 +397,10 @@ html>body #header-wrapper {
 	padding: 30px 20px 10px 20px;
 }
 
+.post .entry p{
+    line-height:250%;
+}
+
 .post .entry #calendar{
 	margin-top: 40px;
 	text-align: center;
@@ -423,6 +427,12 @@ html>body #header-wrapper {
 	text-transform: uppercase;
 	font-size: 10px;
 	color: #FFFFFF;
+}
+
+.hidden
+{
+    display:none;
+    visibility:hidden;
 }
 
 /* Footer */

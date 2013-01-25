@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 ccanb website
 -->
@@ -86,13 +86,35 @@ ccanb website
             
             // Display the full calendar
             $('#calendar').fullCalendar({
-    			header: {
-    				left: 'prev,next today',
-    				center: 'title',
-    				right: 'month,agendaWeek,agendaDay'
-    			},
-    			editable: false,
-    			events: "schedule.php"
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                editable: false,
+                events:function(start, end, callback) {
+                    $.ajax({
+                        url: '../events/events.xml',
+                        dataType: 'xml',
+                        data: {
+                            // our hypothetical feed requires UNIX timestamps
+                            start: Math.round(start.getTime() / 1000),
+                            end: Math.round(end.getTime() / 1000)
+                        },
+                        success: function(doc) {
+                            var events = [];
+                            $(doc).find('event').each(function() {
+                                events.push({
+                                    title: $(this).find('title').text(),
+                                    start: $(this).find('start').text(), // will be parsed
+                                    end: $(this).find('end').text(),
+                                    allDay: $(this).find('allDay').text() == "true" ? true : false
+                                });
+                            });
+                            callback(events);
+                        }
+                    });
+                }
     		});
         });
 
@@ -130,7 +152,7 @@ ccanb website
         <div id="menu">
             <ul>
                 <li>
-                    <a href="#"><span>Home &nbsp;
+                    <a href="/ccanb"><span>Home &nbsp;
 				</span></a>
                 </li>
                 <li>
@@ -154,7 +176,7 @@ ccanb website
                         </em>
                     </span></a>
                     <ul class="events">
-                        <li><a href="schedule.html" target="_self">Event Schedule</a></li>
+                        <li><a href="../events/schedule.html" target="_self">Event Schedule</a></li>
                         <li><a href="#">Spring Festival Performance</a></li>
                         <li><a href="#">Adult Recreational and Family Activities</a></li>
                         <li><a href="#">Cultural Activities</a></li>
@@ -200,7 +222,7 @@ ccanb website
                         </em>
                     </span></a>
                     <ul class="chineseschool">
-                        <li><a href="#">Registration</a></li>
+                        <li><a href="../chineseschool/registration.html">Registration</a></li>
                         <li><a href="#">Courses</a></li>
                         <li><a href="#">Fees and Schedules</a></li>
                     </ul>
@@ -218,7 +240,7 @@ ccanb website
                         <li><a href="../aboutus/presidentmsg.html">President Message</a></li>
                         <li><a href="../aboutus/constitution.html">CCANB Constitution</a></li>
                         <li><a href="#">CCANB Bylaws</a></li>
-                        <li><a href="#">Contact Information</a></li>
+                        <li><a href="../aboutus/contact.html">Contact Information</a></li>
                     </ul>
                 </li>
             </ul>
@@ -230,7 +252,7 @@ ccanb website
                     <div id="content">
                         <div class="post">
                             <h2 class="title">EVENT SCHEDULE</h2>
-
+                            <p>&nbsp;</p>
                             <div class="entry">
                             	<div id="calendar"></div>
                             </div>
