@@ -11,24 +11,24 @@ ccanb website
     <title>CCANB Event Schedule</title>
     <link href="../ccanb.css" rel="stylesheet" type="text/css" media="screen" />
     <link rel='stylesheet' type='text/css' href='../css/fullcalendar.css' />
-	<link rel='stylesheet' type='text/css' href='../css/fullcalendar.print.css' media='print' />
-	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
-	<script type='text/javascript' src='../js/jquery-ui-1.8.24.custom.min.js'></script>
-	<script type='text/javascript' src='../js/fullcalendar.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='../css/fullcalendar.print.css' media='print' />
+    <script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+    <script type='text/javascript' src='../js/jquery-ui-1.8.24.custom.min.js'></script>
+    <script type='text/javascript' src='../js/fullcalendar.min.js'></script>
     <script type="text/javascript">
         function resetMenuItemPositionForIE7() {
             // Additional action for IE7 because the PIE decoration moves the menu item out of boundary when hover 
             if ($.browser.msie && $.browser.version == "7.0") {
-                $("a",this).css("padding-left", "26px");
+                $("a", this).css("padding-left", "26px");
             }
         }
 
         $(document).ready(function () {
-    		var date = new Date();
-    		var d = date.getDate();
-    		var m = date.getMonth();
-    		var y = date.getFullYear();
-        	
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+
             $("#menu>ul>li>ul>li:first-child").hover(
                 resetMenuItemPositionForIE7,
                 resetMenuItemPositionForIE7
@@ -83,7 +83,7 @@ ccanb website
                 }
 
             });
-            
+
             // Display the full calendar
             $('#calendar').fullCalendar({
                 header: {
@@ -92,33 +92,36 @@ ccanb website
                     right: 'month,agendaWeek,agendaDay'
                 },
                 editable: false,
-                events:function(start, end, callback) {
-                    $.ajax({
-                        url: '../events/events.xml',
-                        dataType: 'xml',
-                        data: {
-                            // our hypothetical feed requires UNIX timestamps
-                            start: Math.round(start.getTime() / 1000),
-                            end: Math.round(end.getTime() / 1000)
-                        },
-                        success: function(doc) {
-                            var events = [];
-                            $(doc).find('event').each(function() {
-                                events.push({
-                                    title: $(this).find('title').text(),
-                                    start: $(this).find('start').text(), // will be parsed
-                                    end: $(this).find('end').text(),
-                                    allDay: $(this).find('allDay').text() == "true" ? true : false
-                                });
-                            });
-                            callback(events);
-                        }
-                    });
-                }
-    		});
+                events: '../events/schedule.php'
+
+
+                //events:function(start, end, callback) {
+                //    $.ajax({
+                //        url: '../events/events.xml',
+                //        dataType: 'xml',
+                //        data: {
+                //            // our hypothetical feed requires UNIX timestamps
+                //            start: Math.round(start.getTime() / 1000),
+                //            end: Math.round(end.getTime() / 1000)
+                //        },
+                //        success: function(doc) {
+                //            var events = [];
+                //            $(doc).find('event').each(function() {
+                //                events.push({
+                //                    title: $(this).find('title').text(),
+                //                    start: $(this).find('start').text(), // will be parsed
+                //                    end: $(this).find('end').text(),
+                //                    allDay: $(this).find('allDay').text() == "true" ? true : false
+                //                });
+                //            });
+                //            callback(events);
+                //        }
+                //    });
+                //}
+            });
         });
 
-</script>
+    </script>
 </head>
 <body>
     <div id="wrappers">
@@ -153,7 +156,7 @@ ccanb website
             <ul>
                 <li>
                     <a href="/ccanb"><span>Home &nbsp;
-				</span></a>
+                    </span></a>
                 </li>
                 <li>
                     <a href="#"><span>News &nbsp;
@@ -235,11 +238,9 @@ ccanb website
                         </em>
                     </span></a>
                     <ul class="aboutus">
+                        <li><a href="#">Vision</a></li>
                         <li><a href="#">Our Mission</a></li>
-                        <li><a href="../aboutus/history.html">CCANB History</a></li>
-                        <li><a href="../aboutus/presidentmsg.html">President Message</a></li>
-                        <li><a href="../aboutus/constitution.html">CCANB Constitution</a></li>
-                        <li><a href="#">CCANB Bylaws</a></li>
+                        <li><a href="#">Executive Board</a></li>
                         <li><a href="../aboutus/contact.html">Contact Information</a></li>
                     </ul>
                 </li>
@@ -254,7 +255,7 @@ ccanb website
                             <h2 class="title">EVENT SCHEDULE</h2>
                             <p>&nbsp;</p>
                             <div class="entry">
-                            	<div id="calendar"></div>
+                                <div id="calendar"></div>
                             </div>
                         </div>
                     </div>
@@ -263,11 +264,10 @@ ccanb website
             </div>
         </div>
         <!-- end #page -->
-    </div>
-
-    <div id="footer-wrappers">
-        <div id="footer">
-            <p>Copyright (c) 2012 CCANB. Design by <a href="http://www.ccanb.ca/">CCANB</a>.</p>
+        <div id="footer-wrappers">
+            <div id="footer">
+                <p>Copyright (c) 2012 CCANB. Design by <a href="http://www.ccanb.ca/">CCANB</a>.</p>
+            </div>
         </div>
         <!-- end #footer -->
     </div>
