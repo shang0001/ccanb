@@ -437,15 +437,27 @@ html>body #header-wrapper {
 
 /* Footer */
 
-#footer-wrappers{
-	width: 100%;
-	background: #A03128;
-	height: 40px;
-}
-
-#footer-wrapper {
+#footer-wrappers
+{
     position:relative;
 	width: 100%;
+	height: 40px;
+    background: #A03128;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#D15247) to(#A03128)); /*old webkit*/
+    background: -webkit-linear-gradient(#D15247, #A03128); /*new webkit*/
+    background: -moz-linear-gradient(#D15247, #A03128); /*gecko*/
+    background: -ms-linear-gradient(#D15247, #A03128); /*IE10*/
+    background: -o-linear-gradient(#D15247, #A03128); /*opera 11.10+*/
+    background: linear-gradient(#D15247, #A03128); /*future CSS3 browsers*/
+    -pie-background: linear-gradient(#D15247, #A03128); /*PIE*/
+    behavior: url(PIE.htc);
+}
+
+#footer-shorter-content-wrapper
+{
+    position:absolute;
+	width: 100%;
+    height: 40px;
 	background: #A03128;
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#D15247) to(#A03128)); /*old webkit*/
     background: -webkit-linear-gradient(#D15247, #A03128); /*new webkit*/
@@ -455,11 +467,7 @@ html>body #header-wrapper {
     background: linear-gradient(#D15247, #A03128); /*future CSS3 browsers*/
     -pie-background: linear-gradient(#D15247, #A03128); /*PIE*/
     behavior: url(PIE.htc);
-	height: 40px;
-	padding: 0;
-	margin: 0 auto;
-	bottom: 0;
-	position: absolute;
+    bottom: 0;
 }
 
 #footer {
