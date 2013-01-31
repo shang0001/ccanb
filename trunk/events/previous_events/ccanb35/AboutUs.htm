@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="StyleSheet1.css" rel="stylesheet" type="text/css" />
+    <link href="text%20gradient.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <script src="jquery.corner.js" type="text/javascript"></script>
+	<script type="text/javascript" language="javascript">
+		window.onload = resizeImage;
+	
+	    $(document).ready(function () {
+	        $(".container img:last-child").show();
+	        setTimeout(f($(".container img:last-child")), 7000);
+	        corner();
+	        // resizeImage();
+	        $(window).resize(resizeImage);
+
+	    });
+
+	    function resizeImage() {
+	        $("#midImg").height($("#midImg").height() + ($("#bodyContainer").outerHeight() - $("#backgroundDiv").outerHeight()) + 50);
+	    }
+
+        function f(img) {
+            return function () {
+                img.fadeOut("slow", function () {
+                    var nextImg;
+                    if (img.prev().length == 0) {
+                        nextImg = img.parent().children().last();
+                    }
+                    else {
+                        nextImg = img.prev();
+                    }
+
+					nextImg.fadeIn("slow");
+                    setTimeout(f(nextImg), 7000);
+                });
+            }
+        }
+
+        function corner() {
+            $(".cornerDiv").corner("round 8px").parent().css('padding', '4px').corner("round 10px");
+            $(".corneDivSingle").corner("cc:#FFEFCE 10px");
+        }
+	</script>
+</head>
+<body>
+    <div id="backgroundDiv">
+        <img alt="" src="image/top.jpg" />
+        <img id="midImg" alt="" src="image/2.jpg" style="margin-top:-3px; margin-bottom:-3px;" />
+        <img alt="" src="image/bottom.jpg" />
+    </div>
+    <div id="bodyContainer">
+        <div id="header">
+            <div id="CCANBLogo">
+                <a href="index.htm"><img alt="" src="image/Logo.png" /></a>
+            </div>
+            <div id="mainHeader">
+            	<img alt="" src="image/Theme.png" />
+                <!---<h1>携手共进    情满加东</h1>
+                <h1>Embracing our Future Together !</h1>--->            
+            </div>
+            <div id="topRightLogos">
+                <a href="#"><img alt="" src="image/ccanb_logo.png" /></a>
+            </div>
+        </div>
+        <div id="main">
+            <div id="leftPane">
+                <div class="corneDivSingle">
+                    <ul type="none">
+                    	<li><h4><a href="aboutus.htm">About Us</a></h4></li>
+                        <li><h4><a href="/ccanb/">CCANB</a></h4></li>
+                        <li><h4><a href="eventposter.htm">Event Dates</a></h4></li>
+                        <li><h4><a href="program.htm">Program</a></h4></li>
+                        <li><h4><a href="sponsors.htm">Sponsors</a></h4></li>
+                        <li><h4><a href="committee.htm">Volunteers</a></h4></li>
+                        <li><h4><a href="contactus.htm">Contact Us</a></h4></li>
+                    </ul>
+                    <br />
+                    Messages from:
+                    <ul>
+                        <li><a href="PMLetter.htm">Prime Minister</a></li>
+                        <li><a href="MPLetter.htm">MP- Hon. K. Ashfield</a></li>
+                        <li><a href="MayorLetter.htm">Mayor</a></li>
+                        <li><a href="vips.htm">Community Members</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainPane">
+                <h2>About Us</h2>
+                <p> The Chinese Cultural Association of New Brunswick (CCANB) is a non-profit organization with the main objectives of promoting Chinese cultural heritage and cross-cultural understanding. Our membership is open to all residents of New Brunswick.</p>
+                <p>The Association was established by a group of Chinese-Canadian immigrants from China, Taiwan, Malaysia, Hong Kong and Singapore. Under their initiative, the Association officially formed in the fall of 1977, with a Chinese language school established soon afterwards.</p>
+                <p> Major activities of the Association include Chinese language classes; Chinese folk dance, music instruction and performances; workshops for cooking classes, Tai Chi and other Chinese arts, sports, and crafts.</p>
+                <p> A Chinese language school is in operation on Sunday afternoons at St. Thomas University during the regular school year. Students are given Chinese language training as well as instruction in other cultural and sports activities. Enrichment classes for mathematics were introduced in recent years.</p>
+                <p> The Association organizes various annual performances and celebrations, including Chinese New Year celebrations; Chinese language school convocation ceremony; and Christmas concert.</p>
+                <p> The Association plays an active part in community events, having taken part in festivals and celebrations such as multicultural conferences, Canada Day, New Brunswick Day, Dragon Boat races, and various cultural events. Many public workshops and performances on arts, crafts, and sports have also been organized, as well as a yearly youth summer camp focusing on Chinese culture.</p>
+                <p> For membership inquiries please contact us by emailing <a href="mailto:ccanb@ccanb.ca">ccanb@ccanb.ca</a>, or write to:</p>
+                <p>P.O. Box 101,<br />
+                Station A<br />
+                Fredericton, N.B., E3B 4Y2 </p>
+          </div>
+           	<div id="rightPane">
+                <div class="corneDivSingle">
+                    <img id="imgSponsor" src="image/NB_Canada_Colour.jpg" alt="" />
+                    <br /><br />
+                    <img id="imgSponsor2" src="image/ConfuciusLogo.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

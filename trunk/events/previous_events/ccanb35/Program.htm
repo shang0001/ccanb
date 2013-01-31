@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="StyleSheet1.css" rel="stylesheet" type="text/css" />
+    <link href="text%20gradient.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <script src="jquery.corner.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+		window.onload = resizeImage;
+	
+	    $(document).ready(function () {
+	        $(".container img:last-child").show();
+	        setTimeout(f($(".container img:last-child")), 7000);
+	        corner();
+	        // resizeImage();
+	        $(window).resize(resizeImage);
+
+	    });
+
+        function resizeImage() {
+            $("#midImg").height($("#midImg").height() + ($("#bodyContainer").outerHeight() - $("#backgroundDiv").outerHeight()) + 50);
+        }
+
+        function f(img) {
+            return function () {
+                img.fadeOut("slow", function () {
+                    var nextImg;
+                    if (img.prev().length == 0) {
+                        nextImg = img.parent().children().last();
+                    }
+                    else {
+                        nextImg = img.prev();
+                    }
+
+                    nextImg.fadeIn("slow");
+                    setTimeout(f(nextImg), 7000);
+                });
+            }
+        }
+
+        function corner() {
+            $(".cornerDiv").corner("round 8px").parent().css('padding', '4px').corner("round 10px");
+            $(".corneDivSingle").corner("cc:#FFEFCE 10px");
+        }
+	</script>
+</head>
+<body>
+    <div id="backgroundDiv">
+        <img alt="" src="image/top.jpg" />
+        <img id="midImg" alt="" src="image/2.jpg" style="margin-top:-3px; margin-bottom:-3px;" />
+        <img alt="" src="image/bottom.jpg" />
+    </div>
+    <div id="bodyContainer">
+        <div id="header">
+            <div id="CCANBLogo">
+                <a href="index.htm"><img alt="" src="image/Logo.png" /></a>
+            </div>
+            <div id="mainHeader">
+                <img alt="" src="image/Theme.png" />
+            </div>
+            <div id="topRightLogos">
+                <a href="#"><img alt="" src="image/ccanb_logo.png" /></a>
+            </div>
+        </div>
+        <div id="main">
+            <div id="leftPane">
+                <div class="corneDivSingle">
+                    <ul type="none">
+                    	<li><h4><a href="aboutus.htm">About Us</a></h4></li>
+                        <li><h4><a href="/ccanb/">CCANB</a></h4></li>
+                        <li><h4><a href="eventposter.htm">Event Dates</a></h4></li>
+                        <li><h4><a href="program.htm">Program</a></h4></li>
+                        <li><h4><a href="sponsors.htm">Sponsors</a></h4></li>
+                        <li><h4><a href="committee.htm">Volunteers</a></h4></li>
+                        <li><h4><a href="contactus.htm">Contact Us</a></h4></li>
+                    </ul>
+                    <br />
+                    Messages from:
+                    <ul>
+                        <li><a href="PMLetter.htm">Prime Minister</a></li>
+                        <li><a href="MPLetter.htm">MP- Hon. K. Ashfield</a></li>
+                        <li><a href="MayorLetter.htm">Mayor</a></li>
+                        <li><a href="vips.htm">Community Members</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainPane">
+            	<h2>Program</h2>
+				<p>The theme of the CCANB 35th Anniversary Gala will be "Embracing Our Future Together". The performances will feature the traditional dragon and lion blessing, the Chinese folk dances, choir, music instrument and vocals. Audience will enjoy traditional Chinese music and dances as well as modern and contemporary ones, including "RAP". All performers are from the local Chinese community and Canadians who attend the Chinese language classes at the Association. They are full of talent, and have a great sense of humour. The show will be wonderfully entertaining and culturally amazing.</p>
+
+				<p>Here are a few highlights:
+					<ol type="1">
+                    	<li><b>Violin and Cello Duet</b> for a well-known Chinese legend about the tragic romance between two lovers called "Butterfly" (梁祝). This is a Chinese legend about the tragic romance between two lovers. It is sometimes regarded as the Chinese "Romeo and Juliet". The story is set in the Eastern Jin Dynasty. A young woman named Zhu Yingtai from Zhejiang province disguised herself as a man traveling to Hangzhou to study. During her journey, she met and joined a young man named Liang Shanbo, a companion schoolmate from Shaoxing, the same province as Zhu. They studied together for three years, during which their relationship strengthened. Before Zhu left school, she offered to arrange for Liang to marry her 16 year-old fictitious sister. Liang was happily accepted, and went to visit Zhu couple of days later. He discovered her true gender. Although they were devoted and passionate about each other at that point, Zhu was forced to engage right after she came home with a man called Ma Wencai, whom her parents had arranged for her to be married to. Depressed, Liang died on the day Zhu was to be married. Before the wedding ceremony started, Zhu went to pay her respects for Liang at the cemetery. Liang's tomb split apart, and Zhu dived into it to join him. A pair of butterflies emerged from the tomb and flew happily away. Death can't tear them apart. "The Butterfly Lovers" Concerto is one of the most famous works of Chinese music and certainly one of the most famous outside of China.</li>
+						<br />
+						<li><b>RAP</b> "CHINESE" (中国话). The singers will show their talent of singing as well as dancing. The rhythms are upbeat and the moves are vibrant. The Chinese language has been widely spoken all over the world.</li>
+						<br />
+						<li>Modern Dance "Rainy Alley" (小城雨巷). The performance portraits the oriental charm of the beautiful scenery of the lower Yangtze River and the elegant young ladies on a misty day. The costumes and stage background will be a feast for the eyes.</li>
+						<br />
+						<li>Choir "The Same Song" (同一首歌) and "Hand in Hand" (手拉手). This close to fifty people men and women will bring you two peaceful but also powerful songs. Under the conductor of Carolyn Brown, the choir will be the finale of the gala performance.<br />
+							<br />
+							<span style="font-style:italic">Hand in hand we stand<br />
+							All across the land<br />
+							We can make this world a better place in which to live<br />
+                            Hand in hand we can!<br />
+                            Start to understand<br />
+                            Breaking down the walls that come between us for all time</span>
+                     	</li>
+					</ol>
+				</p>
+
+				<p>This is just a sneak peek of the talent and action packed show. Please hurry and get your tickets. You'll be assured to have a wonderful time. See you at the Playhouse on Saturday, January 21st.</p>
+            </div>
+           	<div id="rightPane">
+                <div class="corneDivSingle">
+                    <img id="imgSponsor" src="image/NB_Canada_Colour.jpg" alt="" />
+                    <br /><br />
+                    <img id="imgSponsor2" src="image/ConfuciusLogo.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+                    <!--h1><a href="Program_print.htm" target="_blank">Print All</a></h1>
+                    <div><h2>"Chinese Culture Spectacular"<br />Our Maritime Home, Living in Harmony<br />爱    我    新    家    园</h2>
+                    </div>
+                    <div class="banner"></div>
+                    <div class="accordion" style="float:left;">
+	                    <h3 class="corneDivSingle"><a href="#">Welcome Address</a><br />Tom Ng., CCANB President</h3>
+	                    <div>
+		                    <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+	                    </div>
+	                    <h3 class="corneDivSingle"><a href="#">New Brunswick Youth Orchestra</a><br />Dance of the Yao People/ Saibei Dance<br />Music Director/Conductor: Dr. James Mark</h3>
+	                    <div>
+		                    <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+	                    </div>
+	                    <h3 class="corneDivSingle"><a href="#">Lion Blessing</a><br />CCANB Lion Dance Group</h3>
+	                    <div>
+		                    <p>Lion dance is a form of traditional dance in Chinese culture, in which performers mimic a lion's movements in a lion costume. The lion dance is often mistakenly referred to as dragon dance. An easy way to tell the difference is that a lion is operated by two people, while a dragon needs many people. Also, in a lion dance, the performers' faces are covered, since they are inside the lion. In a dragon dance, the performers can be seen since the dragon is held upon poles. Basic lion dance fundamental movements can be found in most Chinese martial arts</p>
+	                    </div>
+                        <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+                                                <h3 class="corneDivSingle"><b>Test test test</b><br />test test test test</h3>
+	                    <div>
+		                    <p>test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test</p>
+	                    </div>
+
+                    </div>
+                    <div class="banner"></div-->

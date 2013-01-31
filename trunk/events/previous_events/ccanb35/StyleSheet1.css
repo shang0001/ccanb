@@ -1,0 +1,278 @@
+﻿p
+{
+    color: #000;
+}
+
+#backgroundDiv
+{
+    position:absolute; 
+    width:100%;
+}
+
+#backgroundDiv img
+{
+    z-index:-1; 
+    width:100%;
+}
+
+
+#bodyContainer
+{
+	position:absolute;
+	width:96%;
+	padding-top:100px;
+	padding-left:2%;
+	padding-right:2%;	
+}
+
+#header
+{
+    height:200px;
+	text-align: center;
+	vertical-align:middle;
+}
+
+#header img
+{
+	height:200px;
+	border:none;
+}
+        
+#CCANBLogo
+{
+    background-position: center center;
+    float: left;
+    width: 20%;
+    height:200px;
+    display: inline;
+}
+
+#topRightLogos
+{
+    width: 19%;
+    height: 200px;
+    display: inline;
+    float: right;
+}
+    
+#mainHeader
+{
+	float:left;
+	display:inline;
+	width:60%;
+	text-align:center;
+	height:200px;
+}
+		
+#mainHeader img
+{
+	height:120px;
+	border:none;
+}
+        
+#main
+{
+    padding-top: 10px;
+    margin-top: 10px;
+}
+        
+#leftPane
+{
+    width: 20%;
+    display:inline-block;
+	vertical-align:top;
+	font-weight:bolder;
+	float:left;
+}
+
+#leftPane ul
+{
+	padding: 5px 5px 5px 5px;
+	margin-left:20px;
+}
+        
+#mainPane
+{
+	display:inline-block;
+	width: 60%;
+	vertical-align:top;
+	margin-left:auto;
+	margin-right:auto;
+	float:left;
+}
+
+.sponsorMainPane
+{
+	background-image:url(image/ThankYouLanguage-main_Fullc.png); 
+}
+
+/* sponsor */
+.golden_sponsor	img{
+	height:90px;
+	border-style:none;
+}
+
+.silver_sponsor img{
+	height:90px;
+	border-style:none;
+}
+
+.bronze_sponsor img{
+	height:60px;
+	border-style:none;
+}
+
+.donation_sponsor img{
+	height:90px;
+	border-style:none;
+}
+
+.sponsorMainPane p
+{
+	font-size:18px; 
+	font-weight:bold; 
+	line-height:120%;
+}
+/* end sponsor*/
+
+#rightPane
+{
+    display:inline-block;
+	width:19%;	
+    vertical-align:top;
+	float:right;
+	text-align:center;
+	padding-top:100px;
+}
+
+#rightPane img
+{
+    width:100%;
+}
+        
+/* The container class for image rotation */
+.container
+{
+	position: relative;
+	width: 50%;
+	height: 50%;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+.container img {
+	top: 0;
+	left: 0;
+	width: 100%;
+	display:none;	
+}
+/* end image rotation */
+
+/* corner div */
+.cornerDiv
+{
+    height:300px;
+	width:120px;
+    /*position:absolute;*/
+    background-color:White;
+}
+
+.cornerDiv img{
+	width:100%;
+}
+
+.cornerBorderDiv
+{
+	background-color:#F90;
+    height: 300px;
+	width:120px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.corneDivSingle
+{
+    background-color: #CCFFFF;
+    width:75%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.corneDivSingle a
+{
+    
+}
+
+/* end corner div */
+
+/* program menu */
+.accordion
+{
+    float:left;
+    width:68%;
+    height:600px;
+    overflow:auto;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.accordion div
+{
+    margin-top: -50px;
+    margin-bottom: 50px;
+    line-height:120%;
+    letter-spacing:normal;
+}
+
+.banner
+{
+    background-image:url(bg_program_small.png);
+    position:relative;
+    width:15%;
+    height:auto;
+    float:left;
+    height:600px;
+}
+/* end program menu */
+
+		
+		/* 字体效果，放弃 */
+		.font1
+		{
+		    text-shadow: 0 0 24px #C00, 0 0 4px #C00, 1px 1px 2px #333;
+		}
+		
+		.font2
+		{
+            position:absolute;
+            padding:4px;
+            filter:
+                    Dropshadow(offx=1,offy=0,color=white)
+                    Dropshadow(offx=0,offy=1,color=white)
+                    Dropshadow(offx=0,offy=-1,color=white)
+                    Dropshadow(offx=-1,offy=0,color=white);
+		}
+		/* end 字体效果 */
+		
+		/* test */
+		#macji
+		{
+		    
+    position:relative;
+    text-align:center;
+    overflow:hidden;
+}
+#macji .macji-skin{
+    float:left;
+    position:relative;
+    left:20%;
+}
+#macji .macji-skin li{
+    position:relative;
+    right:20%;
+    float:left;
+    margin:10px;
+    padding:0 10px;
+    border:solid 1px #000;
+}
+/* end test */

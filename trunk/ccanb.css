@@ -219,7 +219,7 @@ html>body #header-wrapper {
     background: -o-linear-gradient(#D96F66, #A03128); /*opera 11.10+*/
     background: linear-gradient(#D96F66, #A03128); /*future CSS3 browsers*/
     -pie-background: linear-gradient(#D96F66, #A03128); /*PIE*/
-    behavior: url(PIE.htc);
+    behavior: url(/ccanb/PIE.htc);
 }
 
 #menu ul {
@@ -250,7 +250,7 @@ html>body #header-wrapper {
 	font-weight: normal;
 	color: #FFFFFF;
 	border: none;
-    behavior: url(PIE.htc);
+    behavior: url(/ccanb/PIE.htc);
 }
 
 #menu>ul>li>a:hover, #IE8#HACK {
@@ -290,7 +290,7 @@ html>body #header-wrapper {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    behavior: url(PIE.htc);
+    behavior: url(/ccanb/PIE.htc);
 }
 
 #menu ul li ul li {
@@ -299,7 +299,7 @@ html>body #header-wrapper {
     padding: 0;
     *margin: 0 0 0 -17px;/*For IE7 ONLY*/
     height: 100%;
-    behavior: url(PIE.htc);
+    behavior: url(/ccanb/PIE.htc);
 }
 
 #menu ul li ul li:hover {
@@ -450,7 +450,7 @@ html>body #header-wrapper {
     background: -o-linear-gradient(#D15247, #A03128); /*opera 11.10+*/
     background: linear-gradient(#D15247, #A03128); /*future CSS3 browsers*/
     -pie-background: linear-gradient(#D15247, #A03128); /*PIE*/
-    behavior: url(PIE.htc);
+    behavior: url(/ccanb/PIE.htc);
 }
 
 #footer-shorter-content-wrapper
@@ -466,7 +466,7 @@ html>body #header-wrapper {
     background: -o-linear-gradient(#D15247, #A03128); /*opera 11.10+*/
     background: linear-gradient(#D15247, #A03128); /*future CSS3 browsers*/
     -pie-background: linear-gradient(#D15247, #A03128); /*PIE*/
-    behavior: url(PIE.htc);
+    behavior: url(/ccanb/PIE.htc);
     bottom: 0;
 }
 

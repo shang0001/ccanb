@@ -1,0 +1,113 @@
+﻿body
+{
+    margin: 0;
+    padding: 1em 4em;
+    font: 90% Arial, Helvetica, sans-serif;
+    color: #555;
+    line-height: 100%;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+h1 {
+	font-size:180%;
+	line-height:1em;
+	color:#8bb544;
+	font-weight:bold;
+	text-transform:uppercase;
+	letter-spacing:-.05em;
+	position:relative;	
+}
+h2
+{
+    font-size: 160%;
+    color: #CC0000;
+    font-weight: bold;
+    letter-spacing: -.05em;
+    position: relative;
+    margin: .6em 0;
+    padding-top: 1px; /* use top padding to adjust the start of the gradient  */
+    width: 100%;
+    line-height: 180%;
+    word-spacing: 0.5em;
+}
+h3
+{
+    font-size: 100%;
+    color: #7365a0;
+    padding-top: 3px;
+    position: relative;
+    margin: .6em 0 0 0;
+    width: 100%;
+    background-color: #CCFFFF;
+    text-align: center;
+    line-height:120%;
+}
+h4 {
+	font-size:120%;
+	color:#dc5b24;
+	font-weight:normal;
+	letter-spacing:-.05em;
+	position:relative;
+	margin:.6em 0;
+	padding-top:1px;
+	width:100%;
+}
+
+h1 span, h2 span, h3 span, h4 span{
+	position:absolute;
+	display:block;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background:url(gradient_1.png) repeat-x;
+}
+h1 span, h3 span{background:url(gradient_2.png) repeat-x;}
+* html h1 span, * html h3 span{
+	background-color:#fff;
+	back\ground-color:transparent;
+	background-image: url(none.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="gradient_2.png", sizingMethod="scale");
+}
+* html h2 span, * html h4 span{
+	background-color:#fff;
+	back\ground-color:transparent;
+	background-image: url(none.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="gradient_1.png", sizingMethod="scale");
+}
+
+/* 跨浏览器背景渐变 */
+.gradient
+{
+    height:1080px;
+    filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#ffffff,endcolorstr=#A8F2EF,gradientType=0);	
+    -ms-filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#ffffff,endcolorstr=#A8F2EF,gradientType=0);	
+	background:#A8F2EF; /* 一些不支持背景渐变的浏览器 */  
+    background:-moz-linear-gradient(top, white, rgba(168, 242, 239, 1));  
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#ffffff), to(rgba(168, 242, 239, 1)));  
+}
+
+#main
+{
+    padding: 10px;
+    overflow: hidden;
+    width: 60%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.banner
+{
+    float:left;
+    /*padding-bottom: 32767px;
+    margin-bottom: -32767px;
+    background-image:url(bg_program_small.png);*/
+    width:0px;height:1000px;
+}
+
+.content
+{
+    /*padding-bottom: 32767px;
+    margin-bottom: -32767px;*/
+    width:100%;margin-left:5px;margin-right:5px;
+}

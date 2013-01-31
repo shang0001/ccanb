@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="StyleSheet1.css" rel="stylesheet" type="text/css" />
+    <link href="text%20gradient.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <script src="jquery.corner.js" type="text/javascript"></script>
+	<script type="text/javascript" language="javascript">
+		window.onload = resizeImage;
+	
+	    $(document).ready(function () {
+	        $(".container img:last-child").show();
+	        setTimeout(f($(".container img:last-child")), 7000);
+	        corner();
+	        // resizeImage();
+	        $(window).resize(resizeImage);
+
+	    });
+
+	    function resizeImage() {
+	        $("#midImg").height($("#midImg").height() + ($("#bodyContainer").outerHeight() - $("#backgroundDiv").outerHeight()) + 50);
+	    }
+
+	    function f(img) {
+	        return function () {
+	            img.fadeOut("slow", function () {
+	                var nextImg;
+	                if (img.prev().length == 0) {
+	                    nextImg = img.parent().children().last();
+	                }
+	                else {
+	                    nextImg = img.prev();
+	                }
+
+	                nextImg.fadeIn("slow");
+	                setTimeout(f(nextImg), 7000);
+	            });
+	        }
+	    }
+
+	    function corner() {
+	        $(".cornerDiv").corner("round 8px").parent().css('padding', '4px').corner("round 10px");
+	        $(".corneDivSingle").corner("cc:#FFEFCE 10px");
+	    }
+	</script>
+</head>
+<body>
+    <div id="backgroundDiv">
+        <img alt="" src="image/top.jpg" />
+        <img id="midImg" alt="" src="image/2.jpg" style="margin-top:-3px; margin-bottom:-3px;" />
+        <img alt="" src="image/bottom.jpg" />
+    </div>
+    <div id="bodyContainer">
+        <div id="header">
+            <div id="CCANBLogo">
+                <a href="index.htm"><img alt="" src="image/Logo.png" /></a>
+            </div>
+            <div id="mainHeader">
+                <img alt="" src="image/Theme.png" />      
+            </div>
+            <div id="topRightLogos">
+                <a href="#"><img alt="" src="image/ccanb_logo.png" /></a>
+            </div>
+        </div>
+        <div id="main">
+            <div id="leftPane">
+                <div class="corneDivSingle">
+                    <ul type="none">
+                    	<li><h4><a href="aboutus.htm">About Us</a></h4></li>
+                        <li><h4><a href="/ccanb/">CCANB</a></h4></li>
+                        <li><h4><a href="eventposter.htm">Event Dates</a></h4></li>
+                        <li><h4><a href="program.htm">Program</a></h4></li>
+                        <li><h4><a href="sponsors.htm">Sponsors</a></h4></li>
+                        <li><h4><a href="committee.htm">Volunteers</a></h4></li>
+                        <li><h4><a href="contactus.htm">Contact Us</a></h4></li>
+                    </ul>
+                    <br />
+                    Messages from:
+                    <ul>
+                        <li><a href="PMLetter.htm">Prime Minister</a></li>
+                        <li><a href="MPLetter.htm">MP- Hon. K. Ashfield</a></li>
+                        <li><a href="MayorLetter.htm">Mayor</a></li>
+                        <li><a href="vips.htm">Community Members</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainPane">
+                <h2>Emerald Celebration Event Dates</h2>
+				<p><b>January 21, 2012 - 35th Anniversary Gala and Chinese New Year Celebration</b></p>
+				<p>Venue: Fredericton Playhouse (686 Queen Street, Fredericton) <br />
+				Time: 6:30 PM<br />
+				Tickets: $15 for members, $20 for non-members</p>
+                <p>Tickets are available at: 
+                <ol type="1">
+                <li>The Fredericton Playhouse (686 Queen street)</li>
+                <li>Classic Touch (440 King street--Kings Place Mall)</li>
+                <li>Friendship Store (606 Albert street)</li>
+                <li>The Chinese Language School (Margaret Norrie McCain Hall, St Thomas University)</li>
+                </ol>
+				on Sunday January 15 from 1:00 - 4:00 pm</p>
+				<p>Contacts: Jenny Zhang (<a href="mailto:jinhuazh@yahoo.com">jinhuazh@yahoo.com</a>; 457-0551)                     
+                      Saibei Zhao (<a href="mailto:szhao@unb.ca">szhao@unb.ca</a>; 458-7941)</p>
+				<p>&nbsp;</p>
+				<p><b>January 22, 2012 - Chinese New Year Banquet</b></p>
+				<p>Venue: Jubilee Restaurant (837 Prospect Street, Fredericton)<br />
+				Time: 7:00 PM</p>
+				<p>Tickets: Chinese banquet - $24 per person (8-course authentic Chinese dishes with tax and tip included), $240 to reserve a table for ten persons</p>
+				<p>Seating is limited! Please contact Tom Ng (<a href="mailto:tommng@nb.sympatico.ca">tommng@nb.sympatico.ca</a>) to reserve your ticket now.</p>
+                <p>Tickets are available at:
+                <ol type="1">
+                <li>Friendship Store (606 Albert Street)</li>
+                <li>Chinese Language School (Margaret Norrie McCain Hall, St Thomas University)</li>
+                </ol>
+                on Sunday January 15 from 1:00 - 4:00 pm</p>
+                <img src="image/Poster-20120107.png" height="500px" alt="" />
+            </div>
+           	<div id="rightPane">
+                <div class="corneDivSingle">
+                    <img id="imgSponsor" src="image/NB_Canada_Colour.jpg" alt="" />
+                    <br /><br />
+                    <img id="imgSponsor2" src="image/ConfuciusLogo.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
