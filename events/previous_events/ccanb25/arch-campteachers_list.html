@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Teachers List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="css/style.css" type=text/css rel=stylesheet>
+<script type="text/javascript" language="javascript1.2">
+function resizeImage (imageOrImageName, width, height) {
+  var image = typeof imageOrImageName == 'string' ?
+                document[imageOrImageName] : imageOrImageName;
+  if (document.layers) {
+    image.currentWidth = width;
+    image.currentHeight = height;
+    var layerWidth = image.width > width ? image.width : width;
+    var layerHeight = image.height > height ? image.height : height;
+    if (!image.overLayer) {
+      var l = image.overLayer = new Layer(layerWidth);
+    }
+    var l = image.overLayer;
+    l.bgColor = document.bgColor;
+    l.clip.width = layerWidth; 
+    l.clip.height = layerHeight;
+    l.left = image.x;
+    l.top = image.y;
+    var html = '';
+    html += '<IMG SRC="' + image.src + '"';
+    html += image.name ? ' NAME="overLayer' + image.name + '"' : '';
+    html += ' WIDTH="' + width + '" HEIGHT="' + height + '">';
+    l.document.open();
+    l.document.write(html);
+    l.document.close();
+    l.visibility = 'show';
+  }
+  else {
+    image.width = width;
+    image.height = height;
+  }
+}
+function zoomImage (imageOrImageName, factor) {
+  var image = typeof imageOrImageName == 'string' ?
+                document[imageOrImageName] : imageOrImageName;
+  if (document.layers) {
+    var currentWidth = image.currentWidth ? image.currentWidth : 
+image.width;
+    var currentHeight = image.currentHeight ? image.currentHeight : 
+image.height;
+  }
+  else {
+    var currentWidth = image.width;
+    var currentHeight = image.height;
+  }
+  var width = parseInt(currentWidth * factor);
+  var height = parseInt(currentHeight * factor);
+  resizeImage(image, width, height);
+}
+</script>
+</head>
+<body bgcolor="003366" class="bodytext2">
+<table width="446" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="106" class="bodytext2"><i>Image Control</i> :</td>
+    <td width="79"><a href="javascript: resizeImage(document.images[0], 1139, 2080); void 0">Full size</a></td>
+    <td width="110"><a href="javascript: resizeImage(document.images[0], 700, 1278); void 0">Shrink to Fit</a></td>
+    <td width="151"><a href="#" onClick="javascript:window.close()">Close this window</a> </td>
+  </tr>
+</table>
+<br>
+<center>
+  <img src="archives_img/TaiwanTeachers.jpg" name="Image" width="700" alt="Camp Teachers List"> 
+</center>
+</body>
+</html>

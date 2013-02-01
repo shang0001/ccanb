@@ -1,0 +1,93 @@
+/*
+ * Combined style sheet for the index pages and the slide pages.
+ */
+
+/* Style for all bodies. */
+body {
+	font-family: Verdana, Arial;
+	font-size: 13px;
+	background: #003366 /* url("gifs/sky_background.gif") */ ;
+	color: white;
+
+/* For scrollbars */
+scrollbar-face-color: rgb(255,96,0);
+scrollbar -highlight- color: white;
+scrollbar -shadow- color: white;
+scrollbar -3dlight- color: rgb(255,96,0);
+scrollbar -arrow- color: rgb(255,255,255);
+scrollbar -track- color: white;
+scrollbar -darkshadow- color: rgb(255,96,0);
+}
+
+img {
+	border-color: #5f5f5f;
+}
+
+/* Custom link styles */
+a:link {
+	font-size: 8pt; color: white; FONT-FAMILY: verdana,arial; background: none; text-decoration: none
+}
+a:visited {
+	font-size: 8pt; color: white; FONT-FAMILY: verdana,arial; background: none; text-decoration: none
+}
+a:hover {
+	font-size: 8pt; color: red; FONT-FAMILY: verdana,arial; background: none; text-decoration: underline
+}
+a:active {
+	font-size: 8pt; color: white; FONT-FAMILY: verdana,arial; background: none; text-decoration: none
+}
+
+
+.comment {
+	color: black;
+
+}
+
+/* Align the content of the cells on the index pages to the center and bottom. */
+#index td {
+	text-align: center;
+/*	vertical-align: bottom; */
+	vertical-align: top;
+}
+
+/* Style for all table cells. */
+td {
+	font-family: Verdana, Arial;
+}
+
+.camera {
+	font-size: 10px;
+}
+
+/* Remove the margin under the images on the index pages. */
+#index .image {
+	margin-left: 2;
+	margin-right: 2;
+	margin-bottom: 0;
+}
+
+/* Don't have margins on the slide pages. */
+body#slide {
+	margin: 0;
+	scrollbar-Base-Color: #006699
+}
+
+/* Highlight the image name on the slide pages. */
+#slide .name {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+/* Header */
+h1 {
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+}
+
+
+#imageinfo {
+
+	font-size: 11px;
+}
+
