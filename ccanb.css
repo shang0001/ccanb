@@ -416,6 +416,21 @@ html>body #header-wrapper {
 	font-size: 13px;
 }
 
+.post table, .post tr 
+{
+    border: medium solid #003366;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+.post thead {
+    color: #9933FF;
+}
+
+.post tfoot {
+    color: #CC3300;
+}
+
 .links {
 	display: block;
 	width: 130px;
