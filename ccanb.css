@@ -420,7 +420,7 @@ html>body #header-wrapper {
 {
     border: medium solid #003366;
     border-collapse: separate;
-    border-spacing: 5px;
+    border-spacing: 15px;
 }
 
 .post thead {
