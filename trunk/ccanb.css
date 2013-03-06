@@ -345,6 +345,12 @@ html>body #header-wrapper {
 	/*background: #FF6347;*/
 }
 
+/*third level menu position*/
+#menu ul li ul li ul {
+    left: 250px;
+    top: 0px;
+}
+
 /* Page */
 
 #page {
