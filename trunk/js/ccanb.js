@@ -78,7 +78,7 @@ $(document).ready(function () {
     });
 
     // Add toggle event for third level menu
-    $("#menu li li").click(function (e) {
+    $("#menu li li").hover(function (e) {
         var url = $(this).children("a").attr("href");
 
         if (url == "#") {
