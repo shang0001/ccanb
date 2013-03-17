@@ -67,7 +67,7 @@ $(document).ready(function () {
         e.stopPropagation();
         var hidden = $(this).parents("li").children("ul").is(":hidden");
 
-        $("#menu>ul>li>ul").hide()
+        $("#menu>ul>li>ul").hide();
         $("#menu>ul>li>a").removeClass();
 
         if (hidden) {
@@ -76,25 +76,25 @@ $(document).ready(function () {
                 .parents("li").children("a").addClass("menuCur");
         }
     });
-
+    var urls = $("#menu li li").children("a").attr("href");
+    if (urls == "#")
+    {
     // Add toggle event for third level menu
-    $("#menu li li").hover(function (e) {
-        var url = $(this).children("a").attr("href");
-
-        if (url == "#") {
+    		$("#menu li li").click(function (e) {
             e.stopPropagation();
-            var hidden = $(this).children("ul").is(":hidden");
-
-            $("#menu>ul>li>ul>li>ul").hide()
+    		});
+    }
+    
+    else
+    {
+	    $("#menu li li").hover(function (e) {
+            $("#menu>ul>li>ul>li>ul").hide();
             $("#menu>ul>li>ul>li>a").removeClass();
-
-            if (hidden) {
-                $(this)
-                    .children("ul").toggle()
-                    .children("a").addClass("menuCur");
-            }
-        }
-    });
+	                $(this)
+	                    .children("ul").toggle()
+	                    .children("a").addClass("menuCur");
+	            });
+    }
 
     $('#menu a[href!="#"]').click(function (e) {
         var url = $(this).attr('href');
