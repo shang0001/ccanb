@@ -407,6 +407,10 @@ html>body #header-wrapper {
     line-height:250%;
 }
 
+.post .entry ul li{
+	list-style: disc inside none;
+}
+
 .post .entry #calendar{
 	margin-top: 40px;
 	text-align: center;
