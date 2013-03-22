@@ -1,3 +1,6 @@
+//USAGE: new rssdisplayer("divid", "rssurl", numberofitems, "displayoptions")
+//new rssdisplayer("adiv", "http://www.cssdrive.com/index.php/news/rss_2.0/", 5, "date, description")
+
 google.load("feeds", "1"); //Load Google Ajax Feed API (version 1)
 
 function rssdisplayer(divid, url, feedlimit, showoptions){
