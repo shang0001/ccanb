@@ -70,31 +70,26 @@ $(document).ready(function () {
         $("#menu>ul>li>ul").hide();
         $("#menu>ul>li>a").removeClass();
 
+        $("#menu>ul>li>ul>li>ul").hide();
+        $("#menu>ul>li>ul>li>a").removeClass();
+
         if (hidden) {
             $(this)
                 .parents("li").children("ul").toggle()
                 .parents("li").children("a").addClass("menuCur");
         }
     });
-    var urls = $("#menu li li").children("a").attr("href");
-    if (urls == "#")
-    {
+
     // Add toggle event for third level menu
-    		$("#menu li li").click(function (e) {
-            e.stopPropagation();
-    		});
-    }
-    
-    else
-    {
-	    $("#menu li li").hover(function (e) {
-            $("#menu>ul>li>ul>li>ul").hide();
-            $("#menu>ul>li>ul>li>a").removeClass();
-	                $(this)
-	                    .children("ul").toggle()
-	                    .children("a").addClass("menuCur");
-	            });
-    }
+    $("#menu li li:has(a[href='#'])").hover(function (e) {
+        $("#menu>ul>li>ul>li>ul").hide();
+        $("#menu>ul>li>ul>li>a").removeClass();
+        $(this)
+            .children("ul").toggle()
+            .children("a").addClass("menuCur");
+    }).click(function (e) {
+        e.stopPropagation();
+    });
 
     $('#menu a[href!="#"]').click(function (e) {
         var url = $(this).attr('href');
