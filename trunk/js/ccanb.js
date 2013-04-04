@@ -38,6 +38,8 @@ function getPageContent(lang, url, id) {
         cache: false
     }).done(function (html) {
         $("#"+id).html(html);
+    }).fail(function (e) {
+        $("#" + id).html("Under Construction");
     });
 }
 
@@ -91,6 +93,7 @@ $(document).ready(function () {
         e.stopPropagation();
     });
 
+    // Add click handler for menu link
     $('#menu a[href!="#"]').click(function (e) {
         var url = $(this).attr('href');
         var lang = $("#language-text").val();
@@ -104,28 +107,42 @@ $(document).ready(function () {
         //alert(hostname + "?path=" + url + "&lang=" + lang);
     });
 
-    // load page for the first time
-    var lang = $.getUrlVar('lang');
-        //$("#language-text").val();
+    // Save selected language to cookie
+    $("#language-text").change(function () {
+        alert("Language is changed to " + $("#language-text").val());
+        $.cookie('lang', $("#language-text").val(), { path: '/' });
+    });
+
+    // load page , firstly, find if the user specified language
+    var inputLang = $.getUrlVar('lang');
+    if (inputLang) {
+        $("#language-text").val(inputLang);
+    }
+    else {
+        // If no specified language, find it in cookie
+        if ($.cookie('lang')) {
+            $("#language-text").val($.cookie('lang'));
+        }
+        else {
+            alert("No specified language, English is default");
+            $("#language-text").val("en");
+        }
+    }
+    var lang = $("#language-text").val();
+
     var url = $.getUrlVar('path');
     alert(url);
     alert(lang);
 
-    if (url && lang) {
-        alert('true');
+    // Load page content from the specified url of the "path" parameter
+    if (url) {
+        alert('url');
         getPageContent(lang, url, "content");
     }
-    else if (url) {
-        alert('only url');
+    else {
+        alert('no url, go to home page');
+        getPageContent(lang, "home/welcome.html", "content");
     }
-
-    //if (pathname.lastIndexOf("/") == pathname.length - 1) {
-    //    //getPageContent(lang, "home/welcome.html", "content");
-    //}
-    //else {
-    //    alert(url);
-    //    //getPageContent(lang, url, "content");
-    //}
 
     // Add the value of "Search..." to the input field and a class of .empty
     $("#search-text").val("Search...").addClass("empty");
