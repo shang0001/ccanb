@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
 
     // Add click handler for menu link
-    $('#menu a[href!="#"]').click(function (e) {
+    $('#menu a[href!="#"][directlink!="true"]').click(function (e) {
         var url = $(this).attr('href');
         var lang = $("#language-text").val();
 
