@@ -1,0 +1,50 @@
+﻿<div class="post">
+    <link rel='stylesheet' type='text/css' href='css/fullcalendar.css' />
+    <link rel='stylesheet' type='text/css' href='css/fullcalendar.print.css' media='print' />
+    <h2 class="title">EVENT SCHEDULE</h2>
+    <p>&nbsp;</p>
+    <div class="entry">
+        <div id="calendar"></div>
+    </div>
+</div>
+<script src="js/jquery-ui-1.8.24.custom.min.js"></script>
+<script src="js/fullcalendar.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Display the full calendar
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: false,
+            events: '../events/schedule.php'
+
+
+            //events:function(start, end, callback) {
+            //    $.ajax({
+            //        url: '../events/events.xml',
+            //        dataType: 'xml',
+            //        data: {
+            //            // our hypothetical feed requires UNIX timestamps
+            //            start: Math.round(start.getTime() / 1000),
+            //            end: Math.round(end.getTime() / 1000)
+            //        },
+            //        success: function(doc) {
+            //            var events = [];
+            //            $(doc).find('event').each(function() {
+            //                events.push({
+            //                    title: $(this).find('title').text(),
+            //                    start: $(this).find('start').text(), // will be parsed
+            //                    end: $(this).find('end').text(),
+            //                    allDay: $(this).find('allDay').text() == "true" ? true : false
+            //                });
+            //            });
+            //            callback(events);
+            //        }
+            //    });
+            //}
+        });
+    });
+</script>

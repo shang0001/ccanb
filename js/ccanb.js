@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
 
     // Add click handler for menu link
-    $('#menu a[href!="#"][directlink!="true"]').click(function (e) {
+    $('#menu a[href!="#"]').click(function (e) {
         var url = $(this).attr('href');
         var lang = $("#language-text").val();
 
@@ -109,7 +109,7 @@ $(document).ready(function () {
 
     // Save selected language to cookie
     $("#language-text").change(function () {
-        alert("Language is changed to " + $("#language-text").val());
+        //alert("Language is changed to " + $("#language-text").val());
         $.cookie('lang', $("#language-text").val(), { path: '/' });
     });
 
@@ -124,24 +124,26 @@ $(document).ready(function () {
             $("#language-text").val($.cookie('lang'));
         }
         else {
-            alert("No specified language, English is default");
+            //alert("No specified language, English is default");
             $("#language-text").val("en");
+            //alert("Initial language to en");
+            $.cookie('lang', $("#language-text").val(), { path: '/' });
         }
     }
     var lang = $("#language-text").val();
 
     var url = $.getUrlVar('path');
-    alert(url);
-    alert(lang);
+    //alert(url);
+    //alert(lang);
 
     // Load page content from the specified url of the "path" parameter
     if (url) {
-        alert('url');
+        //alert('url');
         getPageContent(lang, url, "content");
     }
     else {
-        alert('no url, go to home page');
-        getPageContent(lang, "home/welcome.html", "content");
+        //alert('no url, go to index page');
+        //getPageContent(lang, "index.html", "content");
     }
 
     // Add the value of "Search..." to the input field and a class of .empty
