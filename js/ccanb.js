@@ -111,12 +111,23 @@ $(document).ready(function () {
     $("#language-text").change(function () {
         //alert("Language is changed to " + $("#language-text").val());
         $.cookie('lang', $("#language-text").val(), { path: '/' });
+        
+        //alert(window.location.href);
+        var href = window.location.href;
+        if (href.indexOf("&lang") > -1) {
+            window.location.href = href.substring(0, href.indexOf("&lang"));
+        }
+        else {
+            window.location.reload();
+        }
     });
 
     // load page , firstly, find if the user specified language
     var inputLang = $.getUrlVar('lang');
     if (inputLang) {
         $("#language-text").val(inputLang);
+        //alert("Save specified language");
+        $.cookie('lang', $("#language-text").val(), { path: '/' });
     }
     else {
         // If no specified language, find it in cookie
@@ -142,8 +153,8 @@ $(document).ready(function () {
         getPageContent(lang, url, "content");
     }
     else {
-        //alert('no url, go to index page');
-        //getPageContent(lang, "index.html", "content");
+        //alert('no url, go to display home page content');
+        getPageContent(lang, "home/welcome.html", "content");
     }
 
     // Add the value of "Search..." to the input field and a class of .empty
