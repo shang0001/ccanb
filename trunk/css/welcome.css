@@ -19,8 +19,9 @@
 
 /* General Demo Style */
 body {
-/*	background: #e4ebe9 url(../images/slicebox/fancy_deboss.png) repeat top left; */
-    background: #e4ebe9 url(../images/slicebox/welcomebackground.jpg);
+	background: #e4ebe9 url(../images/slicebox/fancy_deboss.png) repeat top left; 
+/*    background: #e4ebe9 url(../images/slicebox/welcomebackground.jpg); */
+/*    background: #e4ebe9 url(../images/slicebox/redbackground.jpg); */
 	color: #444;
 	font-family: "PT Sans Narrow", Arial, sans-serif;
 	font-size: 13px;
@@ -59,7 +60,7 @@ h1 span, h5 {
 	color:#00FFBF;
 	font-weight: 1em;
 	text-align: center;
-	margin-left: 400px;
+	margin-left: 35%;
 	margin-top: 30px;
 	font-family: Gill Sans / Gill Sans MT, sans-serif;
 	background-image: linear-gradient(bottom, rgb(232,46,0) 32%, rgb(237,85,3) 66%, rgb(237,16,0) 83%);
@@ -83,7 +84,7 @@ h1 span, h5 {
 	color:#00FFBF;
 	font-weight: 1em;
 	text-align: center;
-	margin-left: 150px;
+	margin-left: 10%;
 	margin-top: 30px;
 	font-family: Gill Sans / Gill Sans MT, sans-serif;
 	background-image: linear-gradient(bottom, rgb(232,46,0) 32%, rgb(237,85,3) 66%, rgb(237,16,0) 83%);
