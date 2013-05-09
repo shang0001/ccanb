@@ -1,0 +1,120 @@
+BODY {scrollbar-face-color: rgb(255,96,0);
+scrollbar -highlight- color: white;
+scrollbar -shadow- color: white;
+scrollbar -3dlight- color: rgb(255,96,0);
+scrollbar -arrow- color: rgb(255,255,255);
+scrollbar -track- color: white;
+scrollbar -darkshadow- color: rgb(255,96,0);}
+
+A {
+	color: #FFFFFF; font-size: 10pt; FONT-FAMILY: verdana,arial; text-decoration: none
+}
+A:visited {
+	color: #FFFFFF; FONT-FAMILY: verdana,arial; text-decoration: none
+}
+A:hover {
+	color: yellow; background: none; text-decoration: underline
+}
+A:link img {
+	border: 0px #848484 solid;
+}
+A:visited img {
+	border: 0px #848484 solid;
+}
+A:hover img {
+	border: 0px red solid;
+}
+A:active img {
+	border: 0px red solid;
+}
+A.boldtitle {
+	font-weight: bold;
+	color: #FFFFFF; FONT-FAMILY: verdana,arial;
+}
+A.eassy {
+	color: #003366; font-size: 8pt; FONT-FAMILY: verdana,arial; text-decoration: none; vertical-align: text-top;
+}
+A.eassy:visited {
+	color: #003366; font-size: 8pt; FONT-FAMILY: verdana,arial; text-decoration: none
+}
+A.eassy:hover {
+	color: black; background: none; text-decoration: underline
+}
+.topnav {
+	FONT-SIZE: 8pt; COLOR: #FFFFFF; FONT-FAMILY: verdana,arial; text-decoration: none
+}
+.topnav_current {
+	FONT-SIZE: 8pt; COLOR: red; FONT-FAMILY: verdana,arial; text-decoration: none; font-weight: bold
+}
+.topnav A:link {
+	font-size: 8pt; color: #FFFFFF; FONT-FAMILY: verdana,arial; text-decoration: none
+}
+.topnav A:visited {
+	font-size: 8pt; color: #FFFFFF; FONT-FAMILY: verdana,arial; text-decoration: none
+}
+.topnav A:hover {
+	font-size: 8pt; color: red; background: none; text-decoration: underline
+}
+.topnav A:active {
+	font-size: 8pt; color: red; background: none; text-decoration: underline
+}
+
+.sidenav {
+	font-size: 8pt; color: #ffffff; FONT-FAMILY: verdana,arial; text-indent: 0.3cm; vertical-align: middle
+}
+.sidenav A{
+	font-size: 8pt; COLOR: #ffffff;	TEXT-DECORATION: none
+}
+.sidenav A:visited {
+	COLOR: #ffffff
+}
+.sidenav A:hover {
+	COLOR: red; background: #99CCFF
+}
+Li {
+	list-style-image: url(../images/red_button.gif);
+	color: #fffff;
+}
+
+.photoalbum TD{
+	font-size: 8pt; FONT-FAMILY: verdana,arial; background: none; background-color: transparent; text-decoration: underline
+}
+.photoalbum A{
+	font-size: 8pt; color: black; FONT-FAMILY: verdana,arial; background: none; text-decoration: underline
+}
+.photoalbum A:visited{
+	font-size: 8pt; color: black; FONT-FAMILY: verdana,arial; background: none; text-decoration: underline
+}
+.photoalbum A:hover{
+	font-size: 8pt; color: red; FONT-FAMILY: verdana,arial; background: none; text-decoration: none
+}
+
+p.bodytext {
+	font-size: 9pt; color: white; FONT-FAMILY: verdana,arial; text-align: justify
+}
+
+.bodytext2 {
+	font-size: 9pt; color: white; FONT-FAMILY: verdana,arial; text-align: justify
+}
+.bodytext-intended {
+	font-size: 9pt; color: white; FONT-FAMILY: verdana,arial; text-align: justify; text-indent: 0.3cm;
+	list-style: none;
+}
+.eassy_title {
+	font-size: 9pt; color: black; FONT-FAMILY: verdana,arial; text-align: left
+}
+.eassy_author_e {
+	font-size: 9pt; color: #666666; FONT-FAMILY: verdana,arial; text-align: right
+}
+.eassy_author_c {
+	font-size: 9pt; color: #666666; FONT-FAMILY: mingliU, verdana, arial; text-align: right
+}
+.eassy_body {
+	font-size: 9pt; color: black; FONT-FAMILY: mingliU, verdana, arial; text-align: justify
+}
+.eassy_body_e {
+	font-size: 9pt; color: black; FONT-FAMILY: verdana, arial; text-align: justify
+}
+.footnote {
+	font-size: 8pt; color: white; FONT-FAMILY: verdana,arial;
+}
