@@ -43,6 +43,50 @@ function getPageContent(lang, url, id) {
     });
 }
 
+function UpdateMenu(lang) {
+    $.ajax({
+        url: "menu/menu_" + lang + ".csv",
+        cache: false
+    }).done(function (allText) {
+        var allTextLines = allText.split(/\r\n|\n/);
+        var headers = allTextLines[0].split(',');
+
+        var associativeArray = {};
+
+        for (var i = 1; i < allTextLines.length; i++) {
+            var data = allTextLines[i].split(',');
+            if (data.length == headers.length) {
+
+                associativeArray[data[0]] = data[1];
+            }
+        }
+
+        ReplaceMenuText(associativeArray)
+    }).fail(function (e) {
+    });
+}
+
+function ReplaceMenuText(dataDictionary) {
+    $("#menu a span").each(function () {
+        var originalHtml = $(this).html();
+        var key = $.trim($(this).text());
+        //alert(key);
+        if (dataDictionary[key]) {
+            $(this).html(originalHtml.replace(htmlEncode(key), dataDictionary[key]));
+        }
+    });
+}
+
+function htmlEncode(value) {
+    //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+    //then grab the encoded contents back out.  The div never exists on the page.
+    return $('<div/>').text(value).html();
+}
+
+function htmlDecode(value) {
+    return $('<div/>').html(value).text();
+}
+
 $(document).ready(function () {
     $("#menu>ul>li>ul>li:first-child").hover(
         resetMenuItemPositionForIE7,
@@ -122,41 +166,6 @@ $(document).ready(function () {
         }
     });
 
-    // load page , firstly, find if the user specified language
-    var inputLang = $.getUrlVar('lang');
-    if (inputLang) {
-        $("#language-text").val(inputLang);
-        //alert("Save specified language");
-        $.cookie('lang', $("#language-text").val(), { path: '/' });
-    }
-    else {
-        // If no specified language, find it in cookie
-        if ($.cookie('lang')) {
-            $("#language-text").val($.cookie('lang'));
-        }
-        else {
-            //alert("No specified language, English is default");
-            $("#language-text").val("en");
-            //alert("Initial language to en");
-            $.cookie('lang', $("#language-text").val(), { path: '/' });
-        }
-    }
-    var lang = $("#language-text").val();
-
-    var url = $.getUrlVar('path');
-    //alert(url);
-    //alert(lang);
-
-    // Load page content from the specified url of the "path" parameter
-    if (url) {
-        //alert('url');
-        getPageContent(lang, url, "content");
-    }
-    else {
-        //alert('no url, go to display home page content');
-        getPageContent(lang, "home/welcome.html", "content");
-    }
-
     // Add the value of "Search..." to the input field and a class of .empty
     $("#search-text").val("Search...").addClass("empty");
 
@@ -181,4 +190,46 @@ $(document).ready(function () {
         }
 
     });
+
+
+    // Execute code below when page ready
+    // load page , firstly, find if the user specified language
+    var inputLang = $.getUrlVar('lang');
+    if (inputLang) {
+        $("#language-text").val(inputLang);
+        //alert("Save specified language");
+        $.cookie('lang', $("#language-text").val(), { path: '/' });
+    }
+    else {
+        // If no specified language, find it in cookie
+        if ($.cookie('lang')) {
+            $("#language-text").val($.cookie('lang'));
+        }
+        else {
+            //alert("No specified language, English is default");
+            $("#language-text").val("en");
+            //alert("Initial language to en");
+            $.cookie('lang', $("#language-text").val(), { path: '/' });
+        }
+    }
+    var lang = $("#language-text").val();
+
+    // Refresh menu
+    if (lang != "en") {
+        UpdateMenu(lang);
+    }
+
+    var url = $.getUrlVar('path');
+    //alert(url);
+    //alert(lang);
+
+    // Load page content from the specified url of the "path" parameter
+    if (url) {
+        //alert('url');
+        getPageContent(lang, url, "content");
+    }
+    else {
+        //alert('no url, go to display home page content');
+        getPageContent(lang, "home/welcome.html", "content");
+    }
 });
