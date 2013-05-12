@@ -7,8 +7,16 @@ function rssdisplayer(divid, url, feedlimit, showoptions){
 	this.showoptions=showoptions || ""; //get string of options to show ("date" and/or "description")
 	var feedpointer=new google.feeds.Feed(url); //create new instance of Google Ajax Feed API
 	feedpointer.setNumEntries(feedlimit); //set number of items to display
-	document.write('<div id="'+divid+'">Loading feed...</div>');
-	this.feedcontainer=document.getElementById(divid);
+
+    //yuetest: in order to avoid document.write to replace the entire document content when being called in Ajax response.
+    //// original code
+	////document.write('<div id="'+divid+'">Loading feed...</div>');
+    ////this.feedcontainer=document.getElementById(divid);
+
+	this.feedcontainer = document.getElementById(divid);
+	this.feedcontainer.innerHTML = "Loading feed...";
+    //end yuetest
+
 	var displayer=this;
 	feedpointer.load(function(r){displayer.formatoutput(r);}); //call Feed.load() to retrieve and output RSS feed
 }
