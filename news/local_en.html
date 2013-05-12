@@ -1,6 +1,10 @@
 <div class="post">
-     <h2 class="title">Local News</h2>
-     <p class="entry">
-         <strong style="font-size:16px">The Local News Page is under construction right now</strong>
-    </p>
+    <h2 class="title">Local News</h2>
+    <script>
+        $(document).ready(function () {
+            new rssdisplayer("nblocal", "http://rss.cbc.ca/lineup/canada-newbrunswick.xml", 5, "date, description")
+        });
+    </script>
+    
+    <div id="nblocal" />
 </div>

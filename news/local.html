@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 ccanb website
 -->
@@ -232,14 +232,15 @@ ccanb website
                 <div id="page-bgbtm">
                     <div id="content">
                         <div class="post">
-                            <h2 class="title">Local News</h2>
-                            <p class="entry">
-                                <!--  <strong style="font-size:18px">The website is under construction</strong>
-                               <script language="javascript" src="http://www.cbc.ca/cgi-bin/freeheadlines/headlines.cgi?logo=0&cat=15"></script> -->
-                                
-                                
-                            </p>
-                            <div id="result"></div>
+                             <h2 class="title">Local News</h2>
+                             <!--    <strong style="font-size:16px">The Local News Page is under construction right now</strong> -->
+                            <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+                            <script type="text/javascript" src="../js/rss.js"></script>
+
+	                        <script type="text/javascript">
+	                            new rssdisplayer("cbclocal", "http://rss.cbc.ca/lineup/canada.xml", 5, "date, description")
+	                        </script>
+    
                         </div>
                     </div>
                 </div>

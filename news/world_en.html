@@ -1,6 +1,10 @@
 <div class="post">
-     <h2 class="title">World News</h2>
-     <p class="entry">
-         <strong style="font-size:16px">The World News Page is under construction right now</strong>
-    </p>
+    <h2 class="title">World News</h2>
+    <script>
+        $(document).ready(function () {
+            new rssdisplayer("cbcWorld", "http://rss.cbc.ca/lineup/world.xml", 5, "date, description")
+        });
+    </script>
+    
+    <div id="cbcWorld" />
 </div>
