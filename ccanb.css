@@ -148,9 +148,9 @@ html>body #header-wrapper {
 /* Language Bar */
 #language {
 	float: right;
-	width: 180px;
+	width: 200px;
 	padding: 8px 0 30px 30px;
-	margin: 0;
+	margin-right: 20px;
 }
 
 #language-text{
@@ -160,10 +160,11 @@ html>body #header-wrapper {
 	font: normal 12px Arial, Helvetica, sans-serif;
 	color: #696969;
 	border: 1px #4C4842 solid;
+	right: 30px;
 }
 
 /* Search */
-
+/*
 #search {
 	float: right;
 	width: 250px;
@@ -202,7 +203,7 @@ html>body #header-wrapper {
 #search-submit {
 	display: none;
 }
-
+*/
 
 /* Menu */
 
