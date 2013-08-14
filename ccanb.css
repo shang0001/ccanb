@@ -408,6 +408,10 @@ html>body #header-wrapper {
     line-height:250%;
 }
 
+.post .entry h4{
+    line-height:300%;
+}
+
 .post .entry ul li{
 	list-style: disc inside none;
 }
