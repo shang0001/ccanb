@@ -21,27 +21,28 @@
 	
 	// Load form field data into variables.
 	$email_address = $_REQUEST['email_address'] ;
-	$subject = $_REQUEST['subject'];
-	$comments = $_REQUEST['comments'] ;
+	$subject = "Registration Request";
+	$student_name = $_REQUEST['sname1'];
+	$content = "Class Registration Request by " . $student_name;
 	
 	// If the user tries to access this script directly, redirect them to feedback form,
 	if (!isset($_REQUEST['email_address'])) {
-	header( "Location: ../index.html?path=aboutus/contact.html" );
+	header( "Location: ../index.html?path=chineseschool/registration.html" );
 	}
 	
 	// If the form fields are empty, redirect to the error page.
-	elseif (empty($email_address) || empty($comments)) {
-	header( "Location: ../index.html?path=aboutus/errormessage.html" );
+	elseif (empty($email_address) || empty($student_name)) {
+	header( "Location: ../index.html?path=aboutus/error_registration.html" );
 	}
 	
 	// If email injection is detected, redirect to the error page.
 	elseif ( isInjected($email_address) ) {
-	header( "Location: ../index.html?path=aboutus/errormessage.html" );
+	header( "Location: ../index.html?path=aboutus/error_registration.html" );
 	}
 	
 	// If we passed all previous tests, send the email!
 	else {
-	mail( "admin@ccanb.ca", $subject, $comments, "From: $email_address" );
-	header( "Location: ../index.html?path=aboutus/thankyou.html" );
+	mail( "admin@ccanb.ca", $subject, $content, "From: $email_address" );
+	header( "Location: ../index.html?path=chineseschool/complete_registration.html" );
 	}
 ?>

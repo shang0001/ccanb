@@ -1,352 +1,394 @@
 ﻿<script type="text/javascript">
-        $(document).ready(function () {
-            var date = new Date();
-            var d = date.getDate();
-            var m = date.getMonth();
-            var y = date.getFullYear();
+    $(document).ready(function () {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+        $("#membership").hide();
+        $("#individual").click(function(){
+            $("#familymember").hide();
         });
-    </script>
-<script type="text/javascript">
-        function onClick_AdultCourse(sender, id) {
-            var discountRadioButton = document.getElementById(id);
-            if (discountRadioButton) {
 
-                if (sender.checked) {
-                    discountRadioButton.value = "no";
-                    discountRadioButton.parentNode.className = "hidden";
-                }
-                else {
-                    discountRadioButton.value = "yes";
-                    discountRadioButton.parentNode.className = "";
-                }
-            }
-        }
-        function moreStudentOnClick(sender) {
-            var divS2 = document.getElementById("student2");
-            var divS3 = document.getElementById("student3");
-            var divS4 = document.getElementById("student4");
-
-            if (divS2.className.indexOf("hidden") != -1) {
-                divS2.className = divS2.className.replace("hidden", "");
-            }
-            else if (divS3.className.indexOf("hidden") != -1) {
-                divS3.className = divS3.className.replace("hidden", "");
-            }
-            else if (divS4.className.indexOf("hidden") != -1) {
-                divS4.className = divS4.className.replace("hidden", "");
-                sender.disabled = "disbled"
-            }
-        }
-        //function memberSelection(value) {
-        //    var divCourse = document.getElementById("courseSection");
-        //    var divVol = document.getElementById("volunteerSection");
-        //    if (divCourse) {
-        //        if (value) divCourse.className = "";
-        //        else divCourse.className = "hidden";
-        //    }
-        //    if (divVol) {
-        //        if (value) divVol.className = "";
-        //        else divVol.className = "hidden";
-        //    }
-        //}
-        function checkform() {
-
-            var form = document.getElementById("registrationForm");
-
-            var member = form.member;
-            var mname = form.mname;
-
-            //var vols = form.vol;
-            //var i = 0;
-            //var volunteer = false;
-
-            //while (i < vols.length) {
-            //    if (vols[i].checked) {
-            //        volunteer = true;
-            //        break;
-            //    }
-            //    i++;
-            //}
-
-            var family = form.mtype[1];
-            var mfname1 = form.mfname1;
-
-            if (!member.checked) {
-                alert('You must be a member.');
-                member.focus();
-                return false;
-            }
-            else if (!mname.value) {
-                // something is wrong
-                alert('Please enter your name.');
-                mname.focus();
-                return false;
-            }
-            else if (family.checked && !mfname1.value) {
-                alert('Please enter your family member name(s).');
-                mfname1.focus();
-                return false;
-            }
-            //else if (!volunteer) {
-            //    // something else is wrong
-            //    alert('You must volunteer one activity or donate.');
-            //    return false;
-            //}
-            // If the script gets this far through all of your fields
-            // without problems, it's ok and you can submit the form
-
-            return true;
-        }
-    </script>
+        $("#family").click(function(){
+            $("#familymember").show();
+        });
+    });
+    /*
+	$("#membercheckbox").click(function (){
+	    if ($("#membercheckbox").attr("checked"))
+	    {
+	        $("#membership").show();
+	    }
+	    else
+	    {
+	        $("#membership").hide();
+	    }              
+	});
+    */
+	function onClick_ShowHide(sender, id, target)
+	{
+		var source = document.getElementById(id);
+	    if (source) {	
+	        if (sender.checked) {
+	        	$(target).show();
+	        }
+	        else {
+	        	$(target).hide();
+	        }
+	    }
+	}
+	function onClick_AdultCourse(sender, id) {
+	    var discountRadioButton = document.getElementById(id);
+	    if (discountRadioButton) {
+	
+	        if (sender.checked) {
+	            discountRadioButton.value = "no";
+	            discountRadioButton.parentNode.className = "hidden";
+	        }
+	        else {
+	            discountRadioButton.value = "yes";
+	            discountRadioButton.parentNode.className = "";
+	        }
+	    }
+	}
+	function moreStudentOnClick(sender) {
+	    var divS2 = document.getElementById("student2");
+	    var divS3 = document.getElementById("student3");
+	    var divS4 = document.getElementById("student4");
+	
+	    if (divS2.className.indexOf("hidden") != -1) {
+	        divS2.className = divS2.className.replace("hidden", "");
+	    }
+	    else if (divS3.className.indexOf("hidden") != -1) {
+	        divS3.className = divS3.className.replace("hidden", "");
+	    }
+	    else if (divS4.className.indexOf("hidden") != -1) {
+	        divS4.className = divS4.className.replace("hidden", "");
+	        sender.disabled = "disbled"
+	    }
+	}
+	//function memberSelection(value) {
+	//    var divCourse = document.getElementById("courseSection");
+	//    var divVol = document.getElementById("volunteerSection");
+	//    if (divCourse) {
+	//        if (value) divCourse.className = "";
+	//        else divCourse.className = "hidden";
+	//    }
+	//    if (divVol) {
+	//        if (value) divVol.className = "";
+	//        else divVol.className = "hidden";
+	//    }
+	//}
+	function checkform() {
+	
+	    var form = document.getElementById("registrationForm");
+	
+	    var member = form.member;
+	    var mname = form.mname;
+	
+	    //var vols = form.vol;
+	    //var i = 0;
+	    //var volunteer = false;
+	
+	    //while (i < vols.length) {
+	    //    if (vols[i].checked) {
+	    //        volunteer = true;
+	    //        break;
+	    //    }
+	    //    i++;
+	    //}
+	
+	    var family = form.mtype[1];
+	    var mfname1 = form.mfname1;
+	
+	    if (!member.checked) {
+	        alert('You must be a member.');
+	        member.focus();
+	        return false;
+	    }
+	    else if (!mname.value) {
+	        // something is wrong
+	        alert('Please enter your name.');
+	        mname.focus();
+	        return false;
+	    }
+	    else if (family.checked && !mfname1.value) {
+	        alert('Please enter your family member name(s).');
+	        mfname1.focus();
+	        return false;
+	    }
+	    //else if (!volunteer) {
+	    //    // something else is wrong
+	    //    alert('You must volunteer one activity or donate.');
+	    //    return false;
+	    //}
+	    // If the script gets this far through all of your fields
+	    // without problems, it's ok and you can submit the form
+	
+	    return true;
+	}
+</script>
 <div class="post">
-                            <form id="registrationForm" action="#" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return checkform()">
-                                <h2 class="title">CCANB Membership & Chinese School Registration</h2>
+    <form id="registrationForm" action="chineseschool/send_registration.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return checkform()">
+        <h2 class="title">CCANB Membership & Chinese School Registration</h2>
 
-                                <div class="entry">
-                                    <p>
-                                        The online registration for 2012-2013 is available until Sept. 23, 2012.<br />
-                                        GENERAL INFORMATION:
-                                    <br />
-                                        CCANB membership will be registered for full year, from September 1st to August 31st of the following year. Membership is valid only when full registration is completed and membership fee is paid.
-                                    <br />
-                                        MEMBERSHIP DUES
-                                    <br />
-                                    </p>
-                                    Individuals<br />
-                                    <ol>
-                                        <li>Regular: $15.00</li>
-                                        <li>Seniors (age 65 and older): $10.00</li>
-                                        <li>Full-time university/college students: $5.00</li>
-                                    </ol>
-                                    Family membership (parents and children)<br />
-                                    <ol>
-                                        <li>Regular: $25.00</li>
-                                        <li>Parents are full-time university/college students: $10.00</li>
-                                    </ol>
-                                </div>
+        <div class="entry">
+            <p>
+                The online registration for 2012-2013 is available until Sept. 23, 2012.<br />
+                GENERAL INFORMATION:
+            <br />
+                CCANB membership will be registered for full year, from September 1st to August 31st of the following year. Membership is valid only when full registration is completed and membership fee is paid.
+            <br />
+                MEMBERSHIP DUES
+            <br />
+            </p>
+            Individuals<br />
+            <ol>
+                <li>Regular: $15.00</li>
+                <li>Seniors (age 65 and older): $10.00</li>
+                <li>Full-time university/college students: $5.00</li>
+            </ol>
+            Family membership (parents and children)<br />
+            <ol>
+                <li>Regular: $25.00</li>
+                <li>Parents are full-time university/college students: $10.00</li>
+            </ol>
+        </div>
+        
+        <h4>Please Enter your Email Address:</h4>
+        <div class="entry">
+            <p>
+                E-mail Address:<input type="text" size="40" maxlength="150" name="email_address">
+            </p>
+        </div>
 
-                                <h4>CCANB Membership Registration:</h4>
+        <h4>CCANB Membership Registration:</h4>
 
-                                <div class="entry">
-                                    <p class="MsoNormal">
-                                        <input type="radio" name="member" value="yes" checked="checked">Yes, I would like to be a member of CCANB:
-                                    <br />
-                                        Name:<input type="text" size="40" name="mname">
-                                        <br />
-                                        Address:<input type="text" size="80" name="maddr">
-                                        <br />
-                                        Postal Code:<input type="text" name="mpcode">
-                                        <br />
-                                        Telephone #:
-                                        <br />
-                                        (Home)<input type="text" name="mhphone">
-                                        (Work/Office)<input type="text" name="mwphone">
-                                        (Cell)<input type="text" name="mcphone">
-                                        <br />
-                                        E-mail Address:<input type="text" size="40" name="memail">
-                                    </p>
-                                    <p class="MsoNormal">
-                                        TYPE OF MEMBERSHIP:
-                                    <br />
-                                        <input type="radio" name="mtype" value="ind">INDIVIDUAL (AGE 16 YEARS AND OLDER)
-                                    <br />
-                                        <input type="radio" name="mtype" value="fam" checked="checked">FAMILY
-                                    <br />
-                                        Names of other family members:
-                                    <br />
-                                        Name 1:
-                                    <input type="text" size="40" name="mfname1"><br />
-                                        Name 2:
-                                    <input type="text" size="40" name="mfname2"><br />
-                                        Name 3:
-                                    <input type="text" size="40" name="mfname3"><br />
-                                        Name 4:
-                                    <input type="text" size="40" name="mfname4"><br />
-                                        Name 5:
-                                    <input type="text" size="40" name="mfname5"><br />
-                                        Name 6:
-                                    <input type="text" size="40" name="mfname6"><br />
-                                    </p>
-                                    <p>
-                                        <span lang="EN-US">AGE Category: </span>
-                                        <input type="radio" name="mage" value="re" checked="checked">Regular 
-                                    <input type="radio" name="mage" value="se">Senior
-                                    <input type="radio" name="mage" value="st">Student
-                                    </p>
-                                </div>
+        <div class="entry">
+            <p>
+                <input id="membercheckbox" type="checkbox" name="member" value="yes" onclick="onClick_ShowHide(this, 'membercheckbox', '#membership')">Yes, I would like to be a member of CCANB:
+            </p>
+            <div id="membership">
+	            <p>
+	                Name:<input type="text" size="40" name="mname">
+	                <br />
+	                Address:<input type="text" size="80" name="maddr">
+	                <br />
+	                Postal Code:<input type="text" name="mpcode">
+	                <br />
+	                Telephone #:
+	                <br />
+	                (Home)<input type="text" name="mhphone">
+	                (Work/Office)<input type="text" name="mwphone">
+	                (Cell)<input type="text" name="mcphone">
+	                <!-- <br />
+	                E-mail Address:<input type="text" size="40" maxlength="150" name="memail"> -->
+	            </p>
+	            <p>
+	                TYPE OF MEMBERSHIP:
+	            <br />
+	                <input id="individual" type="radio" name="mtype" value="ind">INDIVIDUAL (AGE 16 YEARS AND OLDER)
+	            <br />
+	                <input id="family" type="radio" name="mtype" value="fam" checked="checked">FAMILY
+	            </p>
+	            <p id="familymember">
+	                Names of other family members:
+	            <br />
+	                Name 1:
+	            <input type="text" size="40" name="mfname1"><br />
+	                Name 2:
+	            <input type="text" size="40" name="mfname2"><br />
+	                Name 3:
+	            <input type="text" size="40" name="mfname3"><br />
+	                Name 4:
+	            <input type="text" size="40" name="mfname4"><br />
+	                Name 5:
+	            <input type="text" size="40" name="mfname5"><br />
+	                Name 6:
+	            <input type="text" size="40" name="mfname6"><br />
+	            </p>
+	            <p>
+	                <span lang="EN-US">AGE Category: </span>
+	                <input type="radio" name="mage" value="re" checked="checked">Regular 
+	            <input type="radio" name="mage" value="se">Senior
+	            <input type="radio" name="mage" value="st">Student
+	            </p>
+            </div>
+        </div>
 
-                                <h4>Class Registration:</h4>
+        <h4>Class Registration:</h4>
 
-                                <div class="entry" id="student1">
-                                    <p>
-                                        <span lang="EN-US">Student Name:
-                                        <input type="text" size="40" name="sname1"><br />
-                                            Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
-                                        <input type="text" name="sbirth1"><br />
-                                            Medicare Number:
-                                        <input type="text" size="9" name="smnum1"><br />
-                                            Address:
-                                        <input type="text" size="60" name="saddr1"><br />
-                                            Postal Code:
-                                        <input type="text" size="7" name="spcode1"><br />
-                                            Telephone: (Home)
-                                        <input type="text" name="shphone1">
-                                            (Office)
-                                        <input type="text" name="sophone1">
-                                            (For Emergencies)
-                                        <input type="text" name="sephone1"><br />
-                                            Guardians Names (if the student is not an adult):
-                                        <input type="text" size="40" name="sgname1"></span>
-                                    </p>
-                                    <p>
-                                        COURSE SELECTIONS
-                                    <br />
-                                        Language:
-                                    <input type="checkbox" name="lang1" value="year">full year ($110)
-                                    <br />
-                                        Child/Youth Dance:
-                                    <input type="checkbox" name="childDance1" value="year">full year ($60)
-                                    <br />
-                                        Adult Dance:
-                                    <input type="checkbox" name="adultDance1" value="year">full year ($110)
-                                    <br />
-                                        Math:
-                                    <input type="checkbox" name="math1" value="year">full year ($60)
-                                    <br />
-                                        *$10 off for taking a recreation course as well as a language course<br />
-                                        <input type="radio" checked name="discount1" value="no">This is my first student/child registration 
-                                    </p>
-                                </div>
+        <div class="entry" id="student1">
+            <p>
+                <span lang="EN-US">Student Name:
+                <input type="text" size="40" name="sname1"><br />
+                    Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
+                <input type="text" name="sbirth1"><br />
+                    Medicare Number:
+                <input type="text" size="9" name="smnum1"><br />
+                    Address:
+                <input type="text" size="60" name="saddr1"><br />
+                    Postal Code:
+                <input type="text" size="7" name="spcode1"><br />
+                    Telephone: (Home)
+                <input type="text" name="shphone1">
+                    (Office)
+                <input type="text" name="sophone1">
+                    (For Emergencies)
+                <input type="text" name="sephone1"><br />
+                    Guardians Names (if the student is not an adult):
+                <input type="text" size="40" name="sgname1"></span>
+            </p>
+            <p>
+                COURSE SELECTIONS
+            <br />
+                Language:
+            <input type="checkbox" name="lang1" value="year">full year ($110)
+            <br />
+                Child/Youth Dance:
+            <input type="checkbox" name="childDance1" value="year">full year ($60)
+            <br />
+                Adult Dance:
+            <input type="checkbox" name="adultDance1" value="year">full year ($110)
+            <br />
+                Math:
+            <input type="checkbox" name="math1" value="year">full year ($60)
+            <br />
+                *$10 off for taking a recreation course as well as a language course<br />
+                <input type="checkbox" checked="checked" name="discount1" value="no">This is my first student/child registration 
+                
+            </p>
+        </div>
 
-                                <div class="entry hidden" id="student2">
-                                    <p>
-                                        <span lang="EN-US">Student Name:
-                                        <input type="text" size="40" name="sname2"><br />
-                                            Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
-                                        <input type="text" name="sbirth2"><br />
-                                            Medicare Number:
-                                        <input type="text" size="9" name="smnum2"><br />
-                                            Address:
-                                        <input type="text" size="60" name="saddr2"><br />
-                                            Postal Code:
-                                        <input type="text" size="7" name="spcode2"><br />
-                                            Telephone: (Home)
-                                        <input type="text" name="shphone2">(Office)
-                                        <input type="text" name="sophone2">(For Emergencies)
-                                        <input type="text" name="sephone2"><br />
-                                            Guardians Names (if the student is not an adult):
-                                        <input type="text" size="40" name="sgname2"></span>
-                                    </p>
-                                    <p>
-                                        COURSE SELECTIONS
-                                    <br />
-                                        Language:
-                                    <input type="checkbox" name="lang2" value="year">full year ($110)
-                                    <br />
-                                        Child/Youth Dance:
-                                    <input type="checkbox" name="childDance2" value="year">full year ($60)
-                                    <br />
-                                        Adult Dance:
-                                    <input type="checkbox" name="adultDance2" value="year" onclick="onClick_AdultCourse(this, 'discount2_yes')">full year ($110)
-                                    <br />
-                                        Math:
-                                    <input type="checkbox" name="math2" value="year">full year ($60)
-                                    <br />
-                                        *$10 off for taking a recreation course as well as a language course<br />
-                                        <input type="radio" checked name="discount2" value="yes" id="discount2_yes" />This is my additional student/child registration (10% off)
-                                    </p>
-                                </div>
+        <div class="entry hidden" id="student2">
+            <p>
+                <span lang="EN-US">Student Name:
+                <input type="text" size="40" name="sname2"><br />
+                    Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
+                <input type="text" name="sbirth2"><br />
+                    Medicare Number:
+                <input type="text" size="9" name="smnum2"><br />
+                    Address:
+                <input type="text" size="60" name="saddr2"><br />
+                    Postal Code:
+                <input type="text" size="7" name="spcode2"><br />
+                    Telephone: (Home)
+                <input type="text" name="shphone2">(Office)
+                <input type="text" name="sophone2">(For Emergencies)
+                <input type="text" name="sephone2"><br />
+                    Guardians Names (if the student is not an adult):
+                <input type="text" size="40" name="sgname2"></span>
+            </p>
+            <p>
+                COURSE SELECTIONS
+            <br />
+                Language:
+            <input type="checkbox" name="lang2" value="year">full year ($110)
+            <br />
+                Child/Youth Dance:
+            <input type="checkbox" name="childDance2" value="year">full year ($60)
+            <br />
+                Adult Dance:
+            <input type="checkbox" name="adultDance2" value="year" onclick="onClick_AdultCourse(this, 'discount2_yes')">full year ($110)
+            <br />
+                Math:
+            <input type="checkbox" name="math2" value="year">full year ($60)
+            <br />
+                *$10 off for taking a recreation course as well as a language course<br />
+                <input type="checkbox" checked="checked" name="discount2" value="yes" id="discount2_yes" />This is my additional student/child registration (10% off)
+            </p>
+        </div>
 
-                                <div class="entry hidden" id="student3">
-                                    <p>
-                                        Student Name:
-                                    <input type="text" size="40" name="sname3"><br />
-                                        Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
-                                    <input type="text" name="sbirth3"><br />
-                                        Medicare Number:
-                                    <input type="text" size="9" name="smnum3"><br />
-                                        Address:
-                                    <input type="text" size="60" name="saddr3"><br />
-                                        Postal Code:
-                                    <input type="text" size="7" name="spcode3"><br />
-                                        Telephone: (Home)
-                                    <input type="text" name="shphone3">
-                                        (Office)
-                                    <input type="text" name="sophone3">(For Emergencies)
-                                    <input type="text" name="sephone3"><br />
-                                        Guardians Names (if the student is not an adult):
-                                    <input type="text" size="40" name="sgname3">
-                                    </p>
-                                    <p>
-                                        COURSE SELECTIONS
-                                    <br />
-                                        Language:
-                                    <input type="checkbox" name="lang3" value="year">full year ($110)
-                                    <br />
-                                        Child/Youth Dance:
-                                    <input type="checkbox" name="childDance3" value="year">full year ($60)
-                                    <br />
-                                        Adult Dance:
-                                    <input type="checkbox" name="adultDance3" value="year" onclick="onClick_AdultCourse(this, 'discount3_yes')">full year ($110)
-                                    <br />
-                                        Math:
-                                    <input type="checkbox" name="math3" value="year">full year ($60)
-                                    <br />
-                                        *$10 off for taking a recreation course as well as a language course<br />
-                                        <input type="radio" checked name="discount3" value="yes" id="discount3_yes">This is my additional student/child registration (10% off)
-                                    </p>
-                                </div>
+        <div class="entry hidden" id="student3">
+            <p>
+                Student Name:
+            <input type="text" size="40" name="sname3"><br />
+                Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
+            <input type="text" name="sbirth3"><br />
+                Medicare Number:
+            <input type="text" size="9" name="smnum3"><br />
+                Address:
+            <input type="text" size="60" name="saddr3"><br />
+                Postal Code:
+            <input type="text" size="7" name="spcode3"><br />
+                Telephone: (Home)
+            <input type="text" name="shphone3">
+                (Office)
+            <input type="text" name="sophone3">(For Emergencies)
+            <input type="text" name="sephone3"><br />
+                Guardians Names (if the student is not an adult):
+            <input type="text" size="40" name="sgname3">
+            </p>
+            <p>
+                COURSE SELECTIONS
+            <br />
+                Language:
+            <input type="checkbox" name="lang3" value="year">full year ($110)
+            <br />
+                Child/Youth Dance:
+            <input type="checkbox" name="childDance3" value="year">full year ($60)
+            <br />
+                Adult Dance:
+            <input type="checkbox" name="adultDance3" value="year" onclick="onClick_AdultCourse(this, 'discount3_yes')">full year ($110)
+            <br />
+                Math:
+            <input type="checkbox" name="math3" value="year">full year ($60)
+            <br />
+                *$10 off for taking a recreation course as well as a language course<br />
+                <input type="checkbox" checked="checked" value="yes" id="discount3_yes">This is my additional student/child registration (10% off)
+            </p>
+        </div>
 
-                                <div class="entry hidden" id="student4">
-                                    <p>
-                                        Student Name:
-                                    <input type="text" size="40" name="sname4"><br />
-                                        Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
-                                    <input type="text" name="sbirth4"><br />
-                                        Medicare Number:
-                                    <input type="text" size="9" name="smnum4"><br />
-                                        Address:
-                                    <input type="text" size="60" name="saddr4"><br />
-                                        Postal Code:
-                                    <input type="text" size="7" name="spcode4"><br />
-                                        Telephone: (Home)
-                                    <input type="text" name="shphone4">
-                                        (Office)
-                                    <input type="text" name="sophone4">(For Emergencies)
-                                    <input type="text" name="sephone4"><br />
-                                        Guardians Names (if the student is not an adult):
-                                    <input type="text" size="40" name="sgname4">
-                                    </p>
-                                    <p>
-                                        COURSE SELECTIONS
-                                    <br />
-                                        Language:
-                                    <input type="checkbox" name="lang4" value="year">full year ($110)
-                                    <br />
-                                        Child/Youth Dance:
-                                    <input type="checkbox" name="childDance4" value="year">full year ($60)
-                                    <br />
-                                        Adult Dance:
-                                    <input type="checkbox" name="adultDance4" value="year" onclick="onClick_AdultCourse(this, 'discount4_yes')">full year ($110)
-                                    <br />
-                                        Math:
-                                    <input type="checkbox" name="math4" value="year">full year ($60)
-                                    <br />
-                                        *$10 off for taking a recreation course as well as a language course<br />
-                                        <input type="radio" checked name="discount4" value="yes" id="discount4_yes">This is my additional student/child registration (10% off)
-                                    </p>
-                                </div>
+        <div class="entry hidden" id="student4">
+            <p>
+                Student Name:
+            <input type="text" size="40" name="sname4"><br />
+                Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
+            <input type="text" name="sbirth4"><br />
+                Medicare Number:
+            <input type="text" size="9" name="smnum4"><br />
+                Address:
+            <input type="text" size="60" name="saddr4"><br />
+                Postal Code:
+            <input type="text" size="7" name="spcode4"><br />
+                Telephone: (Home)
+            <input type="text" name="shphone4">
+                (Office)
+            <input type="text" name="sophone4">(For Emergencies)
+            <input type="text" name="sephone4"><br />
+                Guardians Names (if the student is not an adult):
+            <input type="text" size="40" name="sgname4">
+            </p>
+            <p>
+                COURSE SELECTIONS
+            <br />
+                Language:
+            <input type="checkbox" name="lang4" value="year">full year ($110)
+            <br />
+                Child/Youth Dance:
+            <input type="checkbox" name="childDance4" value="year">full year ($60)
+            <br />
+                Adult Dance:
+            <input type="checkbox" name="adultDance4" value="year" onclick="onClick_AdultCourse(this, 'discount4_yes')">full year ($110)
+            <br />
+                Math:
+            <input type="checkbox" name="math4" value="year">full year ($60)
+            <br />
+                *$10 off for taking a recreation course as well as a language course<br />
+                <input type="checkbox" checked="checked" name="discount4" value="yes" id="discount4_yes">This is my additional student/child registration (10% off)
+            </p>
+        </div>
 
-                                <input id="Button1" type="button" value="More Student? Maximum 4" onclick="moreStudentOnClick(this)" />
+        <input id="Button1" type="button" value="More Student? Maximum 4" onclick="moreStudentOnClick(this)" />
 
-                                <p class="MsoBodyText">
-                                    Special programs: schedule and fee will be announced timely.
-                                </p>
+        <p>
+            Special programs: schedule and fee will be announced timely.
+        </p>
 
-                                <p class="MsoNormal">
-                                    <br />
-                                    <input type="submit" value="Submit" />
-                                    <input type="reset" value="Clear" />
-                                </p>
-                            </form>
-                        </div>
+        <p>
+            <br />
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Clear" />
+        </p>
+    </form>
+</div>

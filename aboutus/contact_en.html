@@ -9,27 +9,33 @@
         <br />
         Fredericton, N.B., E3B 4Y2.
 		<br />
-		<h4>Send Us Your Feedback!</h4>
+		<h4 style="margin-left: 16px;">Send Us Your Feedback!<h4>
 		<form action="aboutus/send_mail.php" method="post">
-		<table>
-		<tr>
-		<td>Email Adress:</td>
-		<td>
-		<input type="text" name="email_address" value="" maxlength="100" />
-		</td>
-		</tr>
-		<tr>
-		<td>Comments:</td>
-		<td>
-			<textarea rows="10" cols="50" name="comments"></textarea>
-		</td>
-		</tr>
-		<tr><td>&nbsp;</td>
-		<td>
-		<input type="submit" value="Submit" />
-		</td>
-		</tr>
-		</table>
+			<table style="border: medium none; border-collapse: separate; border-spacing: 15px;">
+			<tr>
+			<td>Email Adress:</td>
+			<td>
+			<input type="text" name="email_address" value="" maxlength="150" />
+			</td>
+			</tr>
+			<tr>
+			<td>Subject:</td>
+			<td>
+			<input type="text" name="subject" value="" maxlength="150" />
+			</td>
+			</tr>
+			<tr>
+			<td>Comments:</td>
+			<td>
+				<textarea rows="10" cols="50" name="comments"></textarea>
+			</td>
+			</tr>
+			<tr><td>&nbsp;</td>
+			<td>
+			<input type="submit" value="Submit" />
+			</td>
+			</tr>
+			</table>
 		</form>
 
     </p>
