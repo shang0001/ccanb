@@ -13,18 +13,6 @@
             $("#familymember").show();
         });
     });
-    /*
-	$("#membercheckbox").click(function (){
-	    if ($("#membercheckbox").attr("checked"))
-	    {
-	        $("#membership").show();
-	    }
-	    else
-	    {
-	        $("#membership").hide();
-	    }              
-	});
-    */
 	function onClick_ShowHide(sender, id, target)
 	{
 		var source = document.getElementById(id);
@@ -243,16 +231,16 @@
                 COURSE SELECTIONS
             <br />
                 Language:
-            <input type="checkbox" name="lang1" value="year">full year ($110)
+            <input type="checkbox" id="lang1"  name="courses1[]" value="year">full year ($110)
             <br />
                 Child/Youth Dance:
-            <input type="checkbox" name="childDance1" value="year">full year ($60)
+            <input type="checkbox" id="childDance1"  name="courses1[]" value="year">full year ($60)
             <br />
                 Adult Dance:
-            <input type="checkbox" name="adultDance1" value="year">full year ($110)
+            <input type="checkbox" id="adultDance1"  name="courses1[]" value="year">full year ($110)
             <br />
                 Math:
-            <input type="checkbox" name="math1" value="year">full year ($60)
+            <input type="checkbox" id="math1"  name="courses1[]" value="year">full year ($60)
             <br />
                 *$10 off for taking a recreation course as well as a language course<br />
                 <input type="checkbox" checked="checked" name="discount1" value="no">This is my first student/child registration 
@@ -283,16 +271,16 @@
                 COURSE SELECTIONS
             <br />
                 Language:
-            <input type="checkbox" name="lang2" value="year">full year ($110)
+            <input type="checkbox" id="lang2"  name="courses2[]" value="year">full year ($110)
             <br />
                 Child/Youth Dance:
-            <input type="checkbox" name="childDance2" value="year">full year ($60)
+            <input type="checkbox" id="childDance2"  name="courses2[]" value="year">full year ($60)
             <br />
                 Adult Dance:
-            <input type="checkbox" name="adultDance2" value="year" onclick="onClick_AdultCourse(this, 'discount2_yes')">full year ($110)
+            <input type="checkbox" id="adultDance2"  name="courses2[]" value="year" onclick="onClick_AdultCourse(this, 'discount2_yes')">full year ($110)
             <br />
                 Math:
-            <input type="checkbox" name="math2" value="year">full year ($60)
+            <input type="checkbox" id="math2"  name="courses3[]" value="year">full year ($60)
             <br />
                 *$10 off for taking a recreation course as well as a language course<br />
                 <input type="checkbox" checked="checked" name="discount2" value="yes" id="discount2_yes" />This is my additional student/child registration (10% off)
@@ -323,16 +311,16 @@
                 COURSE SELECTIONS
             <br />
                 Language:
-            <input type="checkbox" name="lang3" value="year">full year ($110)
+            <input type="checkbox" id="lang3" name="courses3[]" value="year">full year ($110)
             <br />
                 Child/Youth Dance:
-            <input type="checkbox" name="childDance3" value="year">full year ($60)
+            <input type="checkbox" id="childDance3" name="courses3[]" value="year">full year ($60)
             <br />
                 Adult Dance:
-            <input type="checkbox" name="adultDance3" value="year" onclick="onClick_AdultCourse(this, 'discount3_yes')">full year ($110)
+            <input type="checkbox" id="adultDance3"  name="courses3[]" value="year" onclick="onClick_AdultCourse(this, 'discount3_yes')">full year ($110)
             <br />
                 Math:
-            <input type="checkbox" name="math3" value="year">full year ($60)
+            <input type="checkbox" id="math3"  name="courses3[]" value="year">full year ($60)
             <br />
                 *$10 off for taking a recreation course as well as a language course<br />
                 <input type="checkbox" checked="checked" value="yes" id="discount3_yes">This is my additional student/child registration (10% off)
@@ -363,16 +351,16 @@
                 COURSE SELECTIONS
             <br />
                 Language:
-            <input type="checkbox" name="lang4" value="year">full year ($110)
+            <input type="checkbox" id="lang4" name="courses4[]" value="year">full year ($110)
             <br />
                 Child/Youth Dance:
-            <input type="checkbox" name="childDance4" value="year">full year ($60)
+            <input type="checkbox" id="childDance4" name="courses4[]" value="year">full year ($60)
             <br />
                 Adult Dance:
-            <input type="checkbox" name="adultDance4" value="year" onclick="onClick_AdultCourse(this, 'discount4_yes')">full year ($110)
+            <input type="checkbox" id="adultDance4" name="courses4[]" value="year" onclick="onClick_AdultCourse(this, 'discount4_yes')">full year ($110)
             <br />
                 Math:
-            <input type="checkbox" name="math4" value="year">full year ($60)
+            <input type="checkbox" id="math4" name="courses4[]" value="year">full year ($60)
             <br />
                 *$10 off for taking a recreation course as well as a language course<br />
                 <input type="checkbox" checked="checked" name="discount4" value="yes" id="discount4_yes">This is my additional student/child registration (10% off)
