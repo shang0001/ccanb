@@ -20,8 +20,8 @@
 	}
 	
 	// Load form field data into variables.
-	global $membercontents;
-	$course1 = $course2 = $course3 = $course4 = $membercontents = '';
+	
+	$course1 = $course2 = $course3 = $course4 = '';
 	$price = 0;
 	$courseprice = array(110, 60, 110, 60);
 	$email_address = $_REQUEST['email_address'];
@@ -34,46 +34,6 @@
 		$mhphone = $_REQUEST['mhphone'];
 		$mwphone = $_REQUEST['mwphone'];
 		$mcphone = $_REQUEST['mcphone'];
-		$mtype = $_POST['mtype'];
-		$mage = $_POST['mage'];
-		
-		if ($mage == 're')
-		{
-			$memberage = "Regular";
-		}
-		else if ($mage == 'se')
-		{
-			$memberage = "Senior";
-		}
-		else if ($mage == 'st')
-		{
-			$memberage = "Student";
-		}
-		else
-		{
-			$memberage = "N/A";
-		}
-		
-		if ($mtype == 'ind') {
-			$membertype = "Individual" . $membercontents;
-		}
-		else if ($mtype == 'fam')
-		{
-			$mfname1 = $_REQUEST['mfname1'];
-			$mfname2 = $_REQUEST['mfname2'];
-			$mfname3 = $_REQUEST['mfname3'];
-			$mfname4 = $_REQUEST['mfname4'];
-			$mfname5 = $_REQUEST['mfname5'];
-			$mfname6 = $_REQUEST['mfname6'];
-			$membercontents = "\nNames of other family members: " . $mfname1 . "\n" . $mfname2 . "\n" . $mfname3 
-			. "\n" . $mfname4 . "\n" . $mfname5 . "\n" . $mfname6 . "\n";
-			$membertype = "Family" . $membercontents;
-		}
-		else
-		{
-			$membertype = "N/A" . $membercontents;
-		}
-		
 	}
 	else
 	{
@@ -137,7 +97,7 @@
 		$course4 = implode(", ", $courses4);
     }
 	
-	$subject = "Registration Request From " . $email_address;
+	$subject = "Registration Request";
 	$content = 
 	"Class Registration Request by " . $email_address
 	 . "\n\nCCANB Membership Registration\nMembership Registration: " . $registration
@@ -145,8 +105,6 @@
 	 . "\nAddress: " . $maddr
 	 . "\nPostal Code: " . $mpcode
 	 . "\nTelephone Number:\n(Home): " . $mhphone . "\n(Work/Office)" . $mwphone . "\n(Cell): " . $mcphone
-	 . "\nType of Membership: " . $membertype
-	 . "\nAge Category: " . $memberage
 
 	 . "\n\nClass Registration\nStudent Name: " . $sname1
 	 . "\nDate of Birth (yyyy/mm/dd): " . $sbirth1
@@ -181,6 +139,7 @@
 	 . "\nGuardians Names (if the student is not an adult): " . $sgname4
 	 . "\nThe courses selected: " . $course4
 	 . "\n\nThe Total Price is: " . $price
+
 	;
 	
 	// If the user tries to access this script directly, redirect them to feedback form,
@@ -189,13 +148,13 @@
 	}
 	
 	// If the form fields are empty, redirect to the error page.
-	elseif (empty($email_address) || empty($sname1)) {
-	header( "Location: ../index.html?path=chineseschool/error_registration.html" );
+	elseif (empty($email_address) || empty($student_name)) {
+	header( "Location: ../index.html?path=aboutus/error_registration.html" );
 	}
 	
 	// If email injection is detected, redirect to the error page.
 	elseif ( isInjected($email_address) ) {
-	header( "Location: ../index.html?path=chineseschool/error_registration.html" );
+	header( "Location: ../index.html?path=aboutus/error_registration.html" );
 	}
 	
 	// If we passed all previous tests, send the email!
