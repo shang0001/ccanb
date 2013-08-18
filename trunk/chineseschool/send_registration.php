@@ -31,9 +31,10 @@
 */
 	// Load form field data into variables.
 	global $membercontents;
+	global $price, $price1, $price2, $price3, $price4, $memprice;
 	$course1 = $course2 = $course3 = $course4 = $membercontents = '';
-	$price = 0;
-	$courseprice = array(110, 60, 110, 60);
+	$price = $price1 = $price2 = $price3 = $price4 = $memprice = 0;
+	$courseprice = array('Language' => 110, 'Child/Youth Dance' => 60, 'Adult Dance' => 110, 'Math' => 60);
 	$email_address = $_REQUEST['email_address'];
 	if (isset($_POST['member']))
 	{
@@ -47,28 +48,43 @@
 		$mtype = $_POST['mtype'];
 		$mage = $_POST['mage'];
 		
-		if ($mage == 're')
-		{
-			$memberage = "Regular";
-		}
-		else if ($mage == 'se')
-		{
-			$memberage = "Senior";
-		}
-		else if ($mage == 'st')
-		{
-			$memberage = "Student";
-		}
-		else
-		{
-			$memberage = "N/A";
-		}
-		
 		if ($mtype == 'ind') {
+			if ($mage == 're')
+			{
+				$memberage = "Regular";
+				$memprice = 15;
+			}
+			else if ($mage == 'se')
+			{
+				$memberage = "Senior";
+				$memprice = 10;
+			}
+			else if ($mage == 'st')
+			{
+				$memberage = "Student";
+				$memprice = 5;
+			}
+			
 			$membertype = "Individual" . $membercontents;
 		}
 		else if ($mtype == 'fam')
 		{
+			if ($mage == 're')
+			{
+				$memberage = "Regular";
+				$memprice = 25;
+			}
+			else if ($mage == 'se')
+			{
+				$memberage = "Senior";
+				$memprice = 25;
+			}
+			else if ($mage == 'st')
+			{
+				$memberage = "Student";
+				$memprice = 10;
+			}
+			
 			$mfname1 = $_REQUEST['mfname1'];
 			$mfname2 = $_REQUEST['mfname2'];
 			$mfname3 = $_REQUEST['mfname3'];
@@ -129,23 +145,61 @@
 
     if(isset($_POST['courses1'])){
         $courses1 = $_POST['courses1'];
+        foreach ($courses1 as $value)
+        {
+        	$price1 = $price1 + $courseprice[$value];
+        }
+        
+        if ((in_array("Language", $courses1) && in_array("Child/Youth Dance", $courses1)) || (in_array("Language", $courses1) && in_array("Adult Dance", $courses1)) ) {
+        	$price1 = $price1 - 10;
+        }
 		$course1 = implode(", ", $courses1);
     }
 
     if(isset($_POST['courses2'])){
         $courses2 = $_POST['courses2'];
+        foreach ($courses2 as $value)
+        {
+        	$price2 = $price2 + $courseprice[$value];
+        }
+        
+        if ((in_array("Language", $courses2) && in_array("Child/Youth Dance", $courses2)) || (in_array("Language", $courses2) && in_array("Adult Dance", $courses2)) ) {
+        	$price2 = $price2 - 10;
+        }
+        $price2 = $price2 * 0.9;
 		$course2 = implode(", ", $courses2);
     }
 
     if(isset($_POST['courses3'])){
         $courses3 = $_POST['courses3'];
+		foreach ($courses3 as $value)
+		{
+			$price3 = $price3 + $courseprice[$value];
+		}
+		
+		if ((in_array("Language", $courses3) && in_array("Child/Youth Dance", $courses3)) || (in_array("Language", $courses3) && in_array("Adult Dance", $courses3)) ) {
+			$price3 = $price3 - 10;
+		}
+		$price3 = $price3 * 0.9;
 		$course3 = implode(", ", $courses3);
     }
 
     if(isset($_POST['courses4'])){
         $courses4 = $_POST['courses4'];
+		foreach ($courses4 as $value)
+		{
+			$price4 = $price4 + $courseprice[$value];
+		}
+		
+		if ((in_array("Language", $courses4) && in_array("Child/Youth Dance", $courses4)) || (in_array("Language", $courses4) && in_array("Adult Dance", $courses4)) ) {
+			$price4 = $price4 - 10;
+		}
+		$price4 = $price4 * 0.9;
 		$course4 = implode(", ", $courses4);
     }
+    
+    $price = $price1 + $price2 + $price3 + $price4;
+    $totalprice = $price + $memprice;
 	
 	$subject = "Registration Request From " . $email_address;
 	$content = 
@@ -190,7 +244,9 @@
 	 . "\nTelephone Number:\n(Home): " . $shphone4 . "\n(Office)" . $sophone4 . "\n(Emergencies): " . $sephone4
 	 . "\nGuardians Names (if the student is not an adult): " . $sgname4
 	 . "\nThe courses selected: " . $course4
-	 . "\n\nThe Total Price is: " . $price
+	 . "\n\nThe Membership Price is: " . $memprice
+	 . "\nThe Total Course Price is: " . $price
+	 . "\nThe Total Price is: " . $totalprice
 	;
 	
 	// If the user tries to access this script directly, redirect them to feedback form,
