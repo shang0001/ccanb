@@ -31,9 +31,9 @@
 */
 	// Load form field data into variables.
 	global $membercontents;
-	global $price, $price1, $price2, $price3, $price4, $memprice;
+	global $price, $price1, $price2, $price3, $price4, $memprice, $count;
 	$course1 = $course2 = $course3 = $course4 = $membercontents = '';
-	$price = $price1 = $price2 = $price3 = $price4 = $memprice = 0;
+	$price = $price1 = $price2 = $price3 = $price4 = $memprice = $count = 0;
 	$courseprice = array('Language' => 110, 'Child/Youth Dance' => 60, 'Adult Dance' => 110, 'Math' => 60);
 	$email_address = $_REQUEST['email_address'];
 	if (isset($_POST['member']))
@@ -148,6 +148,7 @@
         foreach ($courses1 as $value)
         {
         	$price1 = $price1 + $courseprice[$value];
+        	$count = $count + 1;
         }
         
         if ((in_array("Language", $courses1) && in_array("Child/Youth Dance", $courses1)) || (in_array("Language", $courses1) && in_array("Adult Dance", $courses1)) ) {
@@ -161,6 +162,7 @@
         foreach ($courses2 as $value)
         {
         	$price2 = $price2 + $courseprice[$value];
+        	$count = $count + 1;
         }
         
         if ((in_array("Language", $courses2) && in_array("Child/Youth Dance", $courses2)) || (in_array("Language", $courses2) && in_array("Adult Dance", $courses2)) ) {
@@ -175,6 +177,7 @@
 		foreach ($courses3 as $value)
 		{
 			$price3 = $price3 + $courseprice[$value];
+			$count = $count + 1;
 		}
 		
 		if ((in_array("Language", $courses3) && in_array("Child/Youth Dance", $courses3)) || (in_array("Language", $courses3) && in_array("Adult Dance", $courses3)) ) {
@@ -189,6 +192,7 @@
 		foreach ($courses4 as $value)
 		{
 			$price4 = $price4 + $courseprice[$value];
+			$count = $count + 1;
 		}
 		
 		if ((in_array("Language", $courses4) && in_array("Child/Youth Dance", $courses4)) || (in_array("Language", $courses4) && in_array("Adult Dance", $courses4)) ) {
@@ -197,8 +201,15 @@
 		$price4 = $price4 * 0.9;
 		$course4 = implode(", ", $courses4);
     }
-    
+
     $price = $price1 + $price2 + $price3 + $price4;
+    
+    // $10 off if they are a member for registration
+    if (isset($_POST['member']))
+    {
+    	$price = $price - 10 * $count;
+    }
+    
     $totalprice = $price + $memprice;
 	
 	$subject = "Registration Request From " . $email_address;
@@ -220,7 +231,7 @@
 	 . "\nTelephone Number:\n(Home): " . $shphone1 . "\n(Office)" . $sophone1 . "\n(Emergencies): " . $sephone1
 	 . "\nGuardians Names (if the student is not an adult): " . $sgname1
 	 . "\nThe courses selected: " . $course1
-	 . "\nnStudent Name: " . $sname2
+	 . "\n\nStudent Name: " . $sname2
 	 . "\nDate of Birth (yyyy/mm/dd): " . $sbirth2
 	 . "\nMedicare Number: " . $smum2
 	 . "\nAddress: " . $saddr2
@@ -228,7 +239,7 @@
 	 . "\nTelephone Number:\n(Home): " . $shphone2 . "\n(Office)" . $sophone2 . "\n(Emergencies): " . $sephone2
 	 . "\nGuardians Names (if the student is not an adult): " . $sgname2
 	 . "\nThe courses selected: " . $course2
-	 . "\n\nClass Registration\nStudent Name: " . $sname3
+	 . "\n\nStudent Name: " . $sname3
 	 . "\nDate of Birth (yyyy/mm/dd): " . $sbirth3
 	 . "\nMedicare Number: " . $smum3
 	 . "\nAddress: " . $saddr3
@@ -236,7 +247,7 @@
 	 . "\nTelephone Number:\n(Home): " . $shphone3 . "\n(Office)" . $sophone3 . "\n(Emergencies): " . $sephone3
 	 . "\nGuardians Names (if the student is not an adult): " . $sgname3
 	 . "\nThe courses selected: " . $course3
-	 . "\n\nClass Registration\nStudent Name: " . $sname4
+	 . "\n\nStudent Name: " . $sname4
 	 . "\nDate of Birth (yyyy/mm/dd): " . $sbirth4
 	 . "\nMedicare Number: " . $smum4
 	 . "\nAddress: " . $saddr4
@@ -275,6 +286,7 @@
 	// If we passed all previous tests, send the email!
 	else {
 		mail( "chineseschool@ccanb.ca", $subject, $content, "From: $email_address" );
+		mail( $email_address, $subject, $content, "From: admin@ccanb.ca" );
 		header( "Location: ../index.html?path=chineseschool/complete_registration.html" );
 	}
 ?>

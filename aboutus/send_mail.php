@@ -41,7 +41,7 @@
 	
 	// If we passed all previous tests, send the email!
 	else {
-	mail( "admin@ccanb.ca", $subject, $comments, "From: $email_address" );
+	mail( "ccanb@ccanb.ca", $subject, $comments, "From: $email_address" );
 	header( "Location: ../index.html?path=aboutus/thankyou.html" );
 	}
 ?>
