@@ -1,14 +1,65 @@
-<?php
-	$email_address = $_REQUEST['email_address'];
-?>
 <div class="post">
+	<?php
+	$course1 = $course2 = $course3 = $course4 = '';
+	$price = 0;
+	$price = $price + 10;
+	$courseprice = array(110, 60, 110, 60);
+	$email_address = $_REQUEST['email_address'];
+	$membership = $_REQUEST['membership'];
+	$sname1 = $_REQUEST['sname1'];
+	$sbirth1 = $_REQUEST['sbirth1'];
+	$saddr1 = $_REQUEST['saddr1'];
+	$spcode1 = $_REQUEST['spcode1'];
+	$shphone1 = $_REQUEST['shphone1'];
+	$sophone1 = $_REQUEST['sophone1'];
+	$sephone1 = $_REQUEST['sephone1'];
+	$sname2 = $_REQUEST['sname2'];
+	$sbirth2 = $_REQUEST['sbirth2'];
+	$saddr2 = $_REQUEST['saddr2'];
+	$spcode2 = $_REQUEST['spcode2'];
+	$shphone2 = $_REQUEST['shphone2'];
+	$sophone2 = $_REQUEST['sophone12'];
+	$sephone2 = $_REQUEST['sephone2'];
+	$sname3 = $_REQUEST['sname3'];
+	$sbirth3 = $_REQUEST['sbirth3'];
+	$saddr3 = $_REQUEST['saddr3'];
+	$spcode3 = $_REQUEST['spcode3'];
+	$shphone3 = $_REQUEST['shphone3'];
+	$sophone3 = $_REQUEST['sophone3'];
+	$sephone3 = $_REQUEST['sephone3'];
+	$sname4 = $_REQUEST['sname4'];
+	$sbirth4 = $_REQUEST['sbirth4'];
+	$saddr4 = $_REQUEST['saddr4'];
+	$spcode4 = $_REQUEST['spcode4'];
+	$shphone4 = $_REQUEST['shphone4'];
+	$sophone4 = $_REQUEST['sophone4'];
+
+    if(isset($_POST['courses1'])){
+        $courses1 = $_POST['courses1'];
+		$course1 = implode(",", $courses1);
+    }
+
+    if(isset($_POST['courses2'])){
+        $courses2 = $_POST['courses2'];
+		$course2 = implode(",", $courses2);
+    }
+
+    if(isset($_POST['courses3'])){
+        $courses3 = $_POST['courses3'];
+		$course3 = implode(",", $courses3);
+    }
+
+    if(isset($_POST['courses4'])){
+        $courses4 = $_POST['courses4'];
+		$course4 = implode(",", $courses4);
+    }
+	?>
     <form id="registrationConfirmation" name="confirmationform" action="chineseschool/send_registration.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return checkform()">
         <h2 class="title">CCANB Membership & Chinese School Registration Confirmation</h2>
         
-        <h4>Please Enter your Email Address:</h4>
         <div class="entry">
             <p>
-                E-mail Address: 
+                E-mail Address: <?php echo $email_address ?>
             </p>
         </div>
 
@@ -67,178 +118,97 @@
         </div>
 
         <h4>Class Registration:</h4>
+            <p>
+				Student Name: <?php echo $sname1 ?>
+				<br />
+                Date of Birth (<span>yyyy/mm/dd</span>): <?php echo $sbirth1; ?>
+                <br />
+                Medicare Number: <?php echo $smnum1; ?>
+               	<br />
+                Address: <?php echo $saddr1; ?>
+               	<br />
+                Postal Code: <?php echo $spcode1; ?>
+               	<br />
+                Telephone: (Home) <?php echo $shphone1; ?>
+                (Office) <?php echo $sophone1; ?>
+                (For Emergencies) <?php echo $sephone1; ?>
+           		<br />
+                Guardians Names (if the student is not an adult): <?php echo $sgname1; ?>
+            </p>
+            <p>
+				The courses selected: <?php echo $course1; ?>
+            </p>
 
-        <div class="entry" id="student1">
             <p>
-                <span lang="EN-US">Student Name:
-                <input type="text" size="40" name="sname1"><br />
-                    Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
-                <input type="text" name="sbirth1"><br />
-                    Medicare Number:
-                <input type="text" size="9" name="smnum1"><br />
-                    Address:
-                <input type="text" size="60" name="saddr1"><br />
-                    Postal Code:
-                <input type="text" size="7" name="spcode1"><br />
-                    Telephone: (Home)
-                <input type="text" name="shphone1">
-                    (Office)
-                <input type="text" name="sophone1">
-                    (For Emergencies)
-                <input type="text" name="sephone1"><br />
-                    Guardians Names (if the student is not an adult):
-                <input type="text" size="40" name="sgname1"></span>
+				Student Name: <?php echo $sname2; ?>
+				<br />
+                Date of Birth (<span>yyyy/mm/dd</span>): <?php echo $sbirth2; ?>
+                <br />
+                Medicare Number: <?php echo $smnum2; ?>
+               	<br />
+                Address: <?php echo $saddr2; ?>
+               	<br />
+                Postal Code: <?php echo $spcode2; ?>
+               	<br />
+                Telephone: (Home) <?php echo $shphone2; ?>
+                (Office) <?php echo $sophone2; ?>
+                (For Emergencies) <?php echo $sephone2; ?>
+           		<br />
+                Guardians Names (if the student is not an adult): <?php echo $sgname2; ?>
             </p>
             <p>
-                COURSE SELECTIONS
-            <br />
-                Language:
-            <input type="checkbox" name="lang1" value="year">full year ($110)
-            <br />
-                Child/Youth Dance:
-            <input type="checkbox" name="childDance1" value="year">full year ($60)
-            <br />
-                Adult Dance:
-            <input type="checkbox" name="adultDance1" value="year">full year ($110)
-            <br />
-                Math:
-            <input type="checkbox" name="math1" value="year">full year ($60)
-            <br />
-                *$10 off for taking a recreation course as well as a language course<br />
-                <input type="checkbox" checked="checked" name="discount1" value="no">This is my first student/child registration 
-                
+				The courses selected: <?php echo $course2; ?>
             </p>
-        </div>
 
-        <div class="entry hidden" id="student2">
             <p>
-                <span lang="EN-US">Student Name:
-                <input type="text" size="40" name="sname2"><br />
-                    Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
-                <input type="text" name="sbirth2"><br />
-                    Medicare Number:
-                <input type="text" size="9" name="smnum2"><br />
-                    Address:
-                <input type="text" size="60" name="saddr2"><br />
-                    Postal Code:
-                <input type="text" size="7" name="spcode2"><br />
-                    Telephone: (Home)
-                <input type="text" name="shphone2">(Office)
-                <input type="text" name="sophone2">(For Emergencies)
-                <input type="text" name="sephone2"><br />
-                    Guardians Names (if the student is not an adult):
-                <input type="text" size="40" name="sgname2"></span>
+				Student Name: <?php echo $sname3; ?>
+				<br />
+                Date of Birth (<span>yyyy/mm/dd</span>): <?php echo $sbirth3; ?>
+                <br />
+                Medicare Number: <?php echo $smnum3; ?>
+               	<br />
+                Address: <?php echo $saddr3; ?>
+               	<br />
+                Postal Code: <?php echo $spcode3; ?>
+               	<br />
+                Telephone: (Home) <?php echo $shphone3; ?>
+                (Office) <?php echo $sophone3; ?>
+                (For Emergencies) <?php echo $sephone3; ?>
+              	<br />
+                Guardians Names (if the student is not an adult): <?php echo $sgname3; ?>
             </p>
             <p>
-                COURSE SELECTIONS
-            <br />
-                Language:
-            <input type="checkbox" name="lang2" value="year">full year ($110)
-            <br />
-                Child/Youth Dance:
-            <input type="checkbox" name="childDance2" value="year">full year ($60)
-            <br />
-                Adult Dance:
-            <input type="checkbox" name="adultDance2" value="year" onclick="onClick_AdultCourse(this, 'discount2_yes')">full year ($110)
-            <br />
-                Math:
-            <input type="checkbox" name="math2" value="year">full year ($60)
-            <br />
-                *$10 off for taking a recreation course as well as a language course<br />
-                <input type="checkbox" checked="checked" name="discount2" value="yes" id="discount2_yes" />This is my additional student/child registration (10% off)
+				The courses selected: <?php echo $course3; ?>
             </p>
-        </div>
 
-        <div class="entry hidden" id="student3">
             <p>
-                Student Name:
-            <input type="text" size="40" name="sname3"><br />
-                Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
-            <input type="text" name="sbirth3"><br />
-                Medicare Number:
-            <input type="text" size="9" name="smnum3"><br />
-                Address:
-            <input type="text" size="60" name="saddr3"><br />
-                Postal Code:
-            <input type="text" size="7" name="spcode3"><br />
-                Telephone: (Home)
-            <input type="text" name="shphone3">
-                (Office)
-            <input type="text" name="sophone3">(For Emergencies)
-            <input type="text" name="sephone3"><br />
-                Guardians Names (if the student is not an adult):
-            <input type="text" size="40" name="sgname3">
+				Student Name: <?php echo $sname4; ?>
+				<br />
+                Date of Birth (<span class="SpellE">yyyy/mm/dd</span>): <?php echo $sbirth4; ?>
+                <br />
+                Medicare Number: <?php echo $smnum4; ?>
+               	<br />
+                Address: <?php echo $saddr4; ?>
+               	<br />
+                Postal Code: <?php echo $spcode4; ?>
+               	<br />
+                Telephone: (Home) <?php echo $shphone4; ?>
+                (Office) <?php echo $sophone4; ?>
+                (For Emergencies) <?php echo $sephone4; ?>
+           		<br />
+                Guardians Names (if the student is not an adult): <?php echo $sgname4; ?>
             </p>
             <p>
-                COURSE SELECTIONS
-            <br />
-                Language:
-            <input type="checkbox" name="lang3" value="year">full year ($110)
-            <br />
-                Child/Youth Dance:
-            <input type="checkbox" name="childDance3" value="year">full year ($60)
-            <br />
-                Adult Dance:
-            <input type="checkbox" name="adultDance3" value="year" onclick="onClick_AdultCourse(this, 'discount3_yes')">full year ($110)
-            <br />
-                Math:
-            <input type="checkbox" name="math3" value="year">full year ($60)
-            <br />
-                *$10 off for taking a recreation course as well as a language course<br />
-                <input type="checkbox" checked="checked" value="yes" id="discount3_yes">This is my additional student/child registration (10% off)
+				The courses selected: <?php echo $course4; ?>        
             </p>
-        </div>
-
-        <div class="entry hidden" id="student4">
+            
             <p>
-                Student Name:
-            <input type="text" size="40" name="sname4"><br />
-                Date of Birth (<span class="SpellE">yyyy/mm/dd</span>):
-            <input type="text" name="sbirth4"><br />
-                Medicare Number:
-            <input type="text" size="9" name="smnum4"><br />
-                Address:
-            <input type="text" size="60" name="saddr4"><br />
-                Postal Code:
-            <input type="text" size="7" name="spcode4"><br />
-                Telephone: (Home)
-            <input type="text" name="shphone4">
-                (Office)
-            <input type="text" name="sophone4">(For Emergencies)
-            <input type="text" name="sephone4"><br />
-                Guardians Names (if the student is not an adult):
-            <input type="text" size="40" name="sgname4">
+            	The Total Price is: <?php echo $price; ?>
             </p>
-            <p>
-                COURSE SELECTIONS
-            <br />
-                Language:
-            <input type="checkbox" name="lang4" value="year">full year ($110)
-            <br />
-                Child/Youth Dance:
-            <input type="checkbox" name="childDance4" value="year">full year ($60)
-            <br />
-                Adult Dance:
-            <input type="checkbox" name="adultDance4" value="year" onclick="onClick_AdultCourse(this, 'discount4_yes')">full year ($110)
-            <br />
-                Math:
-            <input type="checkbox" name="math4" value="year">full year ($60)
-            <br />
-                *$10 off for taking a recreation course as well as a language course<br />
-                <input type="checkbox" checked="checked" name="discount4" value="yes" id="discount4_yes">This is my additional student/child registration (10% off)
-            </p>
-        </div>
 
-        <input id="Button1" type="button" value="More Student? Maximum 4" onclick="moreStudentOnClick(this)" />
-
-        <p>
-            Special programs: schedule and fee will be announced timely.
-        </p>
-
-        <p>
-            <br />
-            <input type="submit" value="Submit" />
-            <input type="reset" value="Clear" />
-        </p>
+	        <p>
+	            <br />
+	            <input type="submit" value="Confirm" />
+	        </p>
     </form>
 </div>
