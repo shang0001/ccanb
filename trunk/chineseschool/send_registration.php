@@ -18,7 +18,17 @@
 			return false;
 		}
 	}
-	
+
+/*
+	function VerifyMailAddress($address)
+	{
+		$Syntax='#^[w.-]+@[w.-]+.[a-zA-Z]{2,5}$#';
+		if(preg_match($Syntax,$address))
+			return true;
+		else
+			return false;
+	}
+*/
 	// Load form field data into variables.
 	global $membercontents;
 	$course1 = $course2 = $course3 = $course4 = $membercontents = '';
@@ -185,22 +195,30 @@
 	
 	// If the user tries to access this script directly, redirect them to feedback form,
 	if (!isset($_REQUEST['email_address'])) {
-	header( "Location: ../index.html?path=chineseschool/registration.html" );
+		header( "Location: ../index.html?path=chineseschool/registration.html" );
 	}
 	
 	// If the form fields are empty, redirect to the error page.
 	elseif (empty($email_address) || empty($sname1)) {
-	header( "Location: ../index.html?path=chineseschool/error_registration.html" );
+		header( "Location: ../index.html?path=chineseschool/error_registration.html" );
 	}
 	
 	// If email injection is detected, redirect to the error page.
 	elseif ( isInjected($email_address) ) {
-	header( "Location: ../index.html?path=chineseschool/error_registration.html" );
+		header( "Location: ../index.html?path=chineseschool/error_registration.html" );
+	}
+	
+//	elseif ( !VerifyMailAddress($email_address) ){
+//		header( "Location: ../index.html?path=chineseschool/error_registration.html" );
+//	}
+	
+	elseif ( !filter_var($email_address, FILTER_VALIDATE_EMAIL) ){
+		header( "Location: ../index.html?path=chineseschool/error_registration.html" );
 	}
 	
 	// If we passed all previous tests, send the email!
 	else {
-	mail( "chineseschool@ccanb.ca", $subject, $content, "From: $email_address" );
-	header( "Location: ../index.html?path=chineseschool/complete_registration.html" );
+		mail( "chineseschool@ccanb.ca", $subject, $content, "From: $email_address" );
+		header( "Location: ../index.html?path=chineseschool/complete_registration.html" );
 	}
 ?>
