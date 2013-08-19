@@ -147,7 +147,7 @@
 			$coursecount = $row['coursecount'];
 		}
 		
-		mysqli_query($con,"INSERT INTO membership ( email, mname, address, postalcode, hphone, ophone, cphone, membertype, fname1, fname2, fname3, fname4, fname5, fname6, memberage, memberprice)
+		mysqli_query($con,"INSERT INTO membership (email, mname, address, postalcode, hphone, ophone, cphone, membertype, fname1, fname2, fname3, fname4, fname5, fname6, memberage, memberprice)
 		VALUES ($email_address, $mname, $maddr, $mpcode, $mhphone, $mwphone, $mcphone, $memtype, $mfname1, $mfname2, $mfname3, $mfname4, $mfname5, $mfname6, $memberage, $memprice)");
 		
 		if ($coursecount > 0)

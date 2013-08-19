@@ -236,25 +236,25 @@
 
 		}
 		
-		mysqli_query($con,"INSERT INTO courseregistration (sname, email, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
-				VALUES ($sname1, $email_address, $sbirth1, $smum1, $saddr1, $spcode1, $shphone1, $sophone1, $sephone1, $sgname1, $course1, $price1, $registration, $mid)");
+		mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
+				VALUES ($email_address, $sname1, $sbirth1, $smum1, $saddr1, $spcode1, $shphone1, $sophone1, $sephone1, $sgname1, $course1, $price1, $registration, $mid)");
 		
 		if (isset($sname2))
 		{
-			mysqli_query($con,"INSERT INTO courseregistration (sname, email, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
-					VALUES ($sname2, $email_address, $sbirth2, $smum2, $saddr2, $spcode2, $shphone2, $sophone2, $sephone2, $sgname2, $course2, $price2, $registration, $mid)");
+			mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
+					VALUES ($email_address, $sname2, $sbirth2, $smum2, $saddr2, $spcode2, $shphone2, $sophone2, $sephone2, $sgname2, $course2, $price2, $registration, $mid)");
 		}
 		
 		if (isset($sname3))
 		{
-			mysqli_query($con,"INSERT INTO courseregistration (sname, email, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
-					VALUES ($sname3, $email_address, $sbirth3, $smum3, $saddr3, $spcode3, $shphone3, $sophone3, $sephone3, $sgname3, $course3, $price3, $registration, $mid)");
+			mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
+					VALUES ($email_address, $sname3, $sbirth3, $smum3, $saddr3, $spcode3, $shphone3, $sophone3, $sephone3, $sgname3, $course3, $price3, $registration, $mid)");
 		}
 		
 		if (isset($sname4))
 		{
-			mysqli_query($con,"INSERT INTO courseregistration (sname, email, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
-					VALUES ($sname4, $email_address, $sbirth4, $smum4, $saddr4, $spcode4, $shphone4, $sophone4, $sephone4, $sgname4, $course4, $price4, $registration, $mid)");;
+			mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
+					VALUES ($email_address, $sname4, $sbirth4, $smum4, $saddr4, $spcode4, $shphone4, $sophone4, $sephone4, $sgname4, $course4, $price4, $registration, $mid)");;
 		}
 		
 		mysqli_close($con);
