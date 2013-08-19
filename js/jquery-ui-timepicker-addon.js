@@ -356,6 +356,8 @@
 				l = 0;
 
 			// Prevent displaying twice
+			// override default timezone value
+			// this.timezone = o.timezone;
 			if ($dp.find("div.ui-timepicker-div").length === 0 && o.showTimepicker) {
 				var noDisplay = ' style="display:none;"',
 					html = '<div class="ui-timepicker-div' + (o.isRTL ? ' ui-timepicker-rtl' : '') + '"><dl>' + '<dt class="ui_tpicker_time_label"' + ((o.showTime) ? '' : noDisplay) + '>' + o.timeText + '</dt>' +
