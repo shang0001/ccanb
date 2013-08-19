@@ -30,7 +30,7 @@
 	}
 */
 	// Load form field data into variables.
-	global $price, $price1, $price2, $price3, $price4, $count, $registration, $mid;
+	global $price, $price1, $price2, $price3, $price4, $course1, $course2, $course3, $course4, $count, $registration, $mid;
 	$course1 = $course2 = $course3 = $course4 = '';
 	$price = $price1 = $price2 = $price3 = $price4 = $registration = $count = $mid = 0;
 	$courseprice = array('Language' => 110, 'Child/Youth Dance' => 60, 'Adult Dance' => 110, 'Math' => 60);
