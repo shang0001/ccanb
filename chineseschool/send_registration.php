@@ -30,83 +30,21 @@
 	}
 */
 	// Load form field data into variables.
-	global $membercontents;
-	global $price, $price1, $price2, $price3, $price4, $memprice, $count;
-	$course1 = $course2 = $course3 = $course4 = $membercontents = '';
-	$price = $price1 = $price2 = $price3 = $price4 = $memprice = $count = 0;
+	global $price, $price1, $price2, $price3, $price4, $count, $registration, $mid;
+	$course1 = $course2 = $course3 = $course4 = '';
+	$price = $price1 = $price2 = $price3 = $price4 = $registration = $count = $mid = 0;
 	$courseprice = array('Language' => 110, 'Child/Youth Dance' => 60, 'Adult Dance' => 110, 'Math' => 60);
 	$email_address = $_REQUEST['email_address'];
-	if (isset($_POST['member']))
+	$member = $_POST['member'];
+	if ( $member == 'registermem' || $member == 'memyes' )
 	{
-		$registration = 'yes';
-		$mname = $_REQUEST['mname'];
-		$maddr = $_REQUEST['maddr'];
-		$mpcode = $_REQUEST['mpcode'];
-		$mhphone = $_REQUEST['mhphone'];
-		$mwphone = $_REQUEST['mwphone'];
-		$mcphone = $_REQUEST['mcphone'];
-		$mtype = $_POST['mtype'];
-		$mage = $_POST['mage'];
-		
-		if ($mtype == 'ind') {
-			if ($mage == 're')
-			{
-				$memberage = "Regular";
-				$memprice = 15;
-			}
-			else if ($mage == 'se')
-			{
-				$memberage = "Senior";
-				$memprice = 10;
-			}
-			else if ($mage == 'st')
-			{
-				$memberage = "Student";
-				$memprice = 5;
-			}
-			
-			$membertype = "Individual" . $membercontents;
-		}
-		else if ($mtype == 'fam')
-		{
-			if ($mage == 're')
-			{
-				$memberage = "Regular";
-				$memprice = 25;
-			}
-			else if ($mage == 'se')
-			{
-				$memberage = "Senior";
-				$memprice = 25;
-			}
-			else if ($mage == 'st')
-			{
-				$memberage = "Student";
-				$memprice = 10;
-			}
-			
-			$mfname1 = $_REQUEST['mfname1'];
-			$mfname2 = $_REQUEST['mfname2'];
-			$mfname3 = $_REQUEST['mfname3'];
-			$mfname4 = $_REQUEST['mfname4'];
-			$mfname5 = $_REQUEST['mfname5'];
-			$mfname6 = $_REQUEST['mfname6'];
-			$membercontents = "\nNames of other family members: " . $mfname1 . "\n" . $mfname2 . "\n" . $mfname3 
-			. "\n" . $mfname4 . "\n" . $mfname5 . "\n" . $mfname6 . "\n";
-			$membertype = "Family" . $membercontents;
-		}
-		else
-		{
-			$membertype = "N/A" . $membercontents;
-		}
-		
+		$membership = 'Yes';
 	}
-	else
+	else if ( $member == 'memno' )
 	{
-		$registration = 'no';
+		$membership = 'No';
 	}
 
-	$membership = $_REQUEST['membership'];
 	$sname1 = $_REQUEST['sname1'];
 	$sbirth1 = $_REQUEST['sbirth1'];
 	$smum1 = $_REQUEST['smum1'];
@@ -143,7 +81,7 @@
 	$sophone4 = $_REQUEST['sophone4'];
 	$sgname4 = $_REQUEST['sgname4'];
 
-    if(isset($_POST['courses1'])){
+    if (isset($_POST['courses1'])){
         $courses1 = $_POST['courses1'];
         foreach ($courses1 as $value)
         {
@@ -157,7 +95,7 @@
 		$course1 = implode(", ", $courses1);
     }
 
-    if(isset($_POST['courses2'])){
+    if (isset($_POST['courses2'])){
         $courses2 = $_POST['courses2'];
         foreach ($courses2 as $value)
         {
@@ -172,7 +110,7 @@
 		$course2 = implode(", ", $courses2);
     }
 
-    if(isset($_POST['courses3'])){
+    if (isset($_POST['courses3'])){
         $courses3 = $_POST['courses3'];
 		foreach ($courses3 as $value)
 		{
@@ -187,7 +125,7 @@
 		$course3 = implode(", ", $courses3);
     }
 
-    if(isset($_POST['courses4'])){
+    if (isset($_POST['courses4'])){
         $courses4 = $_POST['courses4'];
 		foreach ($courses4 as $value)
 		{
@@ -205,24 +143,15 @@
     $price = $price1 + $price2 + $price3 + $price4;
     
     // $10 off if they are a member for registration
-    if (isset($_POST['member']))
+    if ( $membership == 'yes')
     {
     	$price = $price - 10 * $count;
     }
-    
-    $totalprice = $price + $memprice;
 	
 	$subject = "Registration Request From " . $email_address;
 	$content = 
 	"Class Registration Request by " . $email_address
-	 . "\n\nCCANB Membership Registration\nMembership Registration: " . $registration
-	 . "\nName: " . $mname
-	 . "\nAddress: " . $maddr
-	 . "\nPostal Code: " . $mpcode
-	 . "\nTelephone Number:\n(Home): " . $mhphone . "\n(Work/Office)" . $mwphone . "\n(Cell): " . $mcphone
-	 . "\nType of Membership: " . $membertype
-	 . "\nAge Category: " . $memberage
-
+	 . "\n\nCCANB Membership: " . $membership
 	 . "\n\nClass Registration\nStudent Name: " . $sname1
 	 . "\nDate of Birth (yyyy/mm/dd): " . $sbirth1
 	 . "\nMedicare Number: " . $smum1
@@ -255,9 +184,7 @@
 	 . "\nTelephone Number:\n(Home): " . $shphone4 . "\n(Office)" . $sophone4 . "\n(Emergencies): " . $sephone4
 	 . "\nGuardians Names (if the student is not an adult): " . $sgname4
 	 . "\nThe courses selected: " . $course4
-	 . "\n\nThe Membership Price is: " . $memprice
-	 . "\nThe Total Course Price is: " . $price
-	 . "\nThe Total Price is: " . $totalprice
+	 . "\n\nThe Total Course Price is: " . $price
 	;
 	
 	// If the user tries to access this script directly, redirect them to feedback form,
@@ -266,12 +193,12 @@
 	}
 	
 	// If the form fields are empty, redirect to the error page.
-	elseif (empty($email_address) || empty($sname1)) {
+	else if (empty($email_address) || empty($sname1)) {
 		header( "Location: ../index.html?path=chineseschool/error_registration.html" );
 	}
 	
 	// If email injection is detected, redirect to the error page.
-	elseif ( isInjected($email_address) ) {
+	else if ( isInjected($email_address) ) {
 		header( "Location: ../index.html?path=chineseschool/error_registration.html" );
 	}
 	
@@ -279,14 +206,67 @@
 //		header( "Location: ../index.html?path=chineseschool/error_registration.html" );
 //	}
 	
-	elseif ( !filter_var($email_address, FILTER_VALIDATE_EMAIL) ){
+	else if ( !filter_var($email_address, FILTER_VALIDATE_EMAIL) ){
 		header( "Location: ../index.html?path=chineseschool/error_registration.html" );
 	}
 	
 	// If we passed all previous tests, send the email!
 	else {
+		// Create connection
+		$con=mysqli_connect("ccanbca.ipagemysql.com","ccanb","ccanbadmin","ccanb");
+		
+		// Check connection
+		if (mysqli_connect_errno($con))
+		{
+			echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		}
+		
+		if ( $member == 'registermem')
+		{
+			$registration = 1;
+		}
+		else if ( $member == 'memyes' )
+		{
+			$registration = 1;
+			$result = mysqli_query($con,"SELECT id FROM membership where email = $email_address order by id desc limit 1");
+			while ($row = mysqli_fetch_array($result))
+			{
+				$mid = $row['id'];
+			}
+
+		}
+		
+		mysqli_query($con,"INSERT INTO courseregistration (sname, email, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
+				VALUES ($sname1, $email_address, $sbirth1, $smum1, $saddr1, $spcode1, $shphone1, $sophone1, $sephone1, $sgname1, $course1, $price1, $registration, $mid)");
+		
+		if (isset($sname2))
+		{
+			mysqli_query($con,"INSERT INTO courseregistration (sname, email, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
+					VALUES ($sname2, $email_address, $sbirth2, $smum2, $saddr2, $spcode2, $shphone2, $sophone2, $sephone2, $sgname2, $course2, $price2, $registration, $mid)");
+		}
+		
+		if (isset($sname3))
+		{
+			mysqli_query($con,"INSERT INTO courseregistration (sname, email, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
+					VALUES ($sname3, $email_address, $sbirth3, $smum3, $saddr3, $spcode3, $shphone3, $sophone3, $sephone3, $sgname3, $course3, $price3, $registration, $mid)");
+		}
+		
+		if (isset($sname4))
+		{
+			mysqli_query($con,"INSERT INTO courseregistration (sname, email, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
+					VALUES ($sname4, $email_address, $sbirth4, $smum4, $saddr4, $spcode4, $shphone4, $sophone4, $sephone4, $sgname4, $course4, $price4, $registration, $mid)");;
+		}
+		
+		mysqli_close($con);
+		
 		mail( "chineseschool@ccanb.ca", $subject, $content, "From: $email_address" );
 		mail( $email_address, $subject, $content, "From: admin@ccanb.ca" );
-		header( "Location: ../index.html?path=chineseschool/complete_registration.html" );
+		if ( $member == 'registermem' ){
+			header( "Location: ../index.html?path=ccanb/membership.html" );
+		}
+		else
+		{
+			header( "Location: ../index.html?path=chineseschool/complete_registration.html" );
+		}
 	}
 ?>

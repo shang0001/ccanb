@@ -4,27 +4,7 @@
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
-        $("#membership").hide();
-        $("#individual").click(function(){
-            $("#familymember").hide();
-        });
-
-        $("#family").click(function(){
-            $("#familymember").show();
-        });
     });
-	function onClick_ShowHide(sender, id, target)
-	{
-		var source = document.getElementById(id);
-	    if (source) {	
-	        if (sender.checked) {
-	        	$(target).show();
-	        }
-	        else {
-	        	$(target).hide();
-	        }
-	    }
-	}
 	
 	/*
 	function onClick_AdultCourse(sender, id) {
@@ -96,36 +76,13 @@
 	
 	    var form = document.getElementById("registrationForm");
 	
-	    var member = form.member;
-	    var mname = form.mname;
 	    var email = form.email_address;
 	    var sname = form.sname1;
 	    var birth1 = form.sbirth1;
 	    var birth2 = form.sbirth2;
 	    var birth3 = form.sbirth3;
 	    var birth4 = form.sbirth4;
-	    
-	    //var vols = form.vol;
-	    //var i = 0;
-	    //var volunteer = false;
-	
-	    //while (i < vols.length) {
-	    //    if (vols[i].checked) {
-	    //        volunteer = true;
-	    //        break;
-	    //    }
-	    //    i++;
-	    //}
-	
-	    var family = form.mtype[1];
-	    var mfname1 = form.mfname1;
-		/*	
-	    if (!member.checked) {
-	        alert('You must be a member.');
-	        member.focus();
-	        return false;
-	    }
-		*/
+
 		if (!email.value)
 		{
 	        alert('Please enter your email.');
@@ -174,58 +131,13 @@
     		birth4.focus();
     		return false;
     	}
-		
-		if (member.checked)
-		{
-		    if (!mname.value) {
-		        // something is wrong
-		        alert('Please enter your name.');
-		        mname.focus();
-		        return false;
-		    }
-		    else if (family.checked && !mfname1.value) {
-		        alert('Please enter your family member name(s).');
-		        mfname1.focus();
-		        return false;
-		    }
-		}
-	    //else if (!volunteer) {
-	    //    // something else is wrong
-	    //    alert('You must volunteer one activity or donate.');
-	    //    return false;
-	    //}
-	    // If the script gets this far through all of your fields
-	    // without problems, it's ok and you can submit the form
 	
 	    return true;
 	}
 </script>
 <div class="post">
     <form id="registrationForm" action="chineseschool/send_registration.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return checkform()">
-        <h2 class="title">CCANB Membership & Chinese School Registration</h2>
-
-        <div class="entry">
-            <p>
-                The online registration for 2012-2013 is available until Sept. 23, 2012.<br />
-                GENERAL INFORMATION:
-            <br />
-                CCANB membership will be registered for full year, from September 1st to August 31st of the following year. Membership is valid only when full registration is completed and membership fee is paid.
-            <br />
-                MEMBERSHIP FEES
-            <br />
-            </p>
-            Individuals<br />
-            <ol>
-                <li>Regular: $15.00</li>
-                <li>Seniors (age 65 and older): $10.00</li>
-                <li>Full-time university/college students: $5.00</li>
-            </ol>
-            Family membership (parents and children)<br />
-            <ol>
-                <li>Regular: $25.00</li>
-                <li>Parents are full-time university/college students: $10.00</li>
-            </ol>
-        </div>
+        <h2 class="title">CCANB Chinese School Registration</h2>
         
         <h4>Please Enter your Email Address:</h4>
         <div class="entry">
@@ -234,58 +146,17 @@
             </p>
         </div>
 
-        <h4>CCANB Membership Registration:</h4>
+        <h4>CCANB Membership:</h4>
 
         <div class="entry">
             <p>
-                <input id="membercheckbox" type="checkbox" name="member" value="yes" onclick="onClick_ShowHide(this, 'membercheckbox', '#membership')">Yes, I would like to be a member of CCANB:
+                <input type="radio" name="member" value="registermem" check="checked">Yes, I would like to be a member of CCANB:
+                <br />
+                <input type="radio" name="member" value="memyes" check="checked">No, I am already a member of CCANB:
+                <br />
+                <input type="radio" name="member" value="memno" check="checked">No, I would not like to be a member of CCANB:
+                
             </p>
-            <div id="membership">
-	            <p>
-	                Name: <input type="text" size="40" name="mname">
-	                <br />
-	                Address: <input type="text" size="80" name="maddr">
-	                <br />
-	                Postal Code: <input type="text" name="mpcode">
-	                <br />
-	                Telephone #:
-	                <br />
-	                (Home) <input type="text" name="mhphone">
-	                (Work/Office) <input type="text" name="mwphone">
-	                (Cell) <input type="text" name="mcphone">
-	                <!-- <br />
-	                E-mail Address:<input type="text" size="40" maxlength="150" name="memail"> -->
-	            </p>
-	            <p>
-	                TYPE OF MEMBERSHIP:
-	            <br />
-	                <input id="individual" type="radio" name="mtype" value="ind">INDIVIDUAL (AGE 16 YEARS AND OLDER)
-	            <br />
-	                <input id="family" type="radio" name="mtype" value="fam" checked="checked">FAMILY
-	            </p>
-	            <p id="familymember">
-	                Names of other family members:
-	            <br />
-	                Name 1: 
-	            <input type="text" size="40" name="mfname1"><br />
-	                Name 2: 
-	            <input type="text" size="40" name="mfname2"><br />
-	                Name 3: 
-	            <input type="text" size="40" name="mfname3"><br />
-	                Name 4: 
-	            <input type="text" size="40" name="mfname4"><br />
-	                Name 5: 
-	            <input type="text" size="40" name="mfname5"><br />
-	                Name 6: 
-	            <input type="text" size="40" name="mfname6"><br />
-	            </p>
-	            <p>
-	                <span lang="EN-US">AGE Category: </span>
-	                <input type="radio" name="mage" value="re" checked="checked">Regular 
-	            <input type="radio" name="mage" value="se">Senior
-	            <input type="radio" name="mage" value="st">Student
-	            </p>
-            </div>
         </div>
 
         <h4>Class Registration:</h4>
