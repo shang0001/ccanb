@@ -148,7 +148,7 @@
     	$price = $price - 10 * $count;
     }
 	
-	$subject = "Registration Request From " . $email_address;
+	$subject = "Class Registration Request From " . $email_address;
 	$content = 
 	"Class Registration Request by " . $email_address
 	 . "\n\nCCANB Membership: " . $membership
