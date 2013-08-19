@@ -23,6 +23,7 @@
 	global $membercontents, $memprice, $memberage, $memtype, $mfname1, $mfname2, $mfname3, $mfname4, $mfname5, $mfname6, $coursecount, $membercount, $mid;
 	$membercontents = $memtype = $memberage = $mfname1 = $mfname2 = $mfname3 = $mfname4 = $mfname5 = $mfname6 = '';
 	$memprice = $membercount = $coursecount = $mid = 0;
+	$curYear = date('Y');
 	$email_address = $_REQUEST['email_address'];
 
 	$mname = $_REQUEST['mname'];
@@ -130,7 +131,7 @@
 			echo "Failed to connect to MySQL: " . mysqli_connect_error();
 		}
 		
-		$existresult = mysqli_query($con,"SELECT count(*) as membercount FROM membership where email = $email_address");
+		$existresult = mysqli_query($con,"SELECT count(*) as membercount FROM membership where email = '$email_address' and memberyear = $curYear");
 		while ($row = mysqli_fetch_array($existresult))
 		{
 			$membercount = $row['membercount'];
@@ -141,25 +142,27 @@
 			header( "Location: ../index.html?path=ccanb/alreadymember.html" );
 		}
 		
-		$result = mysqli_query($con,"SELECT count(*) as coursecount FROM courseregistration where email = $email_address");
+		$result = mysqli_query($con,"SELECT count(*) as coursecount FROM courseregistration where email = '$email_address' and courseyear = $curYear");
 		while ($row = mysqli_fetch_array($result))
 		{
 			$coursecount = $row['coursecount'];
 		}
 		
-		mysqli_query($con,"INSERT INTO membership (email, mname, address, postalcode, hphone, ophone, cphone, membertype, fname1, fname2, fname3, fname4, fname5, fname6, memberage, memberprice)
-		VALUES ($email_address, $mname, $maddr, $mpcode, $mhphone, $mwphone, $mcphone, $memtype, $mfname1, $mfname2, $mfname3, $mfname4, $mfname5, $mfname6, $memberage, $memprice)");
+		mysqli_query($con,"INSERT INTO membership (email, mname, address, postalcode, hphone, ophone, cphone, membertype, fname1, fname2, fname3, fname4, fname5, fname6, memberyear, registrationtime, memberage, memberprice)
+		VALUES ('$email_address', '$mname', '$maddr', '$mpcode', '$mhphone', '$mwphone', '$mcphone', '$memtype', '$mfname1', '$mfname2', '$mfname3', '$mfname4', '$mfname5', '$mfname6', $curYear, now(), '$memberage', $memprice)");
+//		echo "INSERT INTO membership (email, mname, address, postalcode, hphone, ophone, cphone, membertype, fname1, fname2, fname3, fname4, fname5, fname6, memberyear, registrationtime, memberage, memberprice)
+//		VALUES ('$email_address', '$mname', '$maddr', '$mpcode', '$mhphone', '$mwphone', '$mcphone', '$memtype', '$mfname1', '$mfname2', '$mfname3', '$mfname4', '$mfname5', '$mfname6', $curYear, now(), '$memberage', $memprice)";
 		
 		if ($coursecount > 0)
 		{
-			$memberresult = mysqli_query($con,"SELECT id FROM membership where email = $email_address order by id desc limit 1");
+			$memberresult = mysqli_query($con,"SELECT id FROM membership where email = '$email_address' and memberyear = $curYear order by id desc limit 1");
 			while ($row = mysqli_fetch_array($memberresult))
 			{
 				$mid = $row['id'];
 			}
 			if ($mid != 0)
 			{
-				mysqli_query($con,"UPDATE courseregistration SET mid = $mid WHERE email = $email_address");
+				mysqli_query($con,"UPDATE courseregistration SET mid = $mid WHERE email = '$email_address' and courseyear = $curYear");
 			}
 		}
 		
