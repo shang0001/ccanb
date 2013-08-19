@@ -1,8 +1,52 @@
 <script type="text/javascript">
     $(function(){
+	  /*
    	  $.datepicker.setDefaults(
    	    $.extend($.datepicker.regional[""])
    	  );
+   	  */
+	   	var startDateTextBox = $('#starttimepicker');
+	   	var endDateTextBox = $('#endtimepicker');
+
+	   	startDateTextBox.datetimepicker({ 
+	   		timeFormat: 'HH:mm:ss',
+	   		stepHour: 1,
+	   		stepMinute: 5,
+	   		onClose: function(dateText, inst) {
+	   			if (endDateTextBox.val() != '') {
+	   				var testStartDate = startDateTextBox.datetimepicker('getDate');
+	   				var testEndDate = endDateTextBox.datetimepicker('getDate');
+	   				if (testStartDate > testEndDate)
+	   					endDateTextBox.datetimepicker('setDate', testStartDate);
+	   			}
+	   			else {
+	   				endDateTextBox.val(dateText);
+	   			}
+	   		},
+	   		onSelect: function (selectedDateTime){
+	   			endDateTextBox.datetimepicker('option', 'minDate', startDateTextBox.datetimepicker('getDate') );
+	   		}
+	   	});
+	   	endDateTextBox.datetimepicker({ 
+	   		timeFormat: 'HH:mm:ss',
+	   		stepHour: 1,
+	   		stepMinute: 5,
+	   		onClose: function(dateText, inst) {
+	   			if (startDateTextBox.val() != '') {
+	   				var testStartDate = startDateTextBox.datetimepicker('getDate');
+	   				var testEndDate = endDateTextBox.datetimepicker('getDate');
+	   				if (testStartDate > testEndDate)
+	   					startDateTextBox.datetimepicker('setDate', testEndDate);
+	   			}
+	   			else {
+	   				startDateTextBox.val(dateText);
+	   			}
+	   		},
+	   		onSelect: function (selectedDateTime){
+	   			startDateTextBox.datetimepicker('option', 'maxDate', endDateTextBox.datetimepicker('getDate') );
+	   		}
+	   	});
+	  /*
    	  $("#starttimepicker").datetimepicker({
    		timeFormat: 'HH:mm:ss',
    		stepHour: 1,
@@ -13,26 +57,43 @@
      		timeFormat: 'HH:mm:ss',
      		stepHour: 1,
      		stepMinute: 5,
-     		stepSecond: 30 
+     		stepSecond: 30
      });
+	   	*/
     });
+    
+	function checkform() {
+		
+	    var form = document.getElementById("addEventForm");
+	
+	    var ename = form.ename;
+	    
+	    if (!ename.value) {
+	        // something is wrong
+	        alert('Please enter event name.');
+	        ename.focus();
+	        return false;
+	    }
+	    
+	    return true;
+	}
 </script>
 
 <div class="post">
-    <form id="addEventForm" action="events/add_events.php" method="post">
-     <h2 class="title">Add Events</h2>
+    <form id="addEventForm" action="events/add_events.php" method="post" onsubmit="return checkform()">
+    	<h2 class="title">Add Events</h2>
         <div class="entry">
             <div id="addevents">
 	            <p>
-	                Event Name: <input type="text" size="60" name="ename">
+	                <label>Event Name:</label> <input type="text" size="60" name="ename">
 	                <br />
-	                Start Time: <input id="starttimepicker" type="text" name="stime">
+	                <label>Start Time:</label> <input id="starttimepicker" type="text" name="stime">
 	                <br />
-	                End Time: <input id="endtimepicker" type="text" name="etime">
+	                <label>End Time:</label> <input id="endtimepicker" type="text" name="etime">
 	                <br />
-	                All Day Events: <input type="checkbox" id="allday" name="alldayevents" value="all_day">
+	                <label>All Day Events:</label> <input type="checkbox" id="allday" name="alldayevents" value="all_day">
 	                <br />
-					Event Url: <input type="text" size="60" maxlength="200" name="eurl">
+					<label>Event Url:</label> <input type="text" size="60" maxlength="200" name="eurl">
 	                <!-- <br />
 	                E-mail Address:<input type="text" size="40" maxlength="150" name="memail"> -->
 	            </p>
@@ -43,5 +104,5 @@
 		        </p>
             </div>
         </div>
-       </form>
+     </form>
 </div>
