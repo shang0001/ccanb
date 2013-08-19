@@ -33,6 +33,7 @@
 	global $price, $price1, $price2, $price3, $price4, $course1, $course2, $course3, $course4, $count, $registration, $mid;
 	$course1 = $course2 = $course3 = $course4 = '';
 	$price = $price1 = $price2 = $price3 = $price4 = $registration = $count = $mid = 0;
+	$curYear = date('Y');
 	$courseprice = array('Language' => 110, 'Child/Youth Dance' => 60, 'Adult Dance' => 110, 'Math' => 60);
 	$email_address = $_REQUEST['email_address'];
 	$member = $_POST['member'];
@@ -47,7 +48,7 @@
 
 	$sname1 = $_REQUEST['sname1'];
 	$sbirth1 = $_REQUEST['sbirth1'];
-	$smum1 = $_REQUEST['smum1'];
+	$smum1 = $_REQUEST['smnum1'];
 	$saddr1 = $_REQUEST['saddr1'];
 	$spcode1 = $_REQUEST['spcode1'];
 	$shphone1 = $_REQUEST['shphone1'];
@@ -56,7 +57,7 @@
 	$sgname1 = $_REQUEST['sgname1'];
 	$sname2 = $_REQUEST['sname2'];
 	$sbirth2 = $_REQUEST['sbirth2'];
-	$smum2 = $_REQUEST['smum2'];
+	$smum2 = $_REQUEST['smnum2'];
 	$saddr2 = $_REQUEST['saddr2'];
 	$spcode2 = $_REQUEST['spcode2'];
 	$shphone2 = $_REQUEST['shphone2'];
@@ -65,7 +66,7 @@
 	$sgname2 = $_REQUEST['sgname2'];
 	$sname3 = $_REQUEST['sname3'];
 	$sbirth3 = $_REQUEST['sbirth3'];
-	$smum3 = $_REQUEST['smum3'];
+	$smum3 = $_REQUEST['smnum3'];
 	$saddr3 = $_REQUEST['saddr3'];
 	$spcode3 = $_REQUEST['spcode3'];
 	$shphone3 = $_REQUEST['shphone3'];
@@ -74,7 +75,7 @@
 	$sgname3 = $_REQUEST['sgname3'];
 	$sname4 = $_REQUEST['sname4'];
 	$sbirth4 = $_REQUEST['sbirth4'];
-	$smum4 = $_REQUEST['smum4'];
+	$smum4 = $_REQUEST['smnum4'];
 	$saddr4 = $_REQUEST['saddr4'];
 	$spcode4 = $_REQUEST['spcode4'];
 	$shphone4 = $_REQUEST['shphone4'];
@@ -228,7 +229,7 @@
 		else if ( $member == 'memyes' )
 		{
 			$registration = 1;
-			$result = mysqli_query($con,"SELECT id FROM membership where email = $email_address order by id desc limit 1");
+			$result = mysqli_query($con,"SELECT id FROM membership where email = '$email_address' order by id desc limit 1");
 			while ($row = mysqli_fetch_array($result))
 			{
 				$mid = $row['id'];
@@ -236,29 +237,31 @@
 
 		}
 		
-		mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
-				VALUES ($email_address, $sname1, $sbirth1, $smum1, $saddr1, $spcode1, $shphone1, $sophone1, $sephone1, $sgname1, $course1, $price1, $registration, $mid)");
+		mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, courseyear, registrationtime, course, courseprice, membership, mid)
+				VALUES ('$email_address', '$sname1', '$sbirth1', '$smum1', '$saddr1', '$spcode1', '$shphone1', '$sophone1', '$sephone1', '$sgname1', $curYear, now(), '$course1', $price1, $registration, $mid)");
 		
-		if (isset($sname2))
+		if (isset($sname2) && !empty($sname2) && $sname2 != NULL)
 		{
-			mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
-					VALUES ($email_address, $sname2, $sbirth2, $smum2, $saddr2, $spcode2, $shphone2, $sophone2, $sephone2, $sgname2, $course2, $price2, $registration, $mid)");
+			mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, courseyear, registrationtime, course, courseprice, membership, mid)
+					VALUES ('$email_address', '$sname2', '$sbirth2', '$smum2', '$saddr2', '$spcode2', '$shphone2', '$sophone2', '$sephone2', '$sgname2', $curYear, now(), '$course2', $price2, $registration, $mid)");
 		}
 		
-		if (isset($sname3))
+		if (isset($sname3) && !empty($sname3) && $sname3 != NULL)
 		{
-			mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
-					VALUES ($email_address, $sname3, $sbirth3, $smum3, $saddr3, $spcode3, $shphone3, $sophone3, $sephone3, $sgname3, $course3, $price3, $registration, $mid)");
+			mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, courseyear, registrationtime, course, courseprice, membership, mid)
+					VALUES ('$email_address', '$sname3', '$sbirth3', '$smum3', '$saddr3', '$spcode3', '$shphone3', '$sophone3', '$sephone3', '$sgname3', $curYear, now(), '$course3', $price3, $registration, $mid)");
 		}
 		
-		if (isset($sname4))
+		if (isset($sname4) && !empty($sname4) && $sname4 != NULL)
 		{
-			mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
-					VALUES ($email_address, $sname4, $sbirth4, $smum4, $saddr4, $spcode4, $shphone4, $sophone4, $sephone4, $sgname4, $course4, $price4, $registration, $mid)");;
+			mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, courseyear, registrationtime, course, courseprice, membership, mid)
+					VALUES ('$email_address', '$sname4', '$sbirth4', '$smum4', '$saddr4', '$spcode4', '$shphone4', '$sophone4', '$sephone4', '$sgname4', $curYear, now(), '$course4', $price4, $registration, $mid)");
 		}
-		
+//		echo "Finish Database Processing";
 		mysqli_close($con);
-		
+//		echo "INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, course, courseprice, membership, mid)
+//				VALUES ('$email_address', '$sname1', '$sbirth1', '$smum1', '$saddr1', '$spcode1', '$shphone1', '$sophone1', '$sephone1', '$sgname1', '$course1', $price1, $registration, $mid)";
+//		exit;
 		mail( "chineseschool@ccanb.ca", $subject, $content, "From: $email_address" );
 		mail( $email_address, $subject, $content, "From: admin@ccanb.ca" );
 		if ( $member == 'registermem' ){
