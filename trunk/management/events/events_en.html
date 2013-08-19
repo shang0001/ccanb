@@ -1,6 +1,47 @@
+<script type="text/javascript">
+    $(function(){
+   	  $.datepicker.setDefaults(
+   	    $.extend($.datepicker.regional[""])
+   	  );
+   	  $("#starttimepicker").datetimepicker({
+   		timeFormat: 'HH:mm:ss',
+   		stepHour: 1,
+   		stepMinute: 5,
+   		stepSecond: 30 
+   	  });
+   	  $("#endtimepicker").datetimepicker({
+     		timeFormat: 'HH:mm:ss',
+     		stepHour: 1,
+     		stepMinute: 5,
+     		stepSecond: 30 
+     });
+    });
+</script>
+
 <div class="post">
+    <form id="addEventForm" action="events/add_events.php" method="post">
      <h2 class="title">Add Events</h2>
-     <p class="entry">
-         <strong style="font-size:16px">The Add Events Page is under construction right now</strong>
-    </p>
+        <div class="entry">
+            <div id="addevents">
+	            <p>
+	                Event Name: <input type="text" size="60" name="ename">
+	                <br />
+	                Start Time: <input id="starttimepicker" type="text" name="stime">
+	                <br />
+	                End Time: <input id="endtimepicker" type="text" name="etime">
+	                <br />
+	                All Day Events: <input type="checkbox" id="allday" name="alldayevents" value="all_day">
+	                <br />
+					Event Url: <input type="text" size="60" maxlength="200" name="eurl">
+	                <!-- <br />
+	                E-mail Address:<input type="text" size="40" maxlength="150" name="memail"> -->
+	            </p>
+                <p>
+		            <br />
+		            <input type="submit" value="Add" />
+		            <input type="reset" value="Clear" />
+		        </p>
+            </div>
+        </div>
+       </form>
 </div>
