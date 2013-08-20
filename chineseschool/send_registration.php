@@ -229,12 +229,15 @@
 		else if ( $member == 'memyes' )
 		{
 			$registration = 1;
-			$result = mysqli_query($con,"SELECT id FROM membership where email = '$email_address' order by id desc limit 1");
+			$result = mysqli_query($con,"SELECT id FROM membership where email = '$email_address' and memberyear = $curYear order by id desc limit 1");
 			while ($row = mysqli_fetch_array($result))
 			{
 				$mid = $row['id'];
 			}
-
+			if (!isset($mid) || empty($mid) || $mid == NULL)
+			{
+				header( "Location: ../index.html?path=chineseschool/require_membership.html" );
+			}
 		}
 		
 		mysqli_query($con,"INSERT INTO courseregistration (email, sname, birthday, medicare, address, postalcode, hphone, ophone, cphone, pname, courseyear, registrationtime, course, courseprice, membership, mid)
