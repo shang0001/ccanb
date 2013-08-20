@@ -34,7 +34,7 @@
 	$course1 = $course2 = $course3 = $course4 = '';
 	$price = $price1 = $price2 = $price3 = $price4 = $registration = $count = $mid = 0;
 	$curYear = date('Y');
-	$courseprice = array('Language' => 110, 'Child/Youth Dance' => 60, 'Adult Dance' => 110, 'Math' => 60);
+	$courseprice = array('Language' => 110, 'Children Dance' => 60, 'Adult Dance' => 110, 'Math' => 60, 'Arts' => 60);
 	$email_address = $_REQUEST['email_address'];
 	$member = $_POST['member'];
 	if ( $member == 'registermem' || $member == 'memyes' )
@@ -90,7 +90,7 @@
         	$count = $count + 1;
         }
         
-        if ((in_array("Language", $courses1) && in_array("Child/Youth Dance", $courses1)) || (in_array("Language", $courses1) && in_array("Adult Dance", $courses1)) ) {
+        if ((in_array("Language", $courses1) && in_array("Children Dance", $courses1)) || (in_array("Language", $courses1) && in_array("Adult Dance", $courses1)) ) {
         	$price1 = $price1 - 10;
         }
 		$course1 = implode(", ", $courses1);
@@ -104,7 +104,7 @@
         	$count = $count + 1;
         }
         
-        if ((in_array("Language", $courses2) && in_array("Child/Youth Dance", $courses2)) || (in_array("Language", $courses2) && in_array("Adult Dance", $courses2)) ) {
+        if ((in_array("Language", $courses2) && in_array("Children Dance", $courses2)) || (in_array("Language", $courses2) && in_array("Adult Dance", $courses2)) ) {
         	$price2 = $price2 - 10;
         }
         $price2 = $price2 * 0.9;
@@ -119,7 +119,7 @@
 			$count = $count + 1;
 		}
 		
-		if ((in_array("Language", $courses3) && in_array("Child/Youth Dance", $courses3)) || (in_array("Language", $courses3) && in_array("Adult Dance", $courses3)) ) {
+		if ((in_array("Language", $courses3) && in_array("Children Dance", $courses3)) || (in_array("Language", $courses3) && in_array("Adult Dance", $courses3)) ) {
 			$price3 = $price3 - 10;
 		}
 		$price3 = $price3 * 0.9;
@@ -134,7 +134,7 @@
 			$count = $count + 1;
 		}
 		
-		if ((in_array("Language", $courses4) && in_array("Child/Youth Dance", $courses4)) || (in_array("Language", $courses4) && in_array("Adult Dance", $courses4)) ) {
+		if ((in_array("Language", $courses4) && in_array("Children Dance", $courses4)) || (in_array("Language", $courses4) && in_array("Adult Dance", $courses4)) ) {
 			$price4 = $price4 - 10;
 		}
 		$price4 = $price4 * 0.9;
@@ -143,10 +143,10 @@
 
     $price = $price1 + $price2 + $price3 + $price4;
     
-    // $10 off if they are a member for registration
-    if ( $membership == 'yes')
+    // Add $10 up if they are a member for registration
+    if ( $membership == 'No')
     {
-    	$price = $price - 10 * $count;
+    	$price = $price + 10 * $count;
     }
 	
 	$subject = "Class Registration Request From " . $email_address;
