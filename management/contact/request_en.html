@@ -1,6 +1,39 @@
 <div class="post">
      <h2 class="title">Function Request</h2>
      <p class="entry">
-         <strong style="font-size:16px">The Function Request Page is under construction right now</strong>
+        <h4 style="margin-left:16px;">Send your Feature Request!<h4>
+		<form action="contact/send_mail.php" method="post">
+			<table style="border: medium none; border-collapse: separate; border-spacing: 15px;">
+			<tr>
+			<td>Email Address:</td>
+			<td>
+			<input type="text" name="email_address" value="" maxlength="150" />
+			</td>
+			</tr>
+			<tr>
+			<td>Name:</td>
+			<td>
+			<input type="text" name="name" value="" maxlength="150" />
+			</td>
+			</tr>
+			<tr>
+			<td>Subject:</td>
+			<td>
+			<input type="text" name="subject" value="" maxlength="150" />
+			</td>
+			</tr>
+			<tr>
+			<td>Requests:</td>
+			<td>
+				<textarea rows="10" cols="50" name="requests"></textarea>
+			</td>
+			</tr>
+			<tr><td>&nbsp;</td>
+			<td>
+			<input type="submit" value="Submit" />
+			</td>
+			</tr>
+			</table>
+		</form>
     </p>
 </div>
