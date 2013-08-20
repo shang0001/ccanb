@@ -446,6 +446,21 @@ html>body #header-wrapper {
     color: #CC3300;
 }
 
+.myfields {
+	border: none;
+	line-height: 200%;
+}
+
+.myfields label, .myfields input {
+  display:inline-block;
+}
+
+/*
+.myfields label {
+  width:200px;
+}
+*/
+
 .links {
 	display: block;
 	width: 130px;

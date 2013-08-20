@@ -30,7 +30,7 @@
 	
 	if (($handle = fopen($filename, "a")) != FALSE)
 	{
-		fwrite($handle, "\n");
+		fwrite($handle, PHP_EOL);
 		foreach ($content as $eline)
 		{
 			fputcsv($handle, split(',',$eline));
