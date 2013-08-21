@@ -1,62 +1,12 @@
 ﻿<script type="text/javascript">
-/*
-	(function() {
-        var list, index, element;
-
-        var adultprice = 110;
-        var childprice = 60;
-        var adultprices = adultprice + 10;
-        var childprices = childprice + 10;
-        adultlist = document.getElementsByClassName('adult');
-        childlist = document.getElementsByClassName('children')
-
-        if(document.getElementById('registermem').checked || document.getElementById('memyes').checked ) {
-            for (index = 0; index < adultlist.length; ++index) {
-                element = adultlist[index];
-                element.innerHTML = '' + adultprice;
-            }
-            for (index = 0; index < childlist.length; ++index) {
-                element = childlist[index];
-                element.innerHTML = '' + childprice;
-            }
-        }
-        else if (document.getElementById('memno').checked) {
-        	console.log('test');
-            for (index = 0; index < adultlist.length; ++index) {
-                element = adultlist[index];
-                element.innerHTML = '' + adultprices;
-            }
-            for (index = 0; index < childlist.length; ++index) {
-                element = childlist[index];
-                element.innerHTML = '' + childprices;
-            }
-        }
-	})();
-*/
     $(function(){
    	  $.datepicker.setDefaults(
    	    $.extend($.datepicker.regional[""])
    	  );
-   	  $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+   	  $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd', maxDate: '0' });
    	  
     });
 	
-	/*
-	function onClick_AdultCourse(sender, id) {
-	    var discountRadioButton = document.getElementById(id);
-	    if (discountRadioButton) {
-	
-	        if (sender.checked) {
-	            discountRadioButton.value = "no";
-	            discountRadioButton.parentNode.className = "hidden";
-	        }
-	        else {
-	            discountRadioButton.value = "yes";
-	            discountRadioButton.parentNode.className = "";
-	        }
-	    }
-	}
-	*/
 	function moreStudentOnClick(sender) {
 	    var divS2 = document.getElementById("student2");
 	    var divS3 = document.getElementById("student3");
@@ -73,40 +23,11 @@
 	        sender.disabled = "disbled"
 	    }
 	}
-	//function memberSelection(value) {
-	//    var divCourse = document.getElementById("courseSection");
-	//    var divVol = document.getElementById("volunteerSection");
-	//    if (divCourse) {
-	//        if (value) divCourse.className = "";
-	//        else divCourse.className = "hidden";
-	//    }
-	//    if (divVol) {
-	//        if (value) divVol.className = "";
-	//        else divVol.className = "hidden";
-	//    }
-	//}
 	
 	function validateEmail(email) { 
 	    var re = /\S+@\S+\.\S+/;
 	    return re.test(email);
 	}
-/*
-	function isValidDate(date)
-	{
-		var IsoDateRe = new RegExp("^([0-9]{4})\/([0-9]{2})\/([0-9]{2})$");
-		var matches = IsoDateRe.exec(date);
-		if (!matches)
-		{
-			return false;
-		}
-		
-    	var composedDate = new Date(matches[1], (matches[2]-1), matches[3]);
-
-	    return ((composedDate.getMonth() == (matches[2]-1)) && 
-	          (composedDate.getDate() == matches[3]) &&
-	          (composedDate.getFullYear() == matches[1]));
-	}
-*/
 
 	function checkform() {
 	
@@ -143,7 +64,7 @@
     <form id="registrationForm" action="chineseschool/send_registration.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return checkform()">
         <h2 class="title">CCANB Chinese School Registration</h2>
        
-       <br />
+       <p><br /></p>
        <h4>COUSE PRICE: </h4>
        <div class="entry">
             <p>
@@ -178,7 +99,7 @@
 
         <div class="entry" id="student1">
             <p>
-                <span lang="EN-US">Student Name:
+                	Student Name:
                 <input type="text" size="40" name="sname1"><br />
                     Date of Birth:
                 <input id="datepicker" type="text" name="sbirth1"><br />
@@ -195,25 +116,28 @@
                     (For Emergencies)
                 <input type="text" name="sephone1"><br />
                     Guardians Names (if the student is not an adult):
-                <input type="text" size="40" name="sgname1"></span>
+                <input type="text" size="40" name="sgname1">
             </p>
             <p>
                 COURSE SELECTIONS
             <br />
                 Language:
-            <input type="checkbox" id="lang1"  name="courses1[]" value="Language">full year ($<span class="adult">110</span>)
+            <input type="checkbox" id="lang1"  name="courses1[]" value="Language">full year ($110)
             <br />
                 Children Dance:
-            <input type="checkbox" id="childDance1"  name="courses1[]" value="Child/Youth Dance">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="childDance1"  name="courses1[]" value="Child/Youth Dance">full year ($60)
             <br />
                 Adult Dance:
-            <input type="checkbox" id="adultDance1"  name="courses1[]" value="Adult Dance">full year ($<span class="adult">110</span>)
+            <input type="checkbox" id="adultDance1"  name="courses1[]" value="Adult Dance">full year ($110)
             <br />
                 Math:
-            <input type="checkbox" id="math1"  name="courses1[]" value="Math">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="math1"  name="courses1[]" value="Math">full year ($60)
             <br />
                 Arts:
-            <input type="checkbox" id="art1"  name="courses1[]" value="Art">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="art1"  name="courses1[]" value="Art">full year ($60)
+            <br />
+               English:
+            <input type="checkbox" id="english1"  name="courses1[]" value="English">full year ($60)
             <br />
                 *$10 off for taking a recreation course as well as a language course<br />
                 <input type="radio" checked name="discount1" value="no">This is my first student/child registration 
@@ -223,7 +147,7 @@
 
         <div class="entry hidden" id="student2">
             <p>
-                <span lang="EN-US">Student Name:
+                	Student Name:
                 <input type="text" size="40" name="sname2"><br />
                     Date of Birth:
                 <input id="datepicker" type="text" name="sbirth2"><br />
@@ -238,25 +162,28 @@
                 <input type="text" name="sophone2">(For Emergencies)
                 <input type="text" name="sephone2"><br />
                     Guardians Names (if the student is not an adult):
-                <input type="text" size="40" name="sgname2"></span>
+                <input type="text" size="40" name="sgname2">
             </p>
             <p>
                 COURSE SELECTIONS
             <br />
                 Language:
-            <input type="checkbox" id="lang2"  name="courses2[]" value="Language">full year ($<span class="adult">110</span>)
+            <input type="checkbox" id="lang2"  name="courses2[]" value="Language">full year ($110)
             <br />
                 Children Dance:
-            <input type="checkbox" id="childDance2"  name="courses2[]" value="Child/Youth Dance">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="childDance2"  name="courses2[]" value="Child/Youth Dance">full year ($60)
             <br />
                 Adult Dance:
-            <input type="checkbox" id="adultDance2"  name="courses2[]" value="Adult Dance">full year ($<span class="adult">110</span>)
+            <input type="checkbox" id="adultDance2"  name="courses2[]" value="Adult Dance">full year ($110)
             <br />
                 Math:
-            <input type="checkbox" id="math2"  name="courses2[]" value="Math">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="math2"  name="courses2[]" value="Math">full year ($60)
             <br />
                 Arts:
-            <input type="checkbox" id="art2"  name="courses2[]" value="Art">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="art2"  name="courses2[]" value="Art">full year ($60)
+            <br />
+                English:
+            <input type="checkbox" id="english2"  name="courses2[]" value="English">full year ($60)
             <br />
                 *$10 off for taking a recreation course as well as a language course<br />
                 <input type="radio" checked name="discount2" value="yes" id="discount2_yes" />This is my additional student/child registration (10% off)
@@ -287,19 +214,22 @@
                 COURSE SELECTIONS
             <br />
                 Language:
-            <input type="checkbox" id="lang3" name="courses3[]" value="Language">full year ($<span class="adult">110</span>)
+            <input type="checkbox" id="lang3" name="courses3[]" value="Language">full year ($110)
             <br />
                 Children Dance:
-            <input type="checkbox" id="childDance3" name="courses3[]" value="Child/Youth Dance">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="childDance3" name="courses3[]" value="Child/Youth Dance">full year ($60)
             <br />
                 Adult Dance:
-            <input type="checkbox" id="adultDance3"  name="courses3[]" value="Adult Dance">full year ($<span class="adult">110</span>)
+            <input type="checkbox" id="adultDance3"  name="courses3[]" value="Adult Dance">full year ($110)
             <br />
                 Math:
-            <input type="checkbox" id="math3"  name="courses3[]" value="Math">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="math3"  name="courses3[]" value="Math">full year ($60)
             <br />
                 Arts:
-            <input type="checkbox" id="art3"  name="courses3[]" value="Art">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="art3"  name="courses3[]" value="Art">full year ($60)
+            <br />
+                English:
+            <input type="checkbox" id="english3"  name="courses3[]" value="English">full year ($60)
             <br />
                 *$10 off for taking a recreation course as well as a language course<br />
                 <input type="radio" checked name="discount3" value="yes" id="discount3_yes">This is my additional student/child registration (10% off)
@@ -330,26 +260,29 @@
                 COURSE SELECTIONS
             <br />
                 Language:
-            <input type="checkbox" id="lang4" name="courses4[]" value="Language">full year ($<span class="adult">$110</span>)
+            <input type="checkbox" id="lang4" name="courses4[]" value="Language">full year ($110)
             <br />
                 Children Dance:
-            <input type="checkbox" id="childDance4" name="courses4[]" value="Child/Youth Dance">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="childDance4" name="courses4[]" value="Child/Youth Dance">full year ($60)
             <br />
                 Adult Dance:
-            <input type="checkbox" id="adultDance4" name="courses4[]" value="Adult Dance">full year ($<span class="adult">110</span>)
+            <input type="checkbox" id="adultDance4" name="courses4[]" value="Adult Dance">full year ($110)
             <br />
                 Math:
-            <input type="checkbox" id="math4" name="courses4[]" value="Math">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="math4" name="courses4[]" value="Math">full year ($60)
             <br />
                 Arts:
-            <input type="checkbox" id="art4"  name="courses4[]" value="Art">full year ($<span class="children">60</span>)
+            <input type="checkbox" id="art4"  name="courses4[]" value="Art">full year ($60)
+            <br />
+                English:
+            <input type="checkbox" id="english4"  name="courses4[]" value="English">full year ($60)
             <br />
                 *$10 off for taking a recreation course as well as a language course<br />
                 <input type="radio" checked name="discount4" value="yes" id="discount4_yes">This is my additional student/child registration (10% off)
             </p>
         </div>
 
-        <input id="Button1" type="button" value="More Student? Maximum 4" onclick="moreStudentOnClick(this)" />
+        <input id="morestudent" type="button" value="More Student? Maximum 4" onclick="moreStudentOnClick(this)" />
 
         <p>
             Special programs: schedule and fee will be announced timely.

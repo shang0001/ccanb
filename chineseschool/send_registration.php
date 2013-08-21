@@ -30,11 +30,11 @@
 	}
 */
 	// Load form field data into variables.
-	global $price, $price1, $price2, $price3, $price4, $course1, $course2, $course3, $course4, $count, $registration, $mid;
+	global $price, $price1, $price2, $price3, $price4, $count1, $count2, $count3, $count4, $course1, $course2, $course3, $course4, $count, $registration, $mid;
 	$course1 = $course2 = $course3 = $course4 = '';
-	$price = $price1 = $price2 = $price3 = $price4 = $registration = $count = $mid = 0;
+	$price = $price1 = $price2 = $price3 = $price4 = $count1 = $count2 = $count3 = $count4 = $registration = $count = $mid = 0;
 	$curYear = date('Y');
-	$courseprice = array('Language' => 110, 'Children Dance' => 60, 'Adult Dance' => 110, 'Math' => 60, 'Arts' => 60);
+	$courseprice = array('Language' => 110, 'Children Dance' => 60, 'Adult Dance' => 110, 'Math' => 60, 'Arts' => 60, 'English' => 60);
 	$email_address = $_REQUEST['email_address'];
 	$member = $_POST['member'];
 	if ( $member == 'registermem' || $member == 'memyes' )
@@ -87,10 +87,10 @@
         foreach ($courses1 as $value)
         {
         	$price1 = $price1 + $courseprice[$value];
-        	$count = $count + 1;
+        	$count1 = $count1 + 1;
         }
         
-        if ((in_array("Language", $courses1) && in_array("Children Dance", $courses1)) || (in_array("Language", $courses1) && in_array("Adult Dance", $courses1)) ) {
+        if (((in_array("Language", $courses1) && !(in_array("English", $courses1)) && $count1 > 1)) || ((in_array("English", $courses1) && !(in_array("Language", $courses1)) && $count1 > 1)) || ((in_array("English", $courses1) && (in_array("Language", $courses1)) && $count1 > 2)) ) {
         	$price1 = $price1 - 10;
         }
 		$course1 = implode(", ", $courses1);
@@ -101,10 +101,10 @@
         foreach ($courses2 as $value)
         {
         	$price2 = $price2 + $courseprice[$value];
-        	$count = $count + 1;
+        	$count2 = $count2 + 1;
         }
         
-        if ((in_array("Language", $courses2) && in_array("Children Dance", $courses2)) || (in_array("Language", $courses2) && in_array("Adult Dance", $courses2)) ) {
+        if (((in_array("Language", $courses2) && !(in_array("English", $courses2)) && $count2 > 1)) || ((in_array("English", $courses2) && !(in_array("Language", $courses2)) && $count2 > 1)) || ((in_array("English", $courses2) && (in_array("Language", $courses2)) && $count2 > 2)) ) {
         	$price2 = $price2 - 10;
         }
         $price2 = $price2 * 0.9;
@@ -116,10 +116,10 @@
 		foreach ($courses3 as $value)
 		{
 			$price3 = $price3 + $courseprice[$value];
-			$count = $count + 1;
+			$count3 = $count3 + 1;
 		}
 		
-		if ((in_array("Language", $courses3) && in_array("Children Dance", $courses3)) || (in_array("Language", $courses3) && in_array("Adult Dance", $courses3)) ) {
+		if (((in_array("Language", $courses3) && !(in_array("English", $courses3)) && $count3 > 1)) || ((in_array("English", $courses3) && !(in_array("Language", $courses3)) && $count3 > 1)) || ((in_array("English", $courses3) && (in_array("Language", $courses3)) && $count3 > 2)) ) {
 			$price3 = $price3 - 10;
 		}
 		$price3 = $price3 * 0.9;
@@ -131,16 +131,17 @@
 		foreach ($courses4 as $value)
 		{
 			$price4 = $price4 + $courseprice[$value];
-			$count = $count + 1;
+			$count4 = $count4 + 1;
 		}
 		
-		if ((in_array("Language", $courses4) && in_array("Children Dance", $courses4)) || (in_array("Language", $courses4) && in_array("Adult Dance", $courses4)) ) {
+		if (((in_array("Language", $courses4) && !(in_array("English", $courses4)) && $count4 > 1)) || ((in_array("English", $courses4) && !(in_array("Language", $courses4)) && $count4 > 1)) || ((in_array("English", $courses4) && (in_array("Language", $courses4)) && $count4 > 2)) ) {
 			$price4 = $price4 - 10;
 		}
 		$price4 = $price4 * 0.9;
 		$course4 = implode(", ", $courses4);
     }
 
+    $count = $count1 + $count2 + $count3 + $count4;
     $price = $price1 + $price2 + $price3 + $price4;
     
     // Add $10 up if they are a member for registration
