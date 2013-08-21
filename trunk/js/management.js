@@ -32,9 +32,14 @@ function getPageContent(lang, url, id) {
 
     //alert(neutralFileName);
     //alert(extension);
+    
+    var url = neutralFileName + "_" + lang + extension;
+    if (extension == ".php") {
+        url = neutralFileName + extension + "?lang=" + lang;
+    }
 
     $.ajax({
-        url: neutralFileName + "_" + lang + extension,
+        url: url,
         cache: false
     }).done(function (html) {
         $("#"+id).html(html);
