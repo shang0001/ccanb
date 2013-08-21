@@ -1,16 +1,44 @@
 ﻿<script type="text/javascript">
-    $(document).ready(function () {
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-    });
-    
+/*
+	(function() {
+        var list, index, element;
+
+        var adultprice = 110;
+        var childprice = 60;
+        var adultprices = adultprice + 10;
+        var childprices = childprice + 10;
+        adultlist = document.getElementsByClassName('adult');
+        childlist = document.getElementsByClassName('children')
+
+        if(document.getElementById('registermem').checked || document.getElementById('memyes').checked ) {
+            for (index = 0; index < adultlist.length; ++index) {
+                element = adultlist[index];
+                element.innerHTML = '' + adultprice;
+            }
+            for (index = 0; index < childlist.length; ++index) {
+                element = childlist[index];
+                element.innerHTML = '' + childprice;
+            }
+        }
+        else if (document.getElementById('memno').checked) {
+        	console.log('test');
+            for (index = 0; index < adultlist.length; ++index) {
+                element = adultlist[index];
+                element.innerHTML = '' + adultprices;
+            }
+            for (index = 0; index < childlist.length; ++index) {
+                element = childlist[index];
+                element.innerHTML = '' + childprices;
+            }
+        }
+	})();
+*/
     $(function(){
    	  $.datepicker.setDefaults(
    	    $.extend($.datepicker.regional[""])
    	  );
    	  $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+   	  
     });
 	
 	/*
@@ -114,7 +142,8 @@
 <div class="post">
     <form id="registrationForm" action="chineseschool/send_registration.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return checkform()">
         <h2 class="title">CCANB Chinese School Registration</h2>
-        
+       
+       <br />
        <h4>COUSE PRICE: </h4>
        <div class="entry">
             <p>
@@ -136,11 +165,11 @@
 
         <div class="entry">
             <p>
-                <input type="radio" name="member" value="registermem" checked="checked">Yes, I would like to be a member of CCANB:
+                <input id="registermem" type="radio" name="member" value="registermem" checked="checked">Yes, I would like to be a member of CCANB:
                 <br />
-                <input type="radio" name="member" value="memyes">No, I am already a member of CCANB:
+                <input id="memyes" type="radio" name="member" value="memyes">No, I am already a member of CCANB:
                 <br />
-                <input type="radio" name="member" value="memno">No, I would not like to be a member of CCANB:
+                <input id="memno" type="radio" name="member" value="memno">No, I would not like to be a member of CCANB:
                 
             </p>
         </div>
