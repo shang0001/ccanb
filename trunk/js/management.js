@@ -36,12 +36,14 @@ function getPageContent(lang, url, id) {
     var url = neutralFileName + "_" + lang + extension;
     if (extension == ".php") {
         url = neutralFileName + extension + "?lang=" + lang;
+        $("#" + id).html("<img src='../images/load.gif' />");
     }
 
     $.ajax({
         url: url,
         cache: false
     }).done(function (html) {
+        //setTimeout(function () { $("#" + id).html(html); }, 3000);
         $("#"+id).html(html);
     }).fail(function (e) {
         $("#" + id).html("Under Construction");
