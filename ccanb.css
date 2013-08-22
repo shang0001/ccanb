@@ -480,6 +480,31 @@ html>body #header-wrapper {
     visibility:hidden;
 }
 
+/* Report */
+.report-table {
+    border-collapse: collapse;
+}
+
+    .report-table thead {
+        background-color: yellow;
+    }
+
+.report-table th:first-child,
+.report-table td:first-child {
+    /* Because :not and :last-child is not valid in IE8 and below, 
+        so changed to use :first-child to apply the left border for all browsers*/ 
+    border-left: solid 1px black;
+}
+
+.report-table th,
+.report-table td {
+    padding: 2px;
+    margin-left: 0px;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
+}
+
 /* Footer */
 
 #footer-wrappers
