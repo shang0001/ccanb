@@ -69,10 +69,11 @@ a:hover {
 	margin: 0 auto -40px;
 }
 
-#wrappers{
-	margin: 0 auto;
-	padding: 0;
-	background: #FFFAF0;
+#wrappers {
+    margin: 0 auto;
+    padding: 0 0 0 0;
+    background: #FFFAF0;
+    height: 100%;
 }
 
 /* Header */
@@ -355,10 +356,10 @@ html>body #header-wrapper {
 /* Page */
 
 #page {
-	margin: 0 auto;
-	height: auto;
-	padding: 0;
-	background: #FFFAF0
+    margin: 0 auto;
+    height: auto;
+    padding: 0 0 40px 0;
+    background: #FFFAF0;
 }
 
 #page-bgtop {
@@ -509,7 +510,8 @@ html>body #header-wrapper {
 
 #footer-wrappers
 {
-    position:relative;
+    position:fixed;
+    bottom: 0px;
 	width: 100%;
 	height: 40px;
     background: #A03128;
