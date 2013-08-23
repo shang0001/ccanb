@@ -1,6 +1,25 @@
 <div class="post">
      <h2 class="title">Add Announcement</h2>
      <p class="entry">
-         <strong style="font-size:16px">The Add Announcement Page is under construction right now</strong>
+		<form action="events/add_announcement.php" method="post">
+			<table style="border: medium none; border-collapse: separate; border-spacing: 15px;">
+			<td>Subject:</td>
+			<td>
+			<input type="text" name="subject" value="" maxlength="150" />
+			</td>
+			</tr>
+			<tr>
+			<td>Announcement:</td>
+			<td>
+				<textarea rows="10" cols="50" name="announcements"></textarea>
+			</td>
+			</tr>
+			<tr><td>&nbsp;</td>
+			<td>
+			<input type="submit" value="Add" />
+			</td>
+			</tr>
+			</table>
+		</form>
     </p>
 </div>
