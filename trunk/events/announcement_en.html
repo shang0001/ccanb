@@ -3,7 +3,7 @@ $(document).ready(function () {
     var jsonval = 'announcement.json'.val();
     if(jsonval == '')
     {
-    	window.navigate("announcement_empty.html");
+    	window.navigate("../index.html?path=events/announcement_empty.html");
     }
     $.getJSON('announcement.json',
     function (json) {
