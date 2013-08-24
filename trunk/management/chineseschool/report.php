@@ -48,7 +48,7 @@ while ($coursereg = mysqli_fetch_array($courseregistrations))
   }
 	$newRow->addChild('td', '$' . $coursereg['courseprice']);
 	$newRow->addChild('td', $coursereg['registrationtime']);
-	$newRow->addChild('td', ($coursereg['membership'] == 1 ? 'yes' : 'no'));
+	$newRow->addChild('td', ($coursereg['membership'] == 1 ? 'Yes' : 'No'));
 }
 
 mysqli_close($con);
