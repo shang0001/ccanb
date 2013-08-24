@@ -1,0 +1,4 @@
+@media only print
+{
+    #footer-wrappers, #header-wrapper, #menu{ display:none; }
+}

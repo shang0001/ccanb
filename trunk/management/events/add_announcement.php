@@ -18,4 +18,6 @@ array_push($tempArray, $response);
 $jsonData = json_encode($tempArray);
 file_put_contents($jsonfile, $jsonData);
 
+header( "Location: ../index.html?path=events/complete_addannouncement.html" );
+
 ?> 
