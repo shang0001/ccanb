@@ -90,7 +90,7 @@
         	$count1 = $count1 + 1;
         }
         
-        if (((in_array("Language", $courses1) && !(in_array("English", $courses1)) && $count1 > 1)) || ((in_array("English", $courses1) && !(in_array("Language", $courses1)) && $count1 > 1)) || ((in_array("English", $courses1) && (in_array("Language", $courses1)) && $count1 > 2)) ) {
+        if (((in_array("Language", $courses1) && !(in_array("English", $courses1)) && $count1 > 1)) || ((in_array("English", $courses1) && (in_array("Language", $courses1)) && $count1 > 2)) ) {
         	$price1 = $price1 - 10;
         }
 		$course1 = implode(", ", $courses1);
@@ -104,7 +104,7 @@
         	$count2 = $count2 + 1;
         }
         
-        if (((in_array("Language", $courses2) && !(in_array("English", $courses2)) && $count2 > 1)) || ((in_array("English", $courses2) && !(in_array("Language", $courses2)) && $count2 > 1)) || ((in_array("English", $courses2) && (in_array("Language", $courses2)) && $count2 > 2)) ) {
+        if (((in_array("Language", $courses2) && !(in_array("English", $courses2)) && $count2 > 1)) || ((in_array("English", $courses2) && (in_array("Language", $courses2)) && $count2 > 2)) ) {
         	$price2 = $price2 - 10;
         }
         $price2 = $price2 * 0.9;
@@ -119,7 +119,7 @@
 			$count3 = $count3 + 1;
 		}
 		
-		if (((in_array("Language", $courses3) && !(in_array("English", $courses3)) && $count3 > 1)) || ((in_array("English", $courses3) && !(in_array("Language", $courses3)) && $count3 > 1)) || ((in_array("English", $courses3) && (in_array("Language", $courses3)) && $count3 > 2)) ) {
+		if (((in_array("Language", $courses3) && !(in_array("English", $courses3)) && $count3 > 1)) || ((in_array("English", $courses3) && (in_array("Language", $courses3)) && $count3 > 2)) ) {
 			$price3 = $price3 - 10;
 		}
 		$price3 = $price3 * 0.9;
@@ -134,7 +134,7 @@
 			$count4 = $count4 + 1;
 		}
 		
-		if (((in_array("Language", $courses4) && !(in_array("English", $courses4)) && $count4 > 1)) || ((in_array("English", $courses4) && !(in_array("Language", $courses4)) && $count4 > 1)) || ((in_array("English", $courses4) && (in_array("Language", $courses4)) && $count4 > 2)) ) {
+		if (((in_array("Language", $courses4) && !(in_array("English", $courses4)) && $count4 > 1)) || ((in_array("English", $courses4) && (in_array("Language", $courses4)) && $count4 > 2)) ) {
 			$price4 = $price4 - 10;
 		}
 		$price4 = $price4 * 0.9;
