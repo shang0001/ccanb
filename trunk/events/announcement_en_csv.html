@@ -1,0 +1,54 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "announcement.csv",
+        dataType: "text",
+        success: function(data) {processData(data);}
+     });
+});
+
+function processData(allText) {
+    var allTextLines = allText.split(/\r\n|\n/);
+    var headers = allTextLines[0].split(',');
+    var lines = [];
+    var empty = "N/A";
+
+    for (var i=1; i<allTextLines.length; i++) {
+        var data = allTextLines[i].split(',');
+        var tarr = [];
+        for (var j=0; j<data.length; j++) {
+            tarr.push(data[j]);
+        }
+
+        lines.push(tarr);
+        
+        if (lines.length > 0)
+        {
+        	for (var linecnt = 0; linecnt < lines.length; linecnt++)
+        	{
+                document.getElementById('announcetitle').innerHTML += lines[linecnt][0] + "<br />";
+                document.getElementById('announcedate').innerHTML += lines[linecnt][1] + "<br />";
+                document.getElementById('announcecontent').innerHTML += lines[linecnt][2] + "<br />";
+        	}
+        }
+        
+        else
+        {
+            document.getElementById('announcetitle').innerHTML += empty + "<br />";
+            document.getElementById('announcedate').innerHTML += empty + "<br />";
+            document.getElementById('announcecontent').innerHTML += empty + "<br />";	
+        }
+    }
+    // alert(lines);
+}
+</script>
+
+<div class="post">
+     <h2 class="title">Announcement</h2>
+     <p class="entry">
+        <div id="announcetitle">Title: </div>
+        <div id="announcedate">Date: </div>
+        <div id="announcecontent">Content: </div>
+    </p>
+</div>
