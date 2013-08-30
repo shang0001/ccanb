@@ -3,20 +3,21 @@
 $dates = date('Y-m-d');
 $title = $_REQUEST['subject'];
 $content = $_REQUEST['announcement'];
-$jsonfile = '../../events/announcement.json';
+$csvfile = '../../events/announcement.csv';
 
-$response = array();
 $posts = array();
 
-$posts[] = array('subject'=> $title, 'date'=> $dates, 'content'=> $content);
+$post = array($title, $dates, $content);
 
-$response['posts'] = $posts;
+array_push($posts, $post);
 
-$inp = file_get_contents($jsonfile);
-$tempArray = json_decode($inp);
-array_push($tempArray, $response);
-$jsonData = json_encode($tempArray);
-file_put_contents($jsonfile, $jsonData);
+$fp = fopen($csvfile, 'w');
+foreach ($posts as $fields) {
+	fputcsv($fp, $fields);
+}
+
+fclose($fp);
+
 
 header( "Location: ../index.html?path=events/complete_addannouncement.html" );
 
