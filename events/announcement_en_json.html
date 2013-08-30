@@ -8,6 +8,7 @@ $(document).ready(function () {
     $.getJSON('announcement.json',
     function (json) {
         var tr;
+        console.log(json.length)
         for (var i = 0; i < json.length; i++) {
             tr = $('<tr/>');
             tr.append("<td>Subject: " + json[i].subject + "</td>");
