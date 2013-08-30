@@ -6,7 +6,7 @@
 //$_SESSION['counter'] = $counter;
 
 // $lang = $_GET["lang"];
-$filename = 'report_en.html';
+$filename = 'search.html';
 $curYear = date('Y');
 
 $years = $_REQUEST['years'];
