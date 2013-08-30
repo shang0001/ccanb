@@ -1,6 +1,34 @@
 <div class="post">
      <h2 class="title">Search Registration</h2>
      <p class="entry">
-         <strong style="font-size:16px">The Search Registration Page is under construction right now</strong>
-    </p>
+     <form action="../index.html?path=chineseschool/search.php" method="post">
+		  <label>Please select course year: </label>
+		  <select id="years" name="years">
+		    <option value="" selected="selected">Select Year...</option>
+		    <option value="2013">2013</option>
+		    <option value="2012">2012</option>
+		  </select>
+		  <br/>
+		  <label>Please select course name: </label>
+		  <select id="courses" name="courses">
+		    <option value="" selected="selected">Select Course...</option>
+		    <option value="Child/Youth Dance">Child/Youth Dance</option>
+		    <option value="Adult Dance">Adult Dance</option>
+		    <option value="Language">Language</option>
+		    <option value="Math">Math</option>
+		    <option value="Arts">Arts</option>
+		    <option value="English">English</option>
+		  </select>
+		  <br />
+		  <label>Please select membership information: </label>
+		  <select id="members" name="members">
+		    <option value="" selected="selected">Select CCANB Membership...</option>
+		    <option value="1">Yes</option>
+		    <option value="0">No</option>
+		  </select>
+		  <br />
+		  <br />
+		  <input type="submit" value="Search" />
+	  </form>
+      </p>
 </div>
