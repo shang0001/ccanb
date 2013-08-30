@@ -5,10 +5,15 @@
     <div id="report-property">
 	   	<form>
 			<input type="button" value="打印" onClick="window.print()" />
+			<input value="导出到CSV" type="button" onclick="$('#reporttable').table2CSV({header:
+				['Student Name','Email','Date of Birth','Medicare Number',
+				 'Address','Postal Code','Home Phone','Office Phone',
+				 'Emergency Phone', 'Guardians Names', 'Course Year',
+				 'Selected Courses', 'Price', 'Registration Time', 'Membership']})"></input>
 		</form>
 	</div>		
 	<p><br/></p>
-    <table class="report-table">
+    <table id="reporttable" class="report-table">
         <thead>
             <tr>
                 <th>学生姓名</th>

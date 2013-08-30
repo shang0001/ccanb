@@ -5,10 +5,12 @@
     <div id="report-property">
 	   	<form>
 			<input type="button" value="打印" onClick="window.print()" />
+			<input value="导出到CSV" type="button" onclick="$('#reporttable').table2CSV({header:
+				['Name','Address','Postal Code','Home Number','Work/Office Number','Cell Number','Email','Membership Type','Age Category']})"></input>
 		</form>
 	</div>		
 	<p><br/></p>
-    <table class="report-table">
+    <table id="reporttable" class="report-table">
         <thead>
             <tr>
                 <th>姓名</th>
