@@ -5,13 +5,13 @@
 //print "You have visited this page $counter times during this session";
 //$_SESSION['counter'] = $counter;
 
-$lang = $_GET["lang"];
-$filename = 'report_' . $lang . '.html';
+// $lang = $_GET["lang"];
+$filename = 'report_en.html';
 $curYear = date('Y');
 
-$years = $_POST['years'];
-$courses = $_POST['courses'];
-$members = $_POST['members'];
+$years = $_REQUEST['years'];
+$courses = $_REQUEST['courses'];
+$members = $_REQUEST['members'];
 
 if (file_exists($filename)) {
     $xml = simplexml_load_file($filename);
@@ -29,6 +29,7 @@ if (mysqli_connect_errno($con))
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+// echo "SELECT * FROM courseregistration where courseyear like '%$years' and course like '%$courses' and membership like '%$members'";
 
 $courseregistrations = mysqli_query($con,"SELECT * FROM courseregistration where courseyear like '%$years' 
 		and course like '%$courses' and membership like '%$members'");

@@ -1,6 +1,31 @@
 <div class="post">
-     <h2 class="title">Search Registration</h2>
+     <h2 class="title">Search Membership</h2>
      <p class="entry">
-         <strong style="font-size:16px">The Search Registration Page is under construction right now</strong>
-    </p>
+     <form id="searchForm" action="membership/search.php" method="post">
+		  <label>Please select membership year: </label>
+		  <select id="year" name="years">
+		    <option value="" selected="selected">Select Year...</option>
+		    <option value="2013">2013</option>
+		    <option value="2012">2012</option>
+		  </select>
+		  <br/>
+		  <label>Please select membership type: </label>
+		  <select id="type" name="types">
+		    <option value="" selected="selected">Select Membership Type...</option>
+		    <option value="Individual">Individual</option>
+		    <option value="Family">Family</option>
+		  </select>
+		  <br />
+		  <label>Please select membership category: </label>
+		  <select id="category" name="categories">
+		    <option value="" selected="selected">Select Membership Category...</option>
+		    <option value="Student">Student</option>
+		    <option value="Regular">Regular</option>
+		    <option value="Senior">Senior</option>
+		  </select>
+		  <br />
+		  <br />
+		  <input type="submit" value="Search" />
+	  </form>
+      </p>
 </div>
