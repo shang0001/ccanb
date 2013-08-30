@@ -1,30 +1,6 @@
-<script>
-$(document).ready(function () {
-    var jsonval = 'announcement.json'.val();
-    if(jsonval == '')
-    {
-    	window.navigate("../index.html?path=events/announcement_empty.html");
-    }
-    $.getJSON('announcement.json',
-    function (json) {
-        var tr;
-        for (var i = 0; i < json.length; i++) {
-            tr = $('<tr/>');
-            tr.append("<td>Subject: " + json[i].subject + "</td>");
-            tr.append("<td>Post Date: " + json[i].date + "</td>");
-            tr.append("<td>" + json[i].content + "</td>");
-            $('table').append(tr);
-        }
-    });
-});
-</script>
-
 <div class="post">
      <h2 class="title">Announcement</h2>
      <p class="entry">
-         <table>
-         	<tr>
-         	</tr>
-         </table>
+         <strong style="font-size:16px">The Announcement Page is under construction right now</strong>
     </p>
 </div>
