@@ -432,12 +432,25 @@ html>body #header-wrapper {
 	font-size: 13px;
 }
 
-.post table, .post tr 
+.post table, .post tr
 {
     border: medium solid #003366;
     border-collapse: separate;
     border-spacing: 15px;
 }
+
+/*
+.post .entry table .cellborder
+{
+	border-collapse: collapse !important;
+}
+
+.post .entry table .cellborder td
+{
+    border: 1px solid #003366 !important;
+	padding: 5px !important;
+}
+*/
 
 .post thead {
     color: #9933FF;

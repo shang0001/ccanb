@@ -34,7 +34,7 @@
 	$course1 = $course2 = $course3 = $course4 = '';
 	$price = $price1 = $price2 = $price3 = $price4 = $count1 = $count2 = $count3 = $count4 = $registration = $count = $mid = 0;
 	$curYear = date('Y');
-	$courseprice = array('Language' => 110, 'Children Dance' => 60, 'Adult Dance' => 110, 'Math' => 60, 'Arts' => 60, 'English' => 60);
+	$courseprice = array('Language' => 110, 'Child/Youth Dance' => 60, 'Adult Dance' => 110, 'Math' => 60, 'Art' => 60, 'Sports' => 50, 'English' => 60);
 	$email_address = $_REQUEST['email_address'];
 	$member = $_POST['member'];
 	if ( $member == 'registermem' || $member == 'memyes' )
