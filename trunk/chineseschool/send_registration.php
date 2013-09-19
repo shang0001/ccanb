@@ -94,6 +94,11 @@
         	$price1 = $price1 - 10;
         }
 		$course1 = implode(", ", $courses1);
+		
+		if ( $membership == 'No')
+		{
+			$price1 = $price1 + 10 * $count1;
+		}
     }
 
     if (isset($_POST['courses2'])){
@@ -109,6 +114,11 @@
         }
         $price2 = $price2 * 0.9;
 		$course2 = implode(", ", $courses2);
+		
+		if ( $membership == 'No')
+		{
+			$price2 = $price2 + 10 * $count2;
+		}
     }
 
     if (isset($_POST['courses3'])){
@@ -124,6 +134,11 @@
 		}
 		$price3 = $price3 * 0.9;
 		$course3 = implode(", ", $courses3);
+		
+		if ( $membership == 'No')
+		{
+			$price3 = $price3 + 10 * $count3;
+		}
     }
 
     if (isset($_POST['courses4'])){
@@ -139,16 +154,23 @@
 		}
 		$price4 = $price4 * 0.9;
 		$course4 = implode(", ", $courses4);
+		
+		if ( $membership == 'No')
+		{
+			$price4 = $price4 + 10 * $count4;
+		}
     }
 
     $count = $count1 + $count2 + $count3 + $count4;
     $price = $price1 + $price2 + $price3 + $price4;
     
     // Add $10 up if they are a member for registration
+    /*
     if ( $membership == 'No')
     {
     	$price = $price + 10 * $count;
     }
+    */
 	
 	$subject = "Class Registration Request From " . $email_address;
 	$content = 
