@@ -36,16 +36,14 @@
 	    var email = form.email_address;
 	    var sname = form.sname1;
 	    
-	    var lang = document.getElementById("lang1");
-	    var cdance = document.getElementById("childDance1");
-	    var adance = document.getElementById("adaultDance1");
-	    var math = document.getElementById("math1");
-	    var art = document.getElementById("art1");
-	    var sports = document.getElementById("sports1");
-	    var english = document.getElementById("english1");
-
+	    var checkbox = document.getElementsByName('courses1[]');
+	    var ln = 0;
+	    for(var i = 0; i < checkbox.length; i++) {
+	        if(checkbox[i].checked)
+	            ln++
+	    }
+	    // alert(ln)
 	    
-
 		if (!email.value)
 		{
 	        alert('Please enter your email.');
@@ -59,18 +57,19 @@
 	        sname.focus();
 	        return false;
 	    }
-	    
-	    if ((lang.checked == false) || (cdance.checked == false) || (adance.checked == false) || (math.checked == false)) || (art.checked == false) || (sports.checked == false) || (english.checked == false)) 
-	    {
-		     alert ("Please select at least one course");
-		     return false;
-	    }
 
 		if (!validateEmail(email.value))
 		{
 	        alert('Your email address is not valid. Please enter a valid email address.');
 	        email.focus();
 	        return false;
+		}
+		
+		if (ln == 0)
+		{
+			alert('You need to select at least one course.');
+			sname.focus();
+			return false;
 		}
 	
 	    return true;
