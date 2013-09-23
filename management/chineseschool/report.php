@@ -26,7 +26,7 @@ if (mysqli_connect_errno($con))
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$courseregistrations = mysqli_query($con,"SELECT * FROM courseregistration where courseyear = $curYear");
+$courseregistrations = mysqli_query($con,"SELECT * FROM courseregistration where courseyear = $curYear order by registrationtime");
 while ($coursereg = mysqli_fetch_array($courseregistrations))
 {
 	$newRow = $xml->table->addChild('tr');
