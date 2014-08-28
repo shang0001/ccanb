@@ -49,7 +49,7 @@
 		else if ($mage == 'st')
 		{
 			$memberage = "Student";
-			$memprice = 5;
+			$memprice = 10;
 		}
 		
 		$memtype = "Individual";
